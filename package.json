@@ -1,0 +1,32 @@
+{
+  "name": "ravensfield-2026",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "scripts": {
+    "check": "tamagui check --debug",
+    "generate": "tamagui generate --debug",
+    "css": "tamagui generate-css ./src/styles/tamagui.generated.css",
+    "themes": "tamagui generate-themes ./src/themes/input.ts ./src/themes/generated.ts",
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "build:web": "expo export --platform web",
+    "build:web:optimized": "tamagui build --target web ./src/app -- expo export --platform web"
+  },
+  "dependencies": {
+    "@tamagui/babel-plugin": "2.0.0-rc.0",
+    "@tamagui/config": "2.0.0-rc.0",
+    "@tamagui/metro-plugin": "2.0.0-rc.0",
+    "expo": "~54.0.33",
+    "expo-status-bar": "~3.0.9",
+    "react": "19.1.0",
+    "react-native": "0.81.5",
+    "tamagui": "2.0.0-rc.0"
+  },
+  "devDependencies": {
+    "@types/react": "~19.1.0",
+    "typescript": "~5.9.2"
+  },
+  "private": true
+}
