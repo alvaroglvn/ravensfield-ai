@@ -15,8 +15,11 @@
     "build:web:optimized": "tamagui build --target web ./src/app -- expo export --platform web"
   },
   "dependencies": {
+    "@react-native-menu/menu": "^2.0.0",
     "@tamagui/babel-plugin": "2.0.0-rc.0",
     "@tamagui/config": "2.0.0-rc.0",
+    "@tamagui/lucide-icons": "2.0.0-rc.0",
+    "@tamagui/menu": "2.0.0-rc.0",
     "@tamagui/metro-plugin": "2.0.0-rc.0",
     "expo": "~54.0.33",
     "expo-router": "^6.0.23",
@@ -24,12 +27,23 @@
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-native": "0.81.5",
-    "tamagui": "2.0.0-rc.0"
+    "react-native-ios-context-menu": "^3.2.1",
+    "react-native-ios-utilities": "^5.2.0",
+    "tamagui": "2.0.0-rc.0",
+    "zeego": "^3.0.6"
   },
   "devDependencies": {
     "@tamagui/cli": "2.0.0-rc.0",
     "@types/react": "~19.1.0",
     "typescript": "~5.9.2"
   },
-  "private": true
+  "private": true,
+  "pnpm": {
+    "overrides": {
+      "@isaacs/brace-expansion": "^5.0.1",
+      "@react-native-menu/menu": "1.2.2",
+      "react-native-ios-context-menu": "3.1.0",
+      "react-native-ios-utilities": "5.1.2"
+    }
+  }
 }
