@@ -5,6 +5,8 @@ import { createTamagui, isWeb } from "tamagui";
 
 export const tamaguiConfig = createTamagui({
   ...defaultConfig,
+  disableSSR: false,
+  fastSchemeChange: true,
   animations: isWeb ? animationsCSS : animationsReanimated,
 });
 
