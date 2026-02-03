@@ -27,6 +27,7 @@
     "tamagui": "2.0.0-rc.0"
   },
   "devDependencies": {
+    "@tamagui/cli": "2.0.0-rc.0",
     "@types/react": "~19.1.0",
     "typescript": "~5.9.2"
   },
