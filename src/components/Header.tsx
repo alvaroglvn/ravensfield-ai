@@ -17,7 +17,7 @@ export default function Header({
       <XStack
         elevation={"$1"}
         style={{
-          padding: 16,
+          padding: 25,
           justifyContent: "space-between",
           alignItems: "center",
           alignContent: "center",
