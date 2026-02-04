@@ -1696,7 +1696,9 @@ const n122 = t([[24, 680],[25, 681],[26, 680],[27, 679],[28, 675],[29, 676],[30,
 
 type ThemeNames =
  | 'light'
+ | 'dark_inverse'
  | 'dark'
+ | 'light_inverse'
  | 'light_accent'
  | 'light_white_accent'
  | 'dark_accent'
@@ -1802,7 +1804,9 @@ type ThemeNames =
 
 export const themes: Record<ThemeNames, Theme> = {
   light: n1,
+  dark_inverse: n1,
   dark: n2,
+  light_inverse: n2,
   light_accent: n3,
   light_white_accent: n3,
   dark_accent: n4,
