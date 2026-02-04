@@ -7,7 +7,8 @@ import Header from "../components/Header";
 export default function RootLayout() {
   return (
     <TamaguiProvider config={tamaguiConfig} defaultTheme="light">
-      <Header />
+      <Header title="The Ravensfield Collection" />
+      <Slot />
     </TamaguiProvider>
   );
 }
