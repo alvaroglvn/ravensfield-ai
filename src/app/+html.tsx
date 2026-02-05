@@ -1,7 +1,18 @@
 import { ScrollViewStyleReset } from "expo-router/html";
 import type { PropsWithChildren } from "react";
 
-// Load Tamagui CSS for theme switching
+// Inline script to set theme class before React hydration (prevents flash)
+const themeScript = `
+(function() {
+  var stored = localStorage.getItem('ravensfield-theme-preference');
+  var theme = stored || 'dark';
+  if (theme === 'system') {
+    theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+  document.documentElement.classList.add('t_' + theme);
+})();
+`;
+
 export default function Root({ children }: PropsWithChildren) {
   return (
     <html lang="en">
@@ -12,6 +23,7 @@ export default function Root({ children }: PropsWithChildren) {
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <ScrollViewStyleReset />
         <style dangerouslySetInnerHTML={{ __html: responsiveBackground }} />
       </head>
@@ -22,7 +34,7 @@ export default function Root({ children }: PropsWithChildren) {
 
 const responsiveBackground = `
 body {
-  background-color: var(--background, #fff);
+  background-color: var(--background, #0D131F);
   transition: background-color 0.2s ease;
 }
 `;
