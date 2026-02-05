@@ -41,6 +41,17 @@ export function ContentCard({
           hoverStyle={{ scale: 1.01 }}
           pressStyle={{ scale: 0.98 }}
           minHeight={95}
+          borderWidth={1}
+          borderColor="$background"
+          style={{
+            backfaceVisibility: "hidden",
+            WebkitBackfaceVisibility: "hidden",
+            willChange: "transform",
+            transform: "translateZ(0)",
+            boxShadow: "inset 0 0 0 1px rgba(0,0,0,0.12)",
+            outline: "1px solid transparent",
+            isolation: "isolate",
+          }}
         >
           <XStack height="100%">
             <Image src={imageUrl} width="35%" />
@@ -48,8 +59,7 @@ export function ContentCard({
               paddingBlock="$3"
               paddingInline="$3"
               flex={1}
-              justifyContent="center"
-              alignItems="flex-end"
+              style={{ justifyContent: "center", alignItems: "flex-end" }}
             >
               <Text
                 fontSize={"$2"}
@@ -77,7 +87,7 @@ export function ContentCard({
   return (
     <Theme name="inverse">
       <Card
-        elevation={2}
+        elevation={5}
         maxHeight={500}
         minHeight={400}
         borderTopLeftRadius="$12"
@@ -91,6 +101,16 @@ export function ContentCard({
         hoverStyle={{ scale: 1.01 }}
         pressStyle={{ scale: 0.98 }}
         onPress={() => router.push(`/articles/${slug}`)}
+        borderWidth={1}
+        borderColor="$background"
+        style={{
+          backfaceVisibility: "hidden",
+          WebkitBackfaceVisibility: "hidden",
+          willChange: "transform",
+          transform: "translateZ(0)",
+          outline: "1px solid transparent",
+          isolation: "isolate",
+        }}
       >
         <Image src={imageUrl} width={"100%"} height={300} />
         <Card.Header>
