@@ -1,5 +1,4 @@
-import { YStack, XStack, H1, H2 } from "tamagui";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { YStack, XStack, H1, H2, Theme } from "tamagui";
 
 import HamburguerMenu from "./HamburguerMenu";
 import ThemeToggle from "./ThemeToggle";
@@ -14,9 +13,10 @@ export default function Header({
   subtitle = "An AI Museum",
 }: HeaderProps) {
   return (
-    <SafeAreaView>
+    <Theme name="inverse">
       <XStack
         elevation={"$1"}
+        background="$background"
         style={{
           padding: 25,
           justifyContent: "space-between",
@@ -35,6 +35,6 @@ export default function Header({
           <HamburguerMenu />
         </YStack>
       </XStack>
-    </SafeAreaView>
+    </Theme>
   );
 }
