@@ -8,6 +8,7 @@ import {
 
 import tamaguiConfig from "../../tamagui.config";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 import { ThemeProvider, useTheme } from "../context/ThemeContext";
 
 // Import generated CSS for web theme switching
@@ -24,6 +25,7 @@ function AppContent() {
         <YStack flex={1} background="$background">
           <Header title="The Ravensfield Collection" />
           <Slot />
+          <Footer />
         </YStack>
       </Theme>
     </TamaguiProvider>
