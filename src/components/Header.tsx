@@ -1,7 +1,8 @@
-import { YStack, XStack, H1, H2, Text } from "tamagui";
+import { YStack, XStack, H1, H2 } from "tamagui";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import HamburguerMenu from "./HamburguerMenu";
+import ThemeToggle from "./ThemeToggle";
 
 type HeaderProps = {
   title: string;
@@ -24,7 +25,7 @@ export default function Header({
         }}
       >
         <YStack>
-          <Text>Placeholder</Text>
+          <ThemeToggle />
         </YStack>
         <YStack style={{ alignItems: "center" }}>
           <H1>{title}</H1>

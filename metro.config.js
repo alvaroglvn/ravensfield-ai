@@ -6,4 +6,5 @@ const config = getDefaultConfig(__dirname);
 module.exports = withTamagui(config, {
   components: ["tamagui"],
   config: "./tamagui.config.ts",
+  outputCSS: "./src/styles/tamagui.generated.css",
 });

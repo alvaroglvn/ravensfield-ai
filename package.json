@@ -15,6 +15,7 @@
     "build:web:optimized": "tamagui build --target web ./src/app -- expo export --platform web"
   },
   "dependencies": {
+    "@react-native-async-storage/async-storage": "^2.2.0",
     "@react-native-menu/menu": "^2.0.0",
     "@tamagui/babel-plugin": "2.0.0-rc.0",
     "@tamagui/config": "2.0.0-rc.0",
