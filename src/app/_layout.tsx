@@ -33,7 +33,7 @@ function AppContent() {
 export default function RootLayout() {
   return (
     <SafeAreaProvider initialMetrics={initialWindowMetrics}>
-      <ThemeProvider defaultTheme="system">
+      <ThemeProvider defaultTheme="dark">
         <AppContent />
       </ThemeProvider>
     </SafeAreaProvider>
