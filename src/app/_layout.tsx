@@ -17,7 +17,11 @@ if (Platform.OS === "web") {
 }
 
 function AppContent() {
-  const { resolvedTheme } = useTheme();
+  const { resolvedTheme, isLoaded } = useTheme();
+
+  if (!isLoaded) {
+    return null;
+  }
 
   return (
     <TamaguiProvider config={tamaguiConfig} defaultTheme={resolvedTheme}>
@@ -35,7 +39,7 @@ function AppContent() {
 export default function RootLayout() {
   return (
     <SafeAreaProvider initialMetrics={initialWindowMetrics}>
-      <ThemeProvider defaultTheme="dark">
+      <ThemeProvider defaultTheme="system">
         <AppContent />
       </ThemeProvider>
     </SafeAreaProvider>
