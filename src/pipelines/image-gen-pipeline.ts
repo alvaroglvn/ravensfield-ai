@@ -3,7 +3,7 @@ import {
   generateLeonardoImage,
   getLeonardoImageUrl,
 } from "@/services/AIGen/leonardo/generate-image";
-import { getRandomImgSize } from "@/app/utils/randomize-img-size";
+import { getRandomImgSize } from "@/utils/randomize-img-size";
 import { db } from "@/db";
 import { artworks } from "@/db/schema";
 

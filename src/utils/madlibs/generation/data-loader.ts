@@ -7,7 +7,6 @@ export class DataLoader<T> {
   constructor(folderPath: string, rootKey: string) {
     const absoluteFolderPath = path.resolve(folderPath);
 
-    // --- Read and filter files ---
     const files = fs
       .readdirSync(absoluteFolderPath)
       .filter((file) => path.extname(file).toLowerCase() === ".json");
@@ -30,7 +29,6 @@ export class DataLoader<T> {
     });
   }
 
-  // --- Helper for readability ---
   private getRandom<K>(arr: K[]): K {
     return arr[Math.floor(Math.random() * arr.length)];
   }

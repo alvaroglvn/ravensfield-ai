@@ -1,5 +1,5 @@
 import * as path from "node:path";
-import { DataLoader } from "@/app/utils/madlibs/generation/data-loader";
+import { DataLoader } from "@/utils/madlibs/generation/data-loader";
 
 interface ArtMovement {
   name: string;
@@ -40,11 +40,8 @@ export class MadlibsGenerator {
     );
   }
 
-  // --- Helpers ---
   private pickOne(arr: string[]): string {
-    // Safety check
     if (!arr || !Array.isArray(arr) || arr.length === 0) {
-      // Return a placeholder so the app doesn't crash
       console.warn("⚠️ Warning: Found an entry with missing data!");
       return "UNKNOWN_DATA";
     }
@@ -55,13 +52,10 @@ export class MadlibsGenerator {
     return /^[aeiou]/i.test(word) ? "An" : "A";
   }
 
-  // --- The Generator ---
   public createPrompt(): string {
-    // 1. Random Contexts
     const artCtx = this.artLoader.pickRandom();
     const storyCtx = this.storyLoader.pickRandom();
 
-    // 2. Random Details
     const desc1 = this.descLoader.pickRandom();
     const desc2 = this.descLoader.pickRandom();
 
@@ -73,12 +67,10 @@ export class MadlibsGenerator {
     const storyFate = this.pickOne(storyCtx.fates);
     const storyEnding = this.pickOne(storyCtx.endings);
 
-    // 3. Grammar Articles
     const startArticle = this.getArticle(desc1);
     const storyArticle = this.getArticle(storyCtx.name);
     const protagArticle = this.getArticle(storyProtag);
 
-    // 4. The Final Template
     return `
       ${startArticle} ${desc1} and ${desc2} ${
         artCtx.name

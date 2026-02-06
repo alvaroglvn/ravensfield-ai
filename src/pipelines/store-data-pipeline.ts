@@ -3,7 +3,7 @@ import { articles, artworks, quotes } from "@/db/schema";
 import { OutputSchemaType } from "@/services/AIGen/anthropic";
 
 // Slug from title helper
-import { createSlugFromTitle } from "@/app/utils/slug-from-title";
+import { createSlugFromTitle } from "@/utils/slug-from-title";
 
 export async function storeGeneratedData(
   data: OutputSchemaType,

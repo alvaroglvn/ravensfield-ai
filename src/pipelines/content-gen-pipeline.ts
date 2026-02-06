@@ -1,4 +1,4 @@
-import { MadlibsGenerator } from "@/app/utils/madlibs";
+import { MadlibsGenerator } from "@/utils/madlibs";
 import {
   generateWithClaude,
   parseAnthropicResponse,
