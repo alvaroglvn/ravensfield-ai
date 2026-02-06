@@ -30,5 +30,12 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     bundler: "metro",
     output: "server",
   },
-  plugins: ["expo-router"],
+  plugins: [
+    [
+      "expo-router",
+      {
+        unstable_useServerMiddleware: true,
+      },
+    ],
+  ],
 });
