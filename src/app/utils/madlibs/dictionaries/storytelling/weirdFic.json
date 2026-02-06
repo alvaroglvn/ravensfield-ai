@@ -1,0 +1,462 @@
+{
+  "subgenres": [
+    {
+      "name": "slipstream",
+      "themes": [
+        "blurring reality",
+        "strange coincidences",
+        "dream logic",
+        "time dislocation",
+        "identity confusion",
+        "urban surrealism",
+        "emotional distortion",
+        "unreliable memories",
+        "fractured narrative",
+        "metaphysical drift"
+      ],
+      "protagonists": [
+        "disillusioned commuter",
+        "aspiring writer",
+        "reclusive artist",
+        "taxi driver",
+        "café barista",
+        "late-night radio host",
+        "street performer",
+        "absent-minded professor",
+        "lost tourist",
+        "anonymous narrator"
+      ],
+      "fates": [
+        "drifts into another plane",
+        "loses sense of time",
+        "becomes part of the city’s myth",
+        "forgets their own name",
+        "merges with a stranger",
+        "wanders endlessly",
+        "rewrites their memories",
+        "splits into two selves",
+        "vanishes from reality",
+        "awakens in a mirror world"
+      ],
+      "endings": [
+        "enters an open-ended passage",
+        "falls into a circular loop",
+        "experiences a surreal epiphany",
+        "crosses a blurred boundary",
+        "receives an existential wink",
+        "reaches a half-remembered conclusion",
+        "completes a mosaic finale",
+        "reaches a dreamlike fade-out"
+      ]
+    },
+    {
+      "name": "new weird",
+      "themes": [
+        "alien flora",
+        "biomechanical cities",
+        "cognitive horror",
+        "architectural grotesque",
+        "nested realities",
+        "predatory ecosystems",
+        "evolution gone awry",
+        "otherworldly fauna",
+        "chemical psychedelia",
+        "urban nightmare"
+      ],
+      "protagonists": [
+        "field biologist",
+        "urban explorer",
+        "circuit hacker",
+        "dream cartographer",
+        "artifact collector",
+        "night watchman",
+        "metadata archivist",
+        "gene splicer",
+        "sound scavenger",
+        "unlicensed tour guide",
+        "urban myth chaser"
+      ],
+      "fates": [
+        "is consumed by living structures",
+        "mutates beyond recognition",
+        "discovers a hidden ecosystem",
+        "becomes the predator",
+        "fragments their mind",
+        "paints with living pigment",
+        "binds with an alien organism",
+        "architecturally transforms",
+        "surrenders to the unknown",
+        "becomes urban legend"
+      ],
+      "endings": [
+        "witnesses an organic metropolis reborn",
+        "achieves a mutated transcendence",
+        "attains a grotesque harmony",
+        "experiences a psychic resonance",
+        "sparks an ecosystem revolt",
+        "initiates an architectural apocalypse",
+        "performs a bio-symphony",
+        "undergoes a permanent transformation",
+        "makes an ineffable departure",
+        "completes a final biome merge"
+      ]
+    },
+    {
+      "name": "bizarro fiction",
+      "themes": [
+        "absurd satire",
+        "grotesque humor",
+        "surreal landscapes",
+        "oddball protagonists",
+        "nonsensical twists",
+        "distorted logic",
+        "casual violence",
+        "pop-culture pastiche",
+        "body horror comedy",
+        "dreamlike absurdity"
+      ],
+      "protagonists": [
+        "taxidermy artist",
+        "failed comedian",
+        "sentient mannequin",
+        "abrasive tour guide",
+        "professional mourner",
+        "urban myth chaser",
+        "lost sock collector",
+        "enchanted ventriloquist dummy",
+        "childhood imaginary friend",
+        "talking vending machine"
+      ],
+      "fates": [
+        "buys a cursed toaster",
+        "becomes a walking billboard",
+        "spontaneously combusts with laughter",
+        "expands into two dimensions",
+        "turns invisible at will",
+        "develops existential hiccups",
+        "gets trapped in a pickup line",
+        "turns into avant-garde sculpture",
+        "falls through a wormhole",
+        "winds up in a postcard"
+      ],
+      "endings": [
+        "stages an absurdist curtain call",
+        "stages a fourth-wall finale",
+        "delivers a punchline ending",
+        "executes a comic twist",
+        "lands a mind-bending punchline",
+        "reveals a broken narrative",
+        "elicits a dark laughter fade-out",
+        "stages a surreal tableau ending",
+        "concludes a nested story",
+        "delivers an unexpected epilogue"
+      ]
+    },
+    {
+      "name": "weird western",
+      "themes": [
+        "supernatural frontier",
+        "cursed gold rush",
+        "ghost town legends",
+        "occult gunslingers",
+        "desert mysticism",
+        "time-worn outlaws",
+        "ethereal spirits",
+        "blood-soaked duels",
+        "mythic plains",
+        "wagon train curses"
+      ],
+      "protagonists": [
+        "outlaw gunslinger",
+        "saloon owner",
+        "ghost hunter",
+        "travelling preacher",
+        "desert hermit",
+        "railroad magnate",
+        "Native storyteller",
+        "fortune seeker",
+        "wandering lawman",
+        "buried alchemist"
+      ],
+      "fates": [
+        "duels with a spirit",
+        "discovers haunted mine",
+        "becomes dust in the wind",
+        "outsmarts the cursed sheriff",
+        "binds soul to the land",
+        "loses their shadow",
+        "rides into sunset curse-bound",
+        "uncovers a ghostly gold vein",
+        "wakes in another era",
+        "invokes ancient tribal magic"
+      ],
+      "endings": [
+        "greets a dusty dawn",
+        "meets a cursed sunset",
+        "leaves a ghostly echo",
+        "stages a noir western finale",
+        "witnesses a final tumbleweed ending",
+        "becomes a seasoned legend",
+        "stages a spectral showdown",
+        "enters a timeless frontier",
+        "greets a blood moon finale",
+        "faces a haunted horizon"
+      ]
+    },
+    {
+      "name": "surrealist fiction",
+      "themes": [
+        "dream logic",
+        "bizarre juxtapositions",
+        "distorted reality",
+        "symbolic imagery",
+        "emotional abstraction",
+        "subconscious exploration",
+        "paradoxical scenes",
+        "otherworldly landscapes",
+        "fragmented identities",
+        "metaphysical echoes"
+      ],
+      "protagonists": [
+        "sleepwalker",
+        "dream interpreter",
+        "absent-minded poet",
+        "abstract painter",
+        "mirror gazer",
+        "subconscious navigator",
+        "symbolic dreamer",
+        "rogue philosopher",
+        "memory collector",
+        "street surrealist"
+      ],
+      "fates": [
+        "merges with dream self",
+        "loses sense of self",
+        "rewrites reality",
+        "shatters perception",
+        "wanders infinite hallways",
+        "becomes a living metaphor",
+        "unlocks hidden meanings",
+        "dissolves into the absurd",
+        "binds time loops",
+        "awakens to new logic"
+      ],
+      "endings": [
+        "reaches a dreamlike fade-out",
+        "falls into a circular dream",
+        "experiences a subconscious revelation",
+        "presents an enigmatic tableau",
+        "completes a poetic loop",
+        "delivers a surreal epilogue",
+        "reaches an abstract finale",
+        "finds a mirrored closure",
+        "witnesses a metaphorical sunset",
+        "greets a liminal dawn"
+      ]
+    },
+    {
+      "name": "mythic weird",
+      "themes": [
+        "living symbols",
+        "ancient pantheons",
+        "cosmic myths",
+        "ritual rebirth",
+        "divine absurdity",
+        "legendary beasts",
+        "sacred paradox",
+        "timeless archetypes",
+        "mythic echoes",
+        "cosmic cycle"
+      ],
+      "protagonists": [
+        "mythic bard",
+        "ritual priest",
+        "oracle child",
+        "shadow beast tamer",
+        "legendary outcast",
+        "timeless wanderer",
+        "cosmic pilgrim",
+        "symbolic warrior",
+        "epic scribe",
+        "divine supplicant"
+      ],
+      "fates": [
+        "becomes living myth",
+        "breaks the cosmic cycle",
+        "merges with legendary beast",
+        "awakens divine absurdity",
+        "loses mortal form",
+        "binds time and myth",
+        "restores sacred paradox",
+        "sacrifices memory for eternity",
+        "echoes through ages",
+        "transcends archetype"
+      ],
+      "endings": [
+        "ushers in a mythic dawn",
+        "immortalizes the legend",
+        "completes a cosmic ritual",
+        "embraces a divine absurdity",
+        "leaves a timeless legacy",
+        "renews a sacred cycle",
+        "stages a symbolic curtain call",
+        "leaves an epic echo",
+        "enters a mythic silence",
+        "leaves an ancestral resonance"
+      ]
+    },
+    {
+      "name": "psychedelic weird",
+      "themes": [
+        "hallucinatory visions",
+        "color kaleidoscopes",
+        "mind expansion",
+        "sensory distortion",
+        "psychoactive landscapes",
+        "synesthetic experiences",
+        "cosmic synapse",
+        "temporal fluidity",
+        "neural labyrinths",
+        "psychedelic reverie"
+      ],
+      "protagonists": [
+        "psychedelic traveler",
+        "neurochemist",
+        "sensory artist",
+        "dream architect",
+        "shamanic guide",
+        "consciousness surfer",
+        "visionary composer",
+        "mind hacker",
+        "temporal drifter",
+        "kaleidoscope painter"
+      ],
+      "fates": [
+        "fractures perception",
+        "merges color and thought",
+        "wanders neural maze",
+        "achieves cosmic insight",
+        "loses ego self",
+        "becomes synesthetic entity",
+        "rewires reality",
+        "enters eternal reverie",
+        "binds sensory streams",
+        "transcends human senses"
+      ],
+      "endings": [
+        "reaches a psychedelic fade-out",
+        "experiences a holographic epiphany",
+        "builds a sensory crescendo",
+        "reaches a kaleidoscopic finale",
+        "falls into a neuronal loop",
+        "sparks a cosmic synapse",
+        "undergoes an ego dissolution",
+        "welcomes a synesthetic dawn",
+        "achieves a mind expansion",
+        "leaves a visual echo"
+      ]
+    },
+    {
+      "name": "hauntological fiction",
+      "themes": [
+        "nostalgic echoes",
+        "lost memories",
+        "temporal haunting",
+        "spectral recordings",
+        "cultural residue",
+        "echo chambers",
+        "urban ruins",
+        "memory hauntings",
+        "temporal anomalies",
+        "past-present blur"
+      ],
+      "protagonists": [
+        "archive historian",
+        "urban archaeologist",
+        "memory researcher",
+        "ruin photographer",
+        "nostalgia collector",
+        "sound archivist",
+        "temporal tourist",
+        "forgotten storyteller",
+        "ghost videographer",
+        "time-lost wanderer"
+      ],
+      "fates": [
+        "becomes echo in ruins",
+        "trapped in memory loop",
+        "releases cultural specter",
+        "binds past and present",
+        "loses sense of time",
+        "haunts their own memories",
+        "unearths buried echoes",
+        "rewrites cultural archive",
+        "merges with urban ghosts",
+        "erases personal history"
+      ],
+      "endings": [
+        "reaches an echo chamber finale",
+        "experiences a spectral fade-out",
+        "falls into a nostalgic loop",
+        "creates a cultural resonance",
+        "undergoes a temporal collapse",
+        "forms a memory mosaic",
+        "receives a haunting epilogue",
+        "witnesses an archive reborn",
+        "achieves a past-present convergence",
+        "leaves a fading echo"
+      ]
+    },
+    {
+      "name": "metafictional weird",
+      "themes": [
+        "breaking the fourth wall",
+        "story within story",
+        "author intrusion",
+        "narrative paradox",
+        "fictional awareness",
+        "textual labyrinth",
+        "reader complicity",
+        "fictional absurdity",
+        "meta-narrative loops",
+        "self-referential horror"
+      ],
+      "protagonists": [
+        "story protagonist",
+        "unreliable narrator",
+        "fictional author",
+        "editor gone rogue",
+        "literary detective",
+        "book character",
+        "meta-architect",
+        "scribe observer",
+        "textual detective",
+        "author avatar"
+      ],
+      "fates": [
+        "writes themselves out",
+        "traps author in story",
+        "discovers narrative prison",
+        "erases their own plot",
+        "rewrites reality",
+        "becomes footnote",
+        "unravels fictional world",
+        "binds reader to text",
+        "merges with reader’s mind",
+        "escapes the page"
+      ],
+      "endings": [
+        "enters an infinite loop",
+        "writes an author’s note finale",
+        "stages a meta-curtain call",
+        "resolves a narrative paradox",
+        "creates a narrative echo",
+        "ushers in a story reborn",
+        "delivers a self-aware outro",
+        "completes a textual fade-out",
+        "leaves the reader pondering",
+        "performs a fourth-wall break"
+      ]
+    }
+  ]
+}

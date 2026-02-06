@@ -1,0 +1,64 @@
+{
+  "movements": [
+    {
+      "name": "Early Photography",
+      "themes": ["Portrait", "Cityscape", "Architecture", "Still life"],
+      "techniques": ["Daguerreotype", "Calotype", "Salt print"]
+    },
+    {
+      "name": "Pictorialism",
+      "themes": ["Landscape", "Portrait", "Allegorical scene", "Genre scene"],
+      "techniques": ["Gum bichromate", "Platinum print", "Soft focus"]
+    },
+    {
+      "name": "Documentary",
+      "themes": ["Social scene", "Urban life", "Rural life", "Historical event"],
+      "techniques": ["Gelatin silver print", "35mm film", "Contact print"]
+    },
+    {
+      "name": "Photojournalism",
+      "themes": ["News event", "Conflict", "Political scene", "Human interest"],
+      "techniques": ["35mm film", "Digital photography", "Wire photo"]
+    },
+    {
+      "name": "Modernism",
+      "themes": ["Abstract form", "Urban scene", "Still life", "Portrait"],
+      "techniques": ["Gelatin silver print", "Photogram", "Solarization"]
+    },
+    {
+      "name": "Straight Photography",
+      "themes": ["Landscape", "Portrait", "Urban scene", "Nature study"],
+      "techniques": ["Large format camera", "Contact print", "Gelatin silver print"]
+    },
+    {
+      "name": "Surrealism",
+      "themes": ["Dream scene", "Juxtaposition", "Fantastical scene", "Portrait"],
+      "techniques": ["Photomontage", "Solarization", "Double exposure"]
+    },
+    {
+      "name": "Street Photography",
+      "themes": ["Urban life", "Candid portrait", "Social scene", "Cityscape"],
+      "techniques": ["35mm film", "Digital photography", "Zone focusing"]
+    },
+    {
+      "name": "Fashion Photography",
+      "themes": ["Fashion portrait", "Editorial scene", "Runway", "Studio portrait"],
+      "techniques": ["Medium format camera", "Digital photography", "Studio lighting"]
+    },
+    {
+      "name": "Color Photography",
+      "themes": ["Landscape", "Portrait", "Still life", "Urban scene"],
+      "techniques": ["Kodachrome", "Cibachrome", "Digital color print"]
+    },
+    {
+      "name": "Conceptual Photography",
+      "themes": ["Idea-based image", "Staged scene", "Text and image", "Installation"],
+      "techniques": ["Digital manipulation", "Mixed media", "Installation"]
+    },
+    {
+      "name": "Contemporary",
+      "themes": ["Digital manipulation", "Installation", "Environmental scene", "Political scene", "Interactive work"],
+      "techniques": ["Digital photography", "Mixed media", "Inkjet print", "Augmented reality"]
+    }
+  ]
+}

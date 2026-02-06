@@ -1,0 +1,154 @@
+{
+  "movements": [
+    {
+      "name": "Prehistoric",
+      "themes": ["Fertility figure", "Animal figure", "Totem", "Ritual object"],
+      "techniques": ["Carved stone", "Carved bone", "Modelled clay"]
+    },
+    {
+      "name": "Ancient Egyptian",
+      "themes": ["Pharaoh portrait", "Deity figure", "Funerary statue", "Animal figure"],
+      "techniques": ["Carved stone", "Painted limestone", "Wood carving", "Bronze casting"]
+    },
+    {
+      "name": "Cycladic",
+      "themes": ["Female figure", "Musician", "Idol"],
+      "techniques": ["Carved marble"]
+    },
+    {
+      "name": "Ancient Greek",
+      "themes": ["Gods and goddesses", "Athlete", "Heroic figure", "Funerary stele", "Mythological scene"],
+      "techniques": ["Marble carving", "Bronze casting", "Chryselephantine"]
+    },
+    {
+      "name": "Etruscan",
+      "themes": ["Funerary figure", "Banquet scene", "Deity figure"],
+      "techniques": ["Terracotta sculpture", "Bronze casting"]
+    },
+    {
+      "name": "Ancient Roman",
+      "themes": ["Portrait bust", "Emperor statue", "Historical relief", "Deity figure", "Equestrian statue"],
+      "techniques": ["Marble carving", "Bronze casting", "Stone relief"]
+    },
+    {
+      "name": "Ancient Chinese",
+      "themes": ["Ancestor figure", "Guardian figure", "Funerary object", "Animal figure"],
+      "techniques": ["Bronze casting", "Jade carving", "Terracotta modeling"]
+    },
+    {
+      "name": "Ancient Indian",
+      "themes": ["Deity figure", "Buddha statue", "Narrative relief", "Animal figure"],
+      "techniques": ["Stone carving", "Bronze casting", "Terracotta modeling"]
+    },
+    {
+      "name": "Ancient Mesoamerican",
+      "themes": ["Deity figure", "Ruler portrait", "Ritual object", "Animal figure"],
+      "techniques": ["Stone carving", "Jade carving", "Terracotta modeling"]
+    },
+    {
+      "name": "Byzantine",
+      "themes": ["Relief icon", "Religious figure", "Architectural ornament"],
+      "techniques": ["Ivory carving", "Stone relief", "Metalwork"]
+    },
+    {
+      "name": "Romanesque",
+      "themes": ["Biblical scene", "Religious figure", "Architectural relief"],
+      "techniques": ["Stone carving", "Wood carving"]
+    },
+    {
+      "name": "Gothic",
+      "themes": ["Religious figure", "Saint", "Architectural ornament", "Tomb effigy"],
+      "techniques": ["Stone carving", "Wood carving", "Polychrome sculpture"]
+    },
+    {
+      "name": "Renaissance",
+      "themes": ["Mythological figure", "Religious figure", "Portrait bust", "Heroic nude"],
+      "techniques": ["Marble carving", "Bronze casting", "Terracotta modeling"]
+    },
+    {
+      "name": "Mannerism",
+      "themes": ["Elongated figure", "Mythological scene", "Religious figure"],
+      "techniques": ["Marble carving", "Bronze casting"]
+    },
+    {
+      "name": "Baroque",
+      "themes": ["Dramatic group", "Religious ecstasy", "Portrait bust", "Allegorical figure"],
+      "techniques": ["Marble carving", "Bronze casting", "Gilded wood"]
+    },
+    {
+      "name": "Neoclassicism",
+      "themes": ["Heroic nude", "Mythological figure", "Portrait bust", "Allegorical figure"],
+      "techniques": ["Marble carving", "Bronze casting"]
+    },
+    {
+      "name": "Romanticism",
+      "themes": ["Emotional figure", "Historical scene", "Nature allegory"],
+      "techniques": ["Marble carving", "Bronze casting", "Terracotta modeling"]
+    },
+    {
+      "name": "Realism",
+      "themes": ["Everyday figure", "Worker", "Portrait bust", "Animal figure"],
+      "techniques": ["Bronze casting", "Marble carving"]
+    },
+    {
+      "name": "Impressionism",
+      "themes": ["Dancer", "Everyday scene", "Portrait bust"],
+      "techniques": ["Bronze casting", "Wax modeling"]
+    },
+    {
+      "name": "Modernism",
+      "themes": ["Abstract form", "Geometric figure", "Machine form", "Human figure"],
+      "techniques": ["Bronze casting", "Welded metal", "Carved stone", "Assemblage"]
+    },
+    {
+      "name": "Cubism",
+      "themes": ["Fragmented figure", "Still life", "Abstract form"],
+      "techniques": ["Assemblage", "Carved wood", "Bronze casting"]
+    },
+    {
+      "name": "Futurism",
+      "themes": ["Movement", "Machine form", "Dynamic figure"],
+      "techniques": ["Bronze casting", "Welded metal"]
+    },
+    {
+      "name": "Constructivism",
+      "themes": ["Geometric form", "Industrial object", "Architectural model"],
+      "techniques": ["Welded metal", "Assemblage", "Wood construction"]
+    },
+    {
+      "name": "Dada",
+      "themes": ["Readymade object", "Satirical figure", "Assemblage"],
+      "techniques": ["Assemblage", "Found object", "Mixed media"]
+    },
+    {
+      "name": "Surrealism",
+      "themes": ["Dream figure", "Fantastical form", "Juxtaposition"],
+      "techniques": ["Assemblage", "Carved stone", "Bronze casting"]
+    },
+    {
+      "name": "Abstract Expressionism",
+      "themes": ["Abstract form", "Gesture", "Emotional figure"],
+      "techniques": ["Welded metal", "Bronze casting", "Assemblage"]
+    },
+    {
+      "name": "Minimalism",
+      "themes": ["Geometric form", "Serial object", "Monumental form"],
+      "techniques": ["Welded metal", "Carved stone", "Industrial fabrication"]
+    },
+    {
+      "name": "Pop Art",
+      "themes": ["Consumer object", "Celebrity figure", "Everyday object"],
+      "techniques": ["Assemblage", "Fiberglass", "Painted bronze"]
+    },
+    {
+      "name": "Conceptual Art",
+      "themes": ["Idea-based object", "Text sculpture", "Installation"],
+      "techniques": ["Mixed media", "Found object", "Installation"]
+    },
+    {
+      "name": "Contemporary",
+      "themes": ["Installation", "Environmental art", "Interactive object", "Political figure"],
+      "techniques": ["Mixed media", "Digital fabrication", "Found object", "Installation"]
+    }
+  ]
+}

@@ -1,0 +1,514 @@
+{
+  "subgenres": [
+    {
+      "name": "cosmic horror",
+      "themes": [
+        "existential dread",
+        "insignificance of humanity",
+        "unknowable forces",
+        "cosmic isolation",
+        "alien geometry",
+        "forbidden knowledge",
+        "starless void",
+        "ancient relics",
+        "mind-shattering revelations",
+        "timeless entropy"
+      ],
+      "protagonists": [
+        "college student",
+        "librarian",
+        "astrophysicist",
+        "journalist",
+        "curator",
+        "astronaut",
+        "deep-sea diver",
+        "philosopher",
+        "archaeologist",
+        "dream interpreter"
+      ],
+      "fates": [
+        "descends into madness",
+        "vanishes without a trace",
+        "is consumed by cosmic forces",
+        "loses all memory",
+        "merges with an eldritch being",
+        "forever trapped in another dimension",
+        "becomes a vessel for ancient voices",
+        "transcends human form",
+        "erupts in otherworldly screams",
+        "is eternally forgotten"
+      ],
+      "endings": [
+        "remains an unsolved mystery",
+        "culminates in a revelation",
+        "meets a tragic end",
+        "triggers a cosmic epiphany",
+        "delivers a mind-bending twist",
+        "settles into a dreadful calm",
+        "repeats a cyclical nightmare",
+        "results in an ambiguous cosmos",
+        "sends a final transmission",
+        "meets a nihilistic end"
+      ]
+    },
+    {
+      "name": "gothic horror",
+      "themes": [
+        "haunted legacy",
+        "decay and ruin",
+        "forbidden love",
+        "ancestral curse",
+        "damp catacombs",
+        "suffocating gloom",
+        "morbid fascination",
+        "spectral whispers",
+        "moonlit dread",
+        "crumbling grandeur"
+      ],
+      "protagonists": [
+        "inheritant",
+        "antiquarian",
+        "clergyman",
+        "widow",
+        "gothic artist",
+        "orphan",
+        "solitary scholar",
+        "grave digger",
+        "nun",
+        "exiled noble"
+      ],
+      "fates": [
+        "is cursed forever",
+        "dies under mysterious circumstances",
+        "becomes the haunting presence",
+        "descends into despair",
+        "loses sanity in the manor",
+        "vanishes at midnight",
+        "is bound by spectral chains",
+        "repents too late",
+        "is consumed by grief",
+        "becomes entwined with the undead"
+      ],
+      "endings": [
+        "meets a bittersweet ending",
+        "suffers a cyclical haunting",
+        "leaves a cliffhanger",
+        "offers an elegiac ending",
+        "faces a restless spirit ending",
+        "endures a poetic tragedy",
+        "leaves an echoing sorrow",
+        "reaches a shadowed finale",
+        "delivers a sinister lullaby",
+        "receives a morose epilogue"
+      ]
+    },
+    {
+      "name": "psychological horror",
+      "themes": [
+        "unreliable perception",
+        "inner demons",
+        "paranoia",
+        "dissociative identity",
+        "obsessive thought",
+        "hidden trauma",
+        "guilt and regret",
+        "fractured reality",
+        "hallucinations",
+        "trust betrayal"
+      ],
+      "protagonists": [
+        "psychologist",
+        "detective",
+        "lonely artist",
+        "night shift worker",
+        "journalist",
+        "survivor",
+        "insomniac",
+        "veteran",
+        "widow",
+        "dreamer"
+      ],
+      "fates": [
+        "loses grip on reality",
+        "confesses a terrible secret",
+        "breaks down completely",
+        "commits unthinkable acts",
+        "is trapped in memories",
+        "succumbs to delusion",
+        "erases their identity",
+        "spirals into violence",
+        "is institutionalized",
+        "is haunted by visions"
+      ],
+      "endings": [
+        "meets an ambiguous ending",
+        "delivers a shock twist",
+        "enters an open-ended nightmare",
+        "suffers a mind fracture",
+        "becomes an unreliable narrator",
+        "undergoes a dark catharsis",
+        "experiences a psychotic break",
+        "faces a silent terror",
+        "encounters an ephemeral reality",
+        "reaches an unsettling resolution"
+      ]
+    },
+    {
+      "name": "occult horror",
+      "themes": [
+        "forbidden ritual",
+        "ancient pacts",
+        "supernatural vengeance",
+        "blood-soaked rites",
+        "shadowed grimoire",
+        "summoned entities",
+        "arcane symbols",
+        "sacrificial rites",
+        "haunted relics",
+        "esoteric secrets"
+      ],
+      "protagonists": [
+        "occult scholar",
+        "medium",
+        "cursed noble",
+        "secret society member",
+        "sceptic",
+        "fortune teller",
+        "witch hunter",
+        "cult initiate",
+        "herbalist",
+        "ex-communicant"
+      ],
+      "fates": [
+        "summons a demon",
+        "is bound by dark magic",
+        "loses their soul",
+        "is possessed",
+        "transforms into something inhuman",
+        "vanishes in ritual fire",
+        "is condemned to eternal servitude to shadows",
+        "erupts with eldritch fury",
+        "becomes a living curse",
+        "is vanquished by occult forces"
+      ],
+      "endings": [
+        "claims a dark triumph",
+        "meets a sacrificial ending",
+        "sees a curse persist",
+        "undergoes a ritual rebirth",
+        "uncovers a grim revelation",
+        "acquires forbidden knowledge",
+        "leaves a doomed legacy",
+        "swears a blood oath",
+        "unleashes an arcane apocalypse",
+        "receives a haunting finale"
+      ]
+    },
+    {
+      "name": "slasher horror",
+      "themes": [
+        "masked killer",
+        "isolated location",
+        "nighttime terror",
+        "surprise appearances",
+        "blood trails",
+        "torment by psychology",
+        "stalk and slash",
+        "betrayal among friends",
+        "cat-and-mouse chase",
+        "last-stand confrontation"
+      ],
+      "protagonists": [
+        "camp counselor",
+        "teenager",
+        "alone hiker",
+        "night guard",
+        "local sheriff",
+        "road tripper",
+        "campmaster",
+        "overprotective parent",
+        "prankster",
+        "lost tourist"
+      ],
+      "fates": [
+        "is stalked through the woods",
+        "loses a friend",
+        "sacrifices themselves",
+        "uncovers killer’s identity",
+        "barely escapes",
+        "becomes the next target",
+        "confronts the killer",
+        "survives with trauma",
+        "falls victim at dawn",
+        "turns the tables"
+      ],
+      "endings": [
+        "witnesses a final girl escape",
+        "keeps the killer at large",
+        "delivers a twist reveal",
+        "offers a sequel tease",
+        "sees a tragic sacrifice",
+        "results in an open-ended bloodbath",
+        "leaves the last man standing",
+        "stages a cathedral showdown",
+        "reaches a burned cabin climax",
+        "greets a bleak sunrise"
+      ]
+    },
+    {
+      "name": "body horror",
+      "themes": [
+        "mutation and transformation",
+        "loss of bodily control",
+        "physical decay",
+        "invasive parasites",
+        "painful metamorphosis",
+        "identity dissolution",
+        "biological horror",
+        "grotesque deformities",
+        "medical experimentation",
+        "alien infestation"
+      ],
+      "protagonists": [
+        "scientist",
+        "patient",
+        "survivor of accident",
+        "medical researcher",
+        "infected individual",
+        "lab assistant",
+        "hospital nurse",
+        "geneticist",
+        "victim of experiment",
+        "isolated recluse"
+      ],
+      "fates": [
+        "loses control of body",
+        "becomes unrecognizable",
+        "succumbs to infection",
+        "mutates beyond humanity",
+        "is quarantined and forgotten",
+        "inflicts harm on others",
+        "dies in agony",
+        "loses all senses",
+        "is experimented on further",
+        "escapes but forever changed"
+      ],
+      "endings": [
+        "undergoes a tragic transformation",
+        "experiences the body reclaimed briefly",
+        "suffers an irreversible mutation",
+        "sees a desperate cure attempt fail",
+        "faces a horrific self-realization",
+        "undergoes containment and isolation",
+        "flees into the unknown",
+        "becomes a new form of body horror",
+        "dies as a release",
+        "survives an ambiguous ending"
+      ]
+    },
+    {
+      "name": "survival horror",
+      "themes": [
+        "isolation and desperation",
+        "limited resources",
+        "hostile environment",
+        "constant threat",
+        "fight or flight",
+        "psychological strain",
+        "trust and betrayal",
+        "scarcity of hope",
+        "nightmarish creatures",
+        "moral compromise"
+      ],
+      "protagonists": [
+        "lost traveler",
+        "soldier",
+        "civilian survivor",
+        "hunter",
+        "scavenger",
+        "refugee",
+        "scientist trapped",
+        "parent protecting child",
+        "stranded pilot",
+        "escaped prisoner"
+      ],
+      "fates": [
+        "runs out of supplies",
+        "is captured by enemies",
+        "loses a companion",
+        "makes a desperate stand",
+        "succumbs to injury",
+        "finds a temporary refuge",
+        "breaks down mentally",
+        "escapes the danger zone",
+        "sacrifices self for others",
+        "betrayed by ally"
+      ],
+      "endings": [
+        "achieves a narrow escape",
+        "suffers a tragic loss",
+        "receives a hopeful rescue",
+        "endures a bittersweet survival",
+        "makes a desperate last stand",
+        "makes a dark sacrifice",
+        "enters an open-ended wilderness",
+        "witnesses the collapse of society",
+        "meets a heroic death",
+        "faces an uncertain future"
+      ]
+    },
+    {
+      "name": "paranormal horror",
+      "themes": [
+        "ghostly hauntings",
+        "possession",
+        "cursed objects",
+        "spiritual unrest",
+        "unseen forces",
+        "rituals and exorcisms",
+        "ancient spirits",
+        "psychic phenomena",
+        "otherworldly communication",
+        "fear of the unknown"
+      ],
+      "protagonists": [
+        "paranormal investigator",
+        "medium",
+        "skeptical scientist",
+        "family member",
+        "priest",
+        "psychic",
+        "historian",
+        "exorcist",
+        "journalist",
+        "curious teenager"
+      ],
+      "fates": [
+        "becomes possessed",
+        "loses grip on reality",
+        "uncovers dark secrets",
+        "is driven mad",
+        "banishes the spirit",
+        "is haunted forever",
+        "dies mysteriously",
+        "breaks the curse",
+        "loses a loved one",
+        "escapes with trauma"
+      ],
+      "endings": [
+        "secures a peaceful spirit release",
+        "lets the curse remain unbroken",
+        "achieves a final exorcism",
+        "experiences an open-ended haunting",
+        "suffers a tragic possession",
+        "reveals a twist of true evil",
+        "makes a sacrifice to appease the spirits",
+        "witnesses an ambiguous supernatural event",
+        "sees the return of the entity",
+        "receives a hopeful closure"
+      ]
+    },
+    {
+      "name": "splatterpunk",
+      "themes": [
+        "extreme gore",
+        "graphic violence",
+        "taboo subjects",
+        "shock and disgust",
+        "dark humor",
+        "subversion of norms",
+        "brutal realism",
+        "psychopathic characters",
+        "chaotic brutality",
+        "raw human nature"
+      ],
+      "protagonists": [
+        "serial killer",
+        "tortured victim",
+        "underground criminal",
+        "vigilante",
+        "deranged artist",
+        "outcast",
+        "corrupt cop",
+        "mad scientist",
+        "revenge seeker",
+        "survivor of massacre"
+      ],
+      "fates": [
+        "is brutally murdered",
+        "takes bloody revenge",
+        "descends into madness",
+        "is mutilated beyond recognition",
+        "survives against odds",
+        "becomes a monster",
+        "loses humanity",
+        "inflicts horrific pain",
+        "is hunted relentlessly",
+        "dies in violent chaos"
+      ],
+      "endings": [
+        "reaches a bloody climax",
+        "descends into an unrelenting gorefest",
+        "delivers a darkly comic ending",
+        "offers a morally ambiguous finale",
+        "results in a nihilistic bloodbath",
+        "leaves a survivor’s broken victory",
+        "serves a twisted justice",
+        "leaves an open-ended carnage",
+        "reveals a shocking betrayal",
+        "culminates in a gruesome final act"
+      ]
+    },
+    {
+      "name": "weird fiction horror",
+      "themes": [
+        "strange realities",
+        "alien logic",
+        "unexplainable phenomena",
+        "dreamlike horror",
+        "cosmic indifference",
+        "non-Euclidean spaces",
+        "madness from knowledge",
+        "ancient alien beings",
+        "bizarre transformations",
+        "surreal nightmares"
+      ],
+      "protagonists": [
+        "eccentric scholar",
+        "dreamer",
+        "outsider",
+        "investigator of the strange",
+        "occult enthusiast",
+        "lost traveler",
+        "artist inspired by visions",
+        "paranormal researcher",
+        "mad scientist",
+        "philosopher"
+      ],
+      "fates": [
+        "loses sanity",
+        "is consumed by the unknown",
+        "becomes part of the strange world",
+        "uncovers forbidden truths",
+        "vanishes into other dimensions",
+        "transcends human understanding",
+        "is driven to obsession",
+        "is transformed into something alien",
+        "dies in incomprehensible ways",
+        "is forever changed"
+      ],
+      "endings": [
+        "meets an ambiguous cosmic ending",
+        "delivers a mind-bending revelation",
+        "leaves an open-ended mystery",
+        "suffers a tragic transformation",
+        "is denied a return to normalcy",
+        "descends into madness",
+        "reveals an unfathomable horror",
+        "concludes with a surreal nightmare",
+        "meets an enigmatic disappearance",
+        "faces an existential dread"
+      ]
+    }
+  ]
+}

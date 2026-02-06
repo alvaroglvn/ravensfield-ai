@@ -1,0 +1,864 @@
+{
+  "movements": [
+    {
+      "name": "Minoan",
+      "themes": [
+        "Religious scene",
+        "Marine life",
+        "Nature scene",
+        "Procession",
+        "Sport scene"
+      ],
+      "techniques": [
+        "Fresco on Plaster",
+        "Pigment on Plaster"
+      ]
+    },
+    {
+      "name": "Mycenaean",
+      "themes": [
+        "Funerary scene",
+        "Religious scene",
+        "Warrior scene",
+        "Animal motif"
+      ],
+      "techniques": [
+        "Fresco on Plaster",
+        "Pigment on Plaster"
+      ]
+    },
+    {
+      "name": "Ancient Egyptian",
+      "themes": [
+        "Religious scene",
+        "Portrait",
+        "Mythological scene",
+        "Symbolic scene",
+        "Narrative scene"
+      ],
+      "techniques": [
+        "Pigment on Plaster",
+        "Encaustic on Panel",
+        "Tempera on Wood"
+      ]
+    },
+    {
+      "name": "Ancient Chinese",
+      "themes": [
+        "Court scene",
+        "Nature scene",
+        "Landscape",
+        "Portrait",
+        "Mythological scene"
+      ],
+      "techniques": [
+        "Ink on Silk",
+        "Ink on Paper",
+        "Pigment on Silk"
+      ]
+    },
+    {
+      "name": "Ancient Indian",
+      "themes": [
+        "Religious scene",
+        "Mythological scene",
+        "Court scene",
+        "Nature scene",
+        "Narrative scene"
+      ],
+      "techniques": [
+        "Pigment on Wall",
+        "Fresco on Plaster",
+        "Ink on Palm Leaf"
+      ]
+    },
+    {
+      "name": "Ancient Persian",
+      "themes": [
+        "Royal scene",
+        "Religious scene",
+        "Mythological scene",
+        "Banquet scene",
+        "Battle scene"
+      ],
+      "techniques": [
+        "Pigment on Plaster",
+        "Manuscript Illumination",
+        "Fresco on Plaster"
+      ]
+    },
+    {
+      "name": "Ancient Mesoamerican",
+      "themes": [
+        "Religious scene",
+        "Ritual scene",
+        "Mythological scene",
+        "Royal portrait",
+        "Calendar scene"
+      ],
+      "techniques": [
+        "Pigment on Plaster",
+        "Fresco on Wall",
+        "Pigment on Stone"
+      ]
+    },
+    {
+      "name": "Ancient Andean",
+      "themes": [
+        "Religious scene",
+        "Mythological scene",
+        "Textile motif",
+        "Ceremonial scene"
+      ],
+      "techniques": [
+        "Pigment on Wall",
+        "Pigment on Textile",
+        "Pigment on Pottery"
+      ]
+    },
+    {
+      "name": "Ancient Japanese",
+      "themes": [
+        "Nature scene",
+        "Court scene",
+        "Mythological scene",
+        "Narrative scroll",
+        "Portrait"
+      ],
+      "techniques": [
+        "Ink on Paper",
+        "Pigment on Silk",
+        "Ink on Silk"
+      ]
+    },
+    {
+      "name": "Ancient Greek",
+      "themes": [
+        "Mythological scene",
+        "Portrait",
+        "Historical scene",
+        "Athletic scenes",
+        "Religious scene"
+      ],
+      "techniques": [
+        "Encaustic on Panel",
+        "Tempera on Wood",
+        "Fresco on Plaster"
+      ]
+    },
+    {
+      "name": "Etruscan",
+      "themes": [
+        "Funerary scene",
+        "Banquet scene",
+        "Mythological scene",
+        "Religious scene"
+      ],
+      "techniques": [
+        "Fresco on Plaster",
+        "Pigment on Plaster"
+      ]
+    },
+    {
+      "name": "Ancient Roman",
+      "themes": [
+        "Portrait",
+        "Historical scene",
+        "Mythological scene",
+        "Landscape",
+        "Genre Scene"
+      ],
+      "techniques": [
+        "Fresco on Plaster",
+        "Encaustic on Panel",
+        "Tempera on Wood"
+      ]
+    },
+    {
+      "name": "Byzantine",
+      "themes": [
+        "Religious scene",
+        "Portrait",
+        "Symbolic scene",
+        "Allegorical scene"
+      ],
+      "techniques": [
+        "Tempera on Wood",
+        "Gold Leaf on Panel",
+        "Manuscript Illumination"
+      ]
+    },
+    {
+      "name": "Gothic",
+      "themes": [
+        "Religious scene",
+        "Allegorical scene",
+        "Portrait",
+        "Symbolic scene"
+      ],
+      "techniques": [
+        "Tempera on Wood",
+        "Manuscript Illumination",
+        "Gold Leaf on Panel"
+      ]
+    },
+    {
+      "name": "Romanesque",
+      "themes": [
+        "Religious scene",
+        "Biblical scenes",
+        "Symbolic scene",
+        "Allegorical scene"
+      ],
+      "techniques": [
+        "Fresco on Plaster",
+        "Tempera on Wood",
+        "Manuscript Illumination"
+      ]
+    },
+    {
+      "name": "Early Renaissance",
+      "themes": [
+        "Religious scene",
+        "Portrait",
+        "Mythological scene",
+        "Allegorical scene"
+      ],
+      "techniques": [
+        "Tempera on Panel",
+        "Oil on Panel",
+        "Fresco on Plaster"
+      ]
+    },
+    {
+      "name": "High Renaissance",
+      "themes": [
+        "Religious scene",
+        "Portrait",
+        "Mythological scene",
+        "Historical scene",
+        "Allegorical scene"
+      ],
+      "techniques": [
+        "Oil on Canvas",
+        "Oil on Panel",
+        "Fresco on Plaster"
+      ]
+    },
+    {
+      "name": "Northern Renaissance",
+      "themes": [
+        "Portrait",
+        "Religious scene",
+        "Genre Scene",
+        "Still Life",
+        "Landscape"
+      ],
+      "techniques": [
+        "Oil on Panel",
+        "Oil on Canvas",
+        "Tempera on Panel"
+      ]
+    },
+    {
+      "name": "Mannerism",
+      "themes": [
+        "Mythological scene",
+        "Allegorical scene",
+        "Portrait",
+        "Religious scene"
+      ],
+      "techniques": [
+        "Oil on Canvas",
+        "Oil on Panel",
+        "Fresco on Plaster"
+      ]
+    },
+    {
+      "name": "Baroque",
+      "themes": [
+        "Religious scene",
+        "Historical scene",
+        "Mythological scene",
+        "Portrait",
+        "Allegorical scene",
+        "Genre Scene",
+        "Still Life"
+      ],
+      "techniques": [
+        "Oil on Canvas",
+        "Oil on Panel",
+        "Fresco on Plaster",
+        "Oil on Copper"
+      ]
+    },
+    {
+      "name": "Venetian Renaissance",
+      "themes": [
+        "Portrait",
+        "Religious scene",
+        "Mythological scene",
+        "Landscape",
+        "Allegorical scene"
+      ],
+      "techniques": [
+        "Oil on Canvas",
+        "Oil on Panel",
+        "Fresco on Plaster"
+      ]
+    },
+    {
+      "name": "Caravaggisti",
+      "themes": [
+        "Religious scene",
+        "Genre Scene",
+        "Still Life",
+        "Dramatic scene"
+      ],
+      "techniques": [
+        "Oil on Canvas",
+        "Oil on Panel"
+      ]
+    },
+    {
+      "name": "Spanish Golden Age",
+      "themes": [
+        "Religious scene",
+        "Portrait",
+        "Still Life",
+        "Genre Scene",
+        "Court scene"
+      ],
+      "techniques": [
+        "Oil on Canvas",
+        "Oil on Panel"
+      ]
+    },
+    {
+      "name": "Rococo",
+      "themes": [
+        "Pastoral scene",
+        "Mythological scene",
+        "Portrait",
+        "Decorative composition",
+        "Genre Scene"
+      ],
+      "techniques": [
+        "Oil on Canvas",
+        "Oil on Panel",
+        "Watercolor on Paper"
+      ]
+    },
+    {
+      "name": "Neoclassicism",
+      "themes": [
+        "Historical scene",
+        "Mythological scene",
+        "Allegorical scene",
+        "Portrait"
+      ],
+      "techniques": [
+        "Oil on Canvas",
+        "Tempera on Panel",
+        "Fresco on Plaster"
+      ]
+    },
+    {
+      "name": "Romanticism",
+      "themes": [
+        "Landscape",
+        "Historical scene",
+        "Literary scene",
+        "Portrait",
+        "Dramatic scene"
+      ],
+      "techniques": [
+        "Oil on Canvas",
+        "Watercolor on Paper",
+        "Oil on Board"
+      ]
+    },
+    {
+      "name": "Hudson River School",
+      "themes": [
+        "Landscape",
+        "Wilderness scene",
+        "Allegorical scene",
+        "Panorama"
+      ],
+      "techniques": [
+        "Oil on Canvas",
+        "Oil on Board"
+      ]
+    },
+    {
+      "name": "Pre-Raphaelite Brotherhood",
+      "themes": [
+        "Literary scene",
+        "Mythological scene",
+        "Religious scene",
+        "Medieval scenes"
+      ],
+      "techniques": [
+        "Oil on Canvas",
+        "Tempera on Panel",
+        "Watercolor on Paper"
+      ]
+    },
+    {
+      "name": "Barbizon School",
+      "themes": [
+        "Landscape",
+        "Pastoral scene",
+        "Forest scenes",
+        "Rural life"
+      ],
+      "techniques": [
+        "Oil on Canvas",
+        "Oil on Panel",
+        "Oil on Board"
+      ]
+    },
+    {
+      "name": "Academic Art",
+      "themes": [
+        "Historical scene",
+        "Mythological scene",
+        "Portrait",
+        "Religious scene"
+      ],
+      "techniques": [
+        "Oil on Canvas",
+        "Oil on Panel"
+      ]
+    },
+    {
+      "name": "Realism",
+      "themes": [
+        "Genre Scene",
+        "Landscape",
+        "Portrait",
+        "Social scenes",
+        "Rural life"
+      ],
+      "techniques": [
+        "Oil on Canvas",
+        "Oil on Panel"
+      ]
+    },
+    {
+      "name": "Impressionism",
+      "themes": [
+        "Landscape",
+        "Cityscape",
+        "Genre Scene",
+        "Still Life",
+        "Seascape"
+      ],
+      "techniques": [
+        "Oil on Canvas",
+        "Oil on Board",
+        "Pastels on Paper"
+      ]
+    },
+    {
+      "name": "Post-Impressionism",
+      "themes": [
+        "Landscape",
+        "Still Life",
+        "Portrait",
+        "Genre Scene",
+        "Symbolic scene"
+      ],
+      "techniques": [
+        "Oil on Canvas",
+        "Oil on Board",
+        "Watercolor on Paper"
+      ]
+    },
+    {
+      "name": "Pointillism",
+      "themes": [
+        "Landscape",
+        "Cityscape",
+        "Portrait",
+        "Still Life"
+      ],
+      "techniques": [
+        "Oil on Canvas",
+        "Oil on Board"
+      ]
+    },
+    {
+      "name": "Symbolism",
+      "themes": [
+        "Symbolic scene",
+        "Mythological scene",
+        "Literary scene",
+        "Visionary scene"
+      ],
+      "techniques": [
+        "Oil on Canvas",
+        "Tempera on Panel",
+        "Mixed Media"
+      ]
+    },
+    {
+      "name": "Art Nouveau",
+      "themes": [
+        "Decorative composition",
+        "Floral",
+        "Symbolic scene",
+        "Portrait"
+      ],
+      "techniques": [
+        "Oil on Canvas",
+        "Tempera on Panel",
+        "Mixed Media"
+      ]
+    },
+    {
+      "name": "Fauvism",
+      "themes": [
+        "Portrait",
+        "Landscape",
+        "Still Life",
+        "Figure Study"
+      ],
+      "techniques": [
+        "Oil on Canvas",
+        "Oil on Board",
+        "Mixed Media"
+      ]
+    },
+    {
+      "name": "Expressionism",
+      "themes": [
+        "Portrait",
+        "Figure Study",
+        "Cityscape",
+        "Psychological scenes"
+      ],
+      "techniques": [
+        "Oil on Canvas",
+        "Oil on Board",
+        "Mixed Media"
+      ]
+    },
+    {
+      "name": "Die Brücke",
+      "themes": [
+        "Urban scene",
+        "Figure Study",
+        "Portrait",
+        "Emotional scene"
+      ],
+      "techniques": [
+        "Oil on Canvas",
+        "Woodcut",
+        "Mixed Media"
+      ]
+    },
+    {
+      "name": "Der Blaue Reiter",
+      "themes": [
+        "Abstract composition",
+        "Symbolic scene",
+        "Spiritual scene",
+        "Landscape"
+      ],
+      "techniques": [
+        "Oil on Canvas",
+        "Watercolor on Paper",
+        "Mixed Media"
+      ]
+    },
+    {
+      "name": "Cubism",
+      "themes": [
+        "Portrait",
+        "Still Life",
+        "Figure Study",
+        "Musical instruments"
+      ],
+      "techniques": [
+        "Oil on Canvas",
+        "Collage",
+        "Mixed Media"
+      ]
+    },
+    {
+      "name": "Futurism",
+      "themes": [
+        "Cityscape",
+        "Movement studies",
+        "Industrial scenes",
+        "Abstract composition"
+      ],
+      "techniques": [
+        "Oil on Canvas",
+        "Mixed Media",
+        "Collage"
+      ]
+    },
+    {
+      "name": "Orphism",
+      "themes": [
+        "Abstract composition",
+        "Color study",
+        "Musical theme"
+      ],
+      "techniques": [
+        "Oil on Canvas",
+        "Watercolor on Paper"
+      ]
+    },
+    {
+      "name": "Suprematism",
+      "themes": [
+        "Geometric forms",
+        "Abstract composition",
+        "Pure forms",
+        "Non-objective art"
+      ],
+      "techniques": [
+        "Oil on Canvas",
+        "Oil on Board",
+        "Mixed Media"
+      ]
+    },
+    {
+      "name": "Constructivism",
+      "themes": [
+        "Industrial forms",
+        "Geometric composition",
+        "Revolutionary themes",
+        "Abstract construction"
+      ],
+      "techniques": [
+        "Mixed Media",
+        "Collage",
+        "Industrial materials"
+      ]
+    },
+    {
+      "name": "De Stijl",
+      "themes": [
+        "Abstract composition",
+        "Geometric forms",
+        "Pure abstraction",
+        "Grid compositions"
+      ],
+      "techniques": [
+        "Oil on Canvas",
+        "Mixed Media",
+        "Geometric painting"
+      ]
+    },
+    {
+      "name": "Dada",
+      "themes": [
+        "Anti-art",
+        "Satirical scene",
+        "Collage compositions",
+        "Readymades"
+      ],
+      "techniques": [
+        "Collage",
+        "Mixed Media",
+        "Found Objects"
+      ]
+    },
+    {
+      "name": "Surrealism",
+      "themes": [
+        "Dreams",
+        "Subconscious scenes",
+        "Fantastical scenes",
+        "Automatic drawing"
+      ],
+      "techniques": [
+        "Oil on Canvas",
+        "Mixed Media",
+        "Automatic techniques"
+      ]
+    },
+    {
+      "name": "Abstract Art",
+      "themes": [
+        "Abstract composition",
+        "Color studies",
+        "Geometric forms",
+        "Non-representational"
+      ],
+      "techniques": [
+        "Oil on Canvas",
+        "Acrylic on Canvas",
+        "Mixed Media"
+      ]
+    },
+    {
+      "name": "Abstract Expressionism",
+      "themes": [
+        "Abstract composition",
+        "Emotional expression",
+        "Color field",
+        "Gestural abstraction"
+      ],
+      "techniques": [
+        "Oil on Canvas",
+        "Acrylic on Canvas",
+        "Mixed Media"
+      ]
+    },
+    {
+      "name": "Color Field Painting",
+      "themes": [
+        "Color field",
+        "Abstract composition",
+        "Emotional expression"
+      ],
+      "techniques": [
+        "Acrylic on Canvas",
+        "Oil on Canvas"
+      ]
+    },
+    {
+      "name": "Pop Art",
+      "themes": [
+        "Consumer culture",
+        "Mass media",
+        "Celebrity portraits",
+        "Commercial imagery"
+      ],
+      "techniques": [
+        "Silkscreen on Canvas",
+        "Acrylic on Canvas",
+        "Mixed Media"
+      ]
+    },
+    {
+      "name": "Op Art",
+      "themes": [
+        "Optical illusion",
+        "Geometric forms",
+        "Abstract composition"
+      ],
+      "techniques": [
+        "Acrylic on Canvas",
+        "Oil on Canvas"
+      ]
+    },
+    {
+      "name": "Minimalism",
+      "themes": [
+        "Geometric forms",
+        "Repetitive patterns",
+        "Pure forms",
+        "Reduced compositions"
+      ],
+      "techniques": [
+        "Acrylic on Canvas",
+        "Industrial materials",
+        "Mixed Media"
+      ]
+    },
+    {
+      "name": "Photorealism",
+      "themes": [
+        "Urban scenes",
+        "Portrait",
+        "Still Life",
+        "Everyday objects"
+      ],
+      "techniques": [
+        "Oil on Canvas",
+        "Acrylic on Canvas",
+        "Airbrush"
+      ]
+    },
+    {
+      "name": "Conceptual Art",
+      "themes": [
+        "Ideas over aesthetics",
+        "Text-based work",
+        "Process documentation",
+        "Institutional critique"
+      ],
+      "techniques": [
+        "Mixed Media",
+        "Text and Image",
+        "Documentation"
+      ]
+    },
+    {
+      "name": "Neo-Expressionism",
+      "themes": [
+        "Emotional expression",
+        "Figurative revival",
+        "Cultural identity",
+        "Raw emotion"
+      ],
+      "techniques": [
+        "Oil on Canvas",
+        "Acrylic on Canvas",
+        "Mixed Media"
+      ]
+    },
+    {
+      "name": "Transavantgarde",
+      "themes": [
+        "Figurative revival",
+        "Mythological scene",
+        "Emotional expression"
+      ],
+      "techniques": [
+        "Oil on Canvas",
+        "Acrylic on Canvas",
+        "Mixed Media"
+      ]
+    },
+    {
+      "name": "Street Art",
+      "themes": [
+        "Urban culture",
+        "Political messages",
+        "Social commentary",
+        "Public space"
+      ],
+      "techniques": [
+        "Spray Paint on Wall",
+        "Stencils",
+        "Mixed Media"
+      ]
+    },
+    {
+      "name": "Installation Art",
+      "themes": [
+        "Site-specific work",
+        "Environmental concerns",
+        "Interactive experiences",
+        "Spatial relationships"
+      ],
+      "techniques": [
+        "Mixed Media",
+        "Natural Materials",
+        "Digital Media"
+      ]
+    },
+    {
+      "name": "Hyperrealism",
+      "themes": [
+        "Extreme detail",
+        "Photo-like precision",
+        "Everyday subjects",
+        "Technical mastery"
+      ],
+      "techniques": [
+        "Oil on Canvas",
+        "Acrylic on Canvas",
+        "Airbrush"
+      ]
+    }
+  ]
+}

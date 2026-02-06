@@ -1,0 +1,129 @@
+{
+  "movements": [
+    {
+      "name": "Prehistoric",
+      "themes": ["Animal figure", "Hunting scene", "Hand stencil", "Symbolic mark"],
+      "techniques": ["Charcoal on cave wall", "Red ochre", "Finger drawing"]
+    },
+    {
+      "name": "Ancient Egyptian",
+      "themes": ["Religious scene", "Hieroglyphic text", "Portrait", "Mythological scene"],
+      "techniques": ["Reed pen on papyrus", "Pigment wash", "Incised line"]
+    },
+    {
+      "name": "Ancient Greek",
+      "themes": ["Mythological scene", "Athletic scene", "Portrait", "Decorative border"],
+      "techniques": ["Metalpoint on wax tablet", "Charcoal on papyrus", "Ink on parchment"]
+    },
+    {
+      "name": "Ancient Chinese",
+      "themes": ["Nature study", "Calligraphy", "Landscape", "Court scene"],
+      "techniques": ["Brush and ink on silk", "Brush and ink on paper"]
+    },
+    {
+      "name": "Ancient Indian",
+      "themes": ["Religious scene", "Mythological scene", "Narrative scene", "Court scene"],
+      "techniques": ["Brush and ink on palm leaf", "Pigment on paper"]
+    },
+    {
+      "name": "Ancient Japanese",
+      "themes": ["Nature study", "Narrative scroll", "Portrait", "Mythological scene"],
+      "techniques": ["Brush and ink on paper", "Pigment on silk"]
+    },
+    {
+      "name": "Medieval",
+      "themes": ["Religious scene", "Illuminated initial", "Marginalia", "Bestiary"],
+      "techniques": ["Quill pen on parchment", "Gold leaf", "Pigment wash"]
+    },
+    {
+      "name": "Renaissance",
+      "themes": ["Figure study", "Anatomical study", "Portrait", "Architectural sketch", "Mythological scene"],
+      "techniques": ["Metalpoint", "Chalk", "Ink and wash", "Charcoal"]
+    },
+    {
+      "name": "Baroque",
+      "themes": ["Dramatic scene", "Religious scene", "Portrait", "Preparatory sketch"],
+      "techniques": ["Pen and ink", "Chalk", "Wash drawing"]
+    },
+    {
+      "name": "Rococo",
+      "themes": ["Decorative motif", "Pastoral scene", "Portrait", "Genre scene"],
+      "techniques": ["Red chalk", "Pastel", "Pen and ink"]
+    },
+    {
+      "name": "Neoclassicism",
+      "themes": ["Historical scene", "Mythological scene", "Figure study", "Portrait"],
+      "techniques": ["Graphite", "Pen and ink", "Chalk"]
+    },
+    {
+      "name": "Romanticism",
+      "themes": ["Landscape", "Emotional scene", "Literary scene", "Portrait"],
+      "techniques": ["Watercolor", "Graphite", "Ink wash"]
+    },
+    {
+      "name": "Realism",
+      "themes": ["Everyday scene", "Portrait", "Landscape", "Social scene"],
+      "techniques": ["Graphite", "Charcoal", "Pen and ink"]
+    },
+    {
+      "name": "Impressionism",
+      "themes": ["Landscape", "Cityscape", "Portrait", "Figure study"],
+      "techniques": ["Pastel", "Graphite", "Watercolor"]
+    },
+    {
+      "name": "Modernism",
+      "themes": ["Abstract form", "Geometric study", "Figure study", "Urban scene"],
+      "techniques": ["Charcoal", "Graphite", "Ink", "Collage"]
+    },
+    {
+      "name": "Cubism",
+      "themes": ["Fragmented form", "Still life", "Portrait", "Abstract composition"],
+      "techniques": ["Charcoal", "Graphite", "Collage"]
+    },
+    {
+      "name": "Futurism",
+      "themes": ["Movement study", "Machine form", "Dynamic figure"],
+      "techniques": ["Ink", "Charcoal", "Graphite"]
+    },
+    {
+      "name": "Dada",
+      "themes": ["Collage", "Satirical scene", "Readymade text"],
+      "techniques": ["Collage", "Ink", "Mixed media"]
+    },
+    {
+      "name": "Surrealism",
+      "themes": ["Dream scene", "Automatic drawing", "Fantastical form"],
+      "techniques": ["Ink", "Graphite", "Frottage", "Decalcomania"]
+    },
+    {
+      "name": "Abstract Expressionism",
+      "themes": ["Gesture", "Abstract form", "Emotional mark"],
+      "techniques": ["Ink", "Charcoal", "Graphite"]
+    },
+    {
+      "name": "Minimalism",
+      "themes": ["Geometric form", "Serial mark", "Reduced composition"],
+      "techniques": ["Graphite", "Ink", "Marker"]
+    },
+    {
+      "name": "Pop Art",
+      "themes": ["Celebrity portrait", "Consumer object", "Comic scene"],
+      "techniques": ["Marker", "Ink", "Collage"]
+    },
+    {
+      "name": "Comic Book Art",
+      "themes": ["Superhero scene", "Action sequence", "Character portrait", "Fantasy scene", "Science fiction scene", "Humor strip"],
+      "techniques": ["Ink on bristol board", "Digital inking", "Marker", "Screen tone", "Color wash"]
+    },
+    {
+      "name": "Conceptual Art",
+      "themes": ["Idea-based drawing", "Text drawing", "Instructional work"],
+      "techniques": ["Graphite", "Ink", "Mixed media"]
+    },
+    {
+      "name": "Contemporary",
+      "themes": ["Installation drawing", "Environmental drawing", "Interactive work", "Political scene"],
+      "techniques": ["Mixed media", "Digital drawing", "Marker", "Spray paint"]
+    }
+  ]
+}

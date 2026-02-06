@@ -1,0 +1,412 @@
+{
+  "subgenres": [
+    {
+      "name": "space opera",
+      "themes": [
+        "interstellar conflict",
+        "galactic empire",
+        "heroic rebellion",
+        "ancient alien races",
+        "faster-than-light travel",
+        "political intrigue",
+        "planetary exploration",
+        "cosmic destiny",
+        "starship adventure",
+        "unknown frontiers"
+      ],
+      "protagonists": [
+        "starship captain",
+        "rebel leader",
+        "alien diplomat",
+        "smuggler",
+        "fleet admiral",
+        "rogue pilot",
+        "archaeologist",
+        "imperial agent",
+        "cyborg navigator",
+        "space marine"
+      ],
+      "fates": [
+        "saves the galaxy",
+        "betrays their commander",
+        "discovers lost civilization",
+        "unites warring systems",
+        "sacrifices ship for crew",
+        "thrives in chaos",
+        "uncovers galactic conspiracy",
+        "becomes a legend",
+        "negotiates peace treaty",
+        "vanishes in hyperspace"
+      ],
+      "endings": [
+        "achieves an epic victory",
+        "makes a tragic sacrifice",
+        "steps into an open horizon",
+        "restores the empire",
+        "sparks a new rebellion",
+        "begins a mythic saga",
+        "secures a diplomatic triumph",
+        "leaves a cosmic mystery",
+        "enjoys a hero’s homecoming",
+        "immortalizes the legend"
+      ]
+    },
+    {
+      "name": "cyberpunk",
+      "themes": [
+        "corporate oppression",
+        "cybernetic augmentation",
+        "digital consciousness",
+        "urban decay",
+        "hacker revolution",
+        "virtual reality",
+        "neon noir",
+        "data heists",
+        "surveillance state",
+        "AI uprising"
+      ],
+      "protagonists": [
+        "edgerunner",
+        "netrunner",
+        "corporate spy",
+        "street samurai",
+        "rogue AI researcher",
+        "underground hacker",
+        "cybernetic mercenary",
+        "fixer",
+        "ex-cop detective",
+        "techno activist"
+      ],
+      "fates": [
+        "uploads their consciousness",
+        "topples a mega-corp",
+        "loses their humanity",
+        "rewrites the code of reality",
+        "becomes a digital ghost",
+        "leads a net rebellion",
+        "escapes the grid",
+        "betrays their crew",
+        "secures data freedom",
+        "erases corporate records"
+      ],
+      "endings": [
+        "welcomes a neon dawn",
+        "triggers a system reboot",
+        "earns an antihero vindication",
+        "initiates a digital purge",
+        "reveals a shattered utopia",
+        "creates a hacker legend",
+        "ends on a silent server",
+        "enters a binary twilight",
+        "deploys a revolutionary code",
+        "becomes a cyber myth"
+      ]
+    },
+    {
+      "name": "time travel",
+      "themes": [
+        "paradox",
+        "alternate timelines",
+        "historical rescue",
+        "butterfly effect",
+        "chronal warfare",
+        "time loops",
+        "future dystopia",
+        "causal manipulation",
+        "temporal ethics",
+        "memory of tomorrow"
+      ],
+      "protagonists": [
+        "temporal agent",
+        "theoretical physicist",
+        "time tourist",
+        "historian",
+        "civilian accident traveler",
+        "chrono-hacker",
+        "anachronistic soldier",
+        "chrononaut",
+        "quantum engineer",
+        "rogue scientist"
+      ],
+      "fates": [
+        "rewrites history",
+        "erases their timeline",
+        "traps themselves in loop",
+        "saves their ancestor",
+        "creates paradox",
+        "restores proper sequence",
+        "changes future irrevocably",
+        "becomes temporally displaced",
+        "halts chrono-war",
+        "sacrifices self to reboot time"
+      ],
+      "endings": [
+        "undoes the paradox",
+        "enters an alternate reality",
+        "suffers a time fracture",
+        "restores the timeline",
+        "falls into an open loop",
+        "makes a chronal sacrifice",
+        "encounters a time anomaly",
+        "hears echoing destinies",
+        "initiates a temporal reset",
+        "rewrites history"
+      ]
+    },
+    {
+      "name": "dystopian",
+      "themes": [
+        "totalitarian regime",
+        "societal collapse",
+        "resource scarcity",
+        "rebellion",
+        "surveillance",
+        "genetic control",
+        "environmental ruin",
+        "crowd manipulation",
+        "underground resistance",
+        "post-apocalyptic survival"
+      ],
+      "protagonists": [
+        "resistance fighter",
+        "disillusioned official",
+        "black market trader",
+        "exiled intellectual",
+        "escapee",
+        "journalist",
+        "factory worker",
+        "engineer",
+        "scavenger",
+        "cybernetic rebel"
+      ],
+      "fates": [
+        "overthrows government",
+        "is captured and broken",
+        "leads new society",
+        "dies in uprising",
+        "exposes the truth",
+        "escapes to wilderness",
+        "unites factions",
+        "secures safe haven",
+        "becomes a martyr",
+        "rebuilds civilization"
+      ],
+      "endings": [
+        "achieves a rebellion triumph",
+        "receives a tragic mercy",
+        "uncovers a shadow government",
+        "secures a fragile hope",
+        "faces a burned world",
+        "leaves a resistance legacy",
+        "witnesses a rebirth from ashes",
+        "wins a silent victory",
+        "returns to a cyclical dystopia",
+        "issues an open-ended warning"
+      ]
+    },
+    {
+      "name": "first contact",
+      "themes": [
+        "alien diplomacy",
+        "cultural exchange",
+        "miscommunication",
+        "xenophobia",
+        "cosmic isolation",
+        "technology leap",
+        "peaceful outreach",
+        "hostile encounter",
+        "universal language",
+        "ethical dilemma"
+      ],
+      "protagonists": [
+        "diplomat",
+        "xenoanthropologist",
+        "military attaché",
+        "mission pilot",
+        "linguist",
+        "astronomer",
+        "colonist",
+        "anthropologist",
+        "first contact team lead",
+        "space explorer"
+      ],
+      "fates": [
+        "forms an alliance",
+        "sparks interstellar war",
+        "is assimilated",
+        "loses comprehension",
+        "mediates peace",
+        "is abducted",
+        "uncovers hidden agenda",
+        "becomes ambassador",
+        "bridges species divide",
+        "is stranded on alien world"
+      ],
+      "endings": [
+        "forms a galactic alliance",
+        "engages in an inevitable conflict",
+        "makes a spirited departure",
+        "initiates open contact",
+        "negotiates a compromise between species",
+        "performs a first handshake",
+        "signs a peace treaty",
+        "achieves a cultural fusion",
+        "says a mysterious goodbye",
+        "continues the voyage"
+      ]
+    },
+    {
+      "name": "hard sci-fi",
+      "themes": [
+        "scientific realism",
+        "quantum mechanics",
+        "astrobiology",
+        "space habitats",
+        "AI ethics",
+        "relativistic travel",
+        "terraforming",
+        "robotic autonomy",
+        "genetic engineering",
+        "energy crises"
+      ],
+      "protagonists": [
+        "astronaut",
+        "quantum physicist",
+        "planetary geologist",
+        "AI researcher",
+        "exobiologist",
+        "engineer",
+        "cosmologist",
+        "roboticist",
+        "biotechnologist",
+        "space architect"
+      ],
+      "fates": [
+        "proves a new theory",
+        "discovers alien life",
+        "builds a space colony",
+        "is lost in relativity",
+        "halts AI uprising",
+        "engineers new species",
+        "stabilizes star",
+        "avoids a cosmic disaster",
+        "secures energy source",
+        "advances human evolution"
+      ],
+      "endings": [
+        "achieves a scientific breakthrough",
+        "records a first contact",
+        "creates an engineered paradise",
+        "reaches the cosmic frontier",
+        "demonstrates mathematical elegance",
+        "solves the survival calculus",
+        "triggers a technological singularity",
+        "completes a terraforming success",
+        "enters a quantum loop",
+        "expands reality"
+      ]
+    },
+    {
+      "name": "military sci-fi",
+      "themes": [
+        "interstellar warfare",
+        "soldier camaraderie",
+        "tactical strategy",
+        "battlefield sacrifice",
+        "mecha combat",
+        "space fleet engagements",
+        "guerrilla tactics",
+        "war economy",
+        "honor and duty",
+        "post-war reconstruction"
+      ],
+      "protagonists": [
+        "space marine",
+        "fleet commander",
+        "mecha pilot",
+        "military strategist",
+        "veteran soldier",
+        "drone operator",
+        "defector",
+        "field medic",
+        "tech support officer",
+        "honorable officer"
+      ],
+      "fates": [
+        "wins critical battle",
+        "saves squad",
+        "captures enemy flagship",
+        "is decorated posthumously",
+        "deserts the army",
+        "outsmarts opponent",
+        "sabotages supply lines",
+        "sacrifices self for mission",
+        "leads ceasefire",
+        "commands new unit"
+      ],
+      "endings": [
+        "parades a victory",
+        "beats mourning drums",
+        "signs a peace treaty",
+        "bears the scars of war",
+        "preserves honor",
+        "secures an unexpected peace",
+        "conducts an epic decommission",
+        "leaves a legacy of valor",
+        "establishes an uneasy peace",
+        "hints at a new conflict"
+      ]
+    },
+    {
+      "name": "biopunk",
+      "themes": [
+        "genetic manipulation",
+        "body horror",
+        "eco-engineering",
+        "viral outbreaks",
+        "designer organs",
+        "cyberbiome",
+        "biological weaponry",
+        "identity and DNA",
+        "post-human evolution",
+        "organ farming"
+      ],
+      "protagonists": [
+        "bioengineer",
+        "virologist",
+        "genetic subject",
+        "underground doctor",
+        "eco-activist",
+        "media scientist",
+        "gene pirate",
+        "mutation survivor",
+        "ethics investigator",
+        "organ courier"
+      ],
+      "fates": [
+        "embraces mutation",
+        "cures pandemic",
+        "becomes test subject",
+        "engineers new life",
+        "loses their humanity",
+        "unleashes virus",
+        "secures biotech monopoly",
+        "resists bodily transformation",
+        "creates hybrid species",
+        "is quarantined"
+      ],
+      "endings": [
+        "welcomes a transhuman dawn",
+        "achieves viral containment",
+        "leaves a genetic legacy",
+        "sparks a biohacker revolution",
+        "faces an ethical reckoning",
+        "witnesses a mutation bloom",
+        "sees the body reclaimed briefly",
+        "initiates an eco-evolution",
+        "becomes post-human",
+        "reaches a biological singularity"
+      ]
+    }
+  ]
+}

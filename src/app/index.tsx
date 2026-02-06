@@ -1,6 +1,6 @@
 import { ScrollView, XStack, YStack } from "tamagui";
 
-import { ContentCard } from "../components/ContentCard";
+import { ContentCard } from "@/components/ContentCard";
 import { X } from "@tamagui/lucide-icons";
 
 export default function Home() {

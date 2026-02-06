@@ -1,6 +1,6 @@
 import { XStack, Button, useThemeName } from "tamagui";
 import { Sun, Moon, Monitor } from "@tamagui/lucide-icons";
-import { useTheme, type ThemePreference } from "../context/ThemeContext";
+import { useTheme, type ThemePreference } from "@/context/ThemeContext";
 
 type ThemeOption = {
   value: ThemePreference;

@@ -1,7 +1,7 @@
 import { YStack, XStack, H1, H2, Theme } from "tamagui";
 
-import HamburguerMenu from "./HamburguerMenu";
-import ThemeToggle from "./ThemeToggle";
+import HamburguerMenu from "@/components/HamburguerMenu";
+import ThemeToggle from "@/components/ThemeToggle";
 
 type HeaderProps = {
   title: string;

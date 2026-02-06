@@ -1,0 +1,512 @@
+{
+  "subgenres": [
+    {
+      "name": "epic fantasy",
+      "themes": [
+        "hero's journey",
+        "quest for power",
+        "ancient prophecy",
+        "clash of kingdoms",
+        "sacred relic",
+        "betrayal among allies",
+        "rise of a chosen one",
+        "battle of good vs evil",
+        "forbidden magic",
+        "legacy of heroes"
+      ],
+      "protagonists": [
+        "reluctant farmhand",
+        "wandering knight",
+        "scholar-mage",
+        "exiled prince/princess",
+        "veteran soldier",
+        "oracular seer",
+        "blacksmith apprentice",
+        "forest ranger",
+        "royal advisor",
+        "dragon slayer"
+      ],
+      "fates": [
+        "claims the throne",
+        "falls into darkness",
+        "saves the realm",
+        "sacrifices themselves",
+        "uncovers the truth",
+        "unites warring factions",
+        "betrays their mentor",
+        "awakens an ancient power",
+        "forges an unexpected alliance",
+        "restores balance"
+      ],
+      "endings": [
+        "achieves a triumphant victory",
+        "receives a bittersweet farewell",
+        "fulfills a prophecy",
+        "steps into an open horizon",
+        "negotiates a rocky peace",
+        "makes a tragic sacrifice",
+        "brings about a new age",
+        "passes on the crown"
+      ]
+    },
+    {
+      "name": "urban fantasy",
+      "themes": [
+        "secret magic",
+        "dual worlds",
+        "supernatural underworld",
+        "hidden societies",
+        "spirits among us",
+        "enchanted cityscape",
+        "magical crime",
+        "modern enchantment",
+        "clash of mundane and magical",
+        "urban legends"
+      ],
+      "protagonists": [
+        "private investigator",
+        "coffee shop barista",
+        "street mage",
+        "underground hacker",
+        "nightclub singer",
+        "reluctant sorcerer",
+        "vigilante detective",
+        "magical relic dealer",
+        "torn shapeshifter",
+        "arcane librarian"
+      ],
+      "fates": [
+        "is exposed to the world",
+        "loses their powers",
+        "uncovers a hidden council",
+        "binds with a spirit",
+        "is betrayed by a friend",
+        "prevents a magical catastrophe",
+        "embraces their destiny",
+        "sacrifices anonymity",
+        "unifies rival factions",
+        "vanishes into the night"
+      ],
+      "endings": [
+        "saves the city in secret",
+        "maintains a double life",
+        "allows the shadows to reclaim the streets",
+        "negotiates a fragile truce",
+        "allows new threats to emerge",
+        "forms an unexpected alliance",
+        "keeps the world unaware",
+        "passes on the power",
+        "ushers in a mystical dawn",
+        "lets the veil fray"
+      ]
+    },
+    {
+      "name": "sword and sorcery",
+      "themes": [
+        "barbarian revenge",
+        "dark sorcery",
+        "lost civilization",
+        "magical duels",
+        "treasure heist",
+        "cursed artifact",
+        "grim mercenary life",
+        "mythical beasts",
+        "forbidden spells",
+        "survival against odds"
+      ],
+      "protagonists": [
+        "wandering mercenary",
+        "rogue thief",
+        "battle-scarred warrior",
+        "exiled sorceress",
+        "treasure hunter",
+        "cursed gladiator",
+        "village defender",
+        "spellbound king",
+        "nomadic hunter",
+        "rogue wizard apprentice"
+      ],
+      "fates": [
+        "claims legendary sword",
+        "betrays their comrades",
+        "breaks the curse",
+        "dies in gladiatorial arena",
+        "unearths ancient ruins",
+        "confronts dark god",
+        "escapes with treasure",
+        "loses their humanity",
+        "secures a new empire",
+        "vanishes in mist"
+      ],
+      "endings": [
+        "stages a last stand",
+        "sees the treasure lost again",
+        "emerges bloodied but victorious",
+        "reawakens a curse",
+        "starts a new legend",
+        "suffers fraying sanity",
+        "meets a hero's demise",
+        "leaves an unstoppable legacy",
+        "hears echoing war drums",
+        "receives a haunting epilogue"
+      ]
+    },
+    {
+      "name": "mythic fantasy",
+      "themes": [
+        "divine intervention",
+        "creation myths",
+        "heroic epic",
+        "cosmic order",
+        "sacred rituals",
+        "tribal legends",
+        "fate vs free will",
+        "godly trials",
+        "beast taming",
+        "ancient pantheon"
+      ],
+      "protagonists": [
+        "tribal chieftain",
+        "oracle",
+        "demi-god hero",
+        "ritual priestess",
+        "monster hunter",
+        "sacred bard",
+        "wildling scout",
+        "celestial envoy",
+        "dreamweaver",
+        "spirit medium"
+      ],
+      "fates": [
+        "ascends to godhood",
+        "restores cosmic balance",
+        "loses divine favor",
+        "unites warring tribes",
+        "awakens slumbering deity",
+        "breaks the world's cycle",
+        "sacrifices themselves at altar",
+        "restores tribal legacy",
+        "casts final judgment",
+        "returns to the stars"
+      ],
+      "endings": [
+        "achieves a divine ascension",
+        "brings about an earth reborn",
+        "restores the pantheon",
+        "ensures a heroic legacy lives on",
+        "continues a sacred cycle",
+        "witnesses an epic rebirth",
+        "ushers in a mythic dawn",
+        "restores cosmic harmony",
+        "passes down the tale",
+        "enters a sacred silence"
+      ]
+    },
+    {
+      "name": "dark fantasy",
+      "themes": [
+        "moral ambiguity",
+        "tainted power",
+        "haunted realms",
+        "twisted fate",
+        "nightmarish landscapes",
+        "cursed bloodlines",
+        "shadow magic",
+        "desperate alliances",
+        "broken heroes",
+        "forbidden bargains"
+      ],
+      "protagonists": [
+        "anti-hero knight",
+        "cursed prince",
+        "fallen paladin",
+        "outsider sorcerer",
+        "exiled witch",
+        "demon hunter",
+        "grave robber",
+        "twilight ranger",
+        "nomadic assassin",
+        "haunted minstrel"
+      ],
+      "fates": [
+        "succumbs to darkness",
+        "redeems their soul",
+        "breaks their oath",
+        "is consumed by shadows",
+        "saves a doomed kingdom",
+        "betrays their kin",
+        "unravels a dark prophecy",
+        "loses their humanity",
+        "shatters the veil between worlds",
+        "dies a tragic hero"
+      ],
+      "endings": [
+        "claims a twilight victory",
+        "suffers eternal damnation",
+        "leaves a haunting legacy",
+        "faces a shattered redemption",
+        "wins a grim triumph",
+        "secures a broken peace",
+        "allows a shadow to linger",
+        "faces a cursed dawn",
+        "leaves echoes of sorrow",
+        "receives an ominous epilogue"
+      ]
+    },
+    {
+      "name": "high fantasy",
+      "themes": [
+        "world-building epic",
+        "magical lineage",
+        "ancient prophecy",
+        "hero's heritage",
+        "guild rivalries",
+        "hidden realms",
+        "enchanted forests",
+        "mystical creatures",
+        "sacred oaths",
+        "lost kingdoms"
+      ],
+      "protagonists": [
+        "chosen heir",
+        "wandering envoy",
+        "royal squire",
+        "arcane scholar",
+        "beast tamer",
+        "prophecy child",
+        "ranger of the realm",
+        "elven ambassador",
+        "dwarven warrior",
+        "mystic seer"
+      ],
+      "fates": [
+        "unites the races",
+        "claims ancient throne",
+        "breaks dark curse",
+        "discovers hidden magic",
+        "loses their lineage",
+        "awakens slumbering powers",
+        "sacrifices for the realm",
+        "restores the old ways",
+        "forges legendary alliance",
+        "ascends as guardian"
+      ],
+      "endings": [
+        "celebrates an epic coronation",
+        "fulfills the prophecy",
+        "restores a lasting peace",
+        "ushers in a new era",
+        "initiates a sacred renewal",
+        "reclaims a heritage",
+        "leaves legends immortalized",
+        "secures a royal peace",
+        "assumes an eternal watch",
+        "continues a lasting legacy"
+      ]
+    },
+    {
+      "name": "low fantasy",
+      "themes": [
+        "mundane vs magical",
+        "hidden sorcery",
+        "everyday enchantment",
+        "betrayal of trust",
+        "secret lineage",
+        "supernatural intrusion",
+        "quiet rebellion",
+        "urban legends",
+        "moral ambiguity",
+        "fading magic"
+      ],
+      "protagonists": [
+        "shopkeeper",
+        "street urchin",
+        "barmaid",
+        "blacksmith's apprentice",
+        "fisherman",
+        "tavern bard",
+        "village tailor",
+        "watchman",
+        "town magistrate",
+        "itinerant mage"
+      ],
+      "fates": [
+        "is exposed to the world",
+        "loses their innocence",
+        "unleashes hidden magic",
+        "becomes local legend",
+        "is betrayed by a friend",
+        "protects the innocent",
+        "abandons the mundane",
+        "is hunted by authorities",
+        "uncovers a conspiracy",
+        "sacrifices anonymity"
+      ],
+      "endings": [
+        "meets a bittersweet ending",
+        "secures a hidden peace",
+        "becomes a marginalized hero",
+        "achieves a quiet triumph",
+        "embraces an open-ended wonder",
+        "restores the mundane order",
+        "keeps the magic concealed",
+        "establishes a new balance",
+        "leaves a shadowed hope",
+        "leaves a humble legacy"
+      ]
+    },
+    {
+      "name": "magical realism",
+      "themes": [
+        "folk magic",
+        "everyday wonder",
+        "cultural myths",
+        "subtle enchantment",
+        "time loops",
+        "memory and magic",
+        "rural mysticism",
+        "urban fables",
+        "mythic echoes",
+        "supernatural undercurrents"
+      ],
+      "protagonists": [
+        "village teacher",
+        "traveling merchant",
+        "retired soldier",
+        "inquisitive child",
+        "grieving widow",
+        "itinerant storyteller",
+        "reluctant medium",
+        "local healer",
+        "urban poet",
+        "aging artist"
+      ],
+      "fates": [
+        "bridges two worlds",
+        "loses touch with reality",
+        "unravels family secrets",
+        "awakens ancestral power",
+        "reveals hidden truths",
+        "restores faded magic",
+        "befriends a spirit",
+        "breaks a generational curse",
+        "embraces the uncanny",
+        "becomes a myth"
+      ],
+      "endings": [
+        "creates a poetic resolution",
+        "offers a bittersweet magical ending",
+        "reaches a dreamlike conclusion",
+        "embraces an open-ended wonder",
+        "completes a mythic loop",
+        "offers a reflective farewell",
+        "ushers in a magical dawn",
+        "closes with a spiral narrative",
+        "allows an enigmatic closure",
+        "receives a heartfelt epilogue"
+      ]
+    },
+    {
+      "name": "steampunk fantasy",
+      "themes": [
+        "clockwork rebellion",
+        "airship piracy",
+        "industrial intrigue",
+        "steam-powered wonders",
+        "gaslamp romance",
+        "brass and soot",
+        "mechanized monstrosities",
+        "engineer's ambition",
+        "dieselpunk echoes",
+        "retro-futurism"
+      ],
+      "protagonists": [
+        "airship captain",
+        "inventor",
+        "rogue mechanic",
+        "clockmaker",
+        "society reporter",
+        "royal engineer",
+        "alchemy student",
+        "velocipede courier",
+        "labor unionist",
+        "automaton caretaker"
+      ],
+      "fates": [
+        "saboteurs the flagship",
+        "unearths lost technology",
+        "rescues the crew",
+        "betrays the corporation",
+        "overloads the boilers",
+        "steals the prototype",
+        "unleashes a clockwork army",
+        "sacrifices self to prevent disaster",
+        "exposes political corruption",
+        "soars into the unknown"
+      ],
+      "endings": [
+        "claims a smoke-filled triumph",
+        "meets rust and ruin",
+        "greets a skyward dawn",
+        "leaves a mechanical legacy",
+        "reaches a cogwheel crescendo",
+        "establishes an urbane peace",
+        "closes with an industrial epilogue",
+        "witnesses an aerial wonder",
+        "reaches a steamy horizon",
+        "secures gears and glory"
+      ]
+    },
+    {
+      "name": "historical fantasy",
+      "themes": [
+        "alternate history",
+        "mythic retelling",
+        "ancient magic resurfacing",
+        "courtly intrigue",
+        "crusader's legacy",
+        "samurai honor",
+        "imperial conspiracies",
+        "colonial mysticism",
+        "renaissance wonders",
+        "medieval alchemy"
+      ],
+      "protagonists": [
+        "knight errant",
+        "court magician",
+        "Imperial envoy",
+        "ninja spy",
+        "voyaging diplomat",
+        "monk-scribe",
+        "royal falconer",
+        "pirate captain",
+        "tribal warrior",
+        "cultural historian"
+      ],
+      "fates": [
+        "changes the course of history",
+        "uncovers a royal secret",
+        "wields forbidden magic",
+        "betrays their sovereign",
+        "saves an empire",
+        "revives ancient cult",
+        "sacrifices honor for power",
+        "secures a peace treaty",
+        "unearths an artifact",
+        "cancels a war"
+      ],
+      "endings": [
+        "creates a historic legacy",
+        "stages a courtly twist",
+        "begins a mythic reign",
+        "closes with a nostalgic epilogue",
+        "forges iron and magic",
+        "leaves a timeless legacy",
+        "ushers in a regal dawn",
+        "fulfills an ancient prophecy",
+        "reclaims a legacy",
+        "secures a place in history"
+      ]
+    }
+  ]
+}

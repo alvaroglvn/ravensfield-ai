@@ -17,7 +17,7 @@ export default function Footer() {
       >
         <YStack />
         <YStack style={{ alignItems: "center" }}>
-          <Text size="$2">© {year} Ravensfield AI</Text>
+          <Text fontSize="$2">© {year} Ravensfield AI</Text>
         </YStack>
         <YStack />
       </XStack>
