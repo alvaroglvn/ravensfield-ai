@@ -1,0 +1,79 @@
+DATABASE ARCHITECTURE - The Ravensfield Collection
+==================================================
+
+Database: Turso (SQLite-compatible, edge-hosted)
+ORM: Drizzle ORM (schema definition & migrations)
+Connection: HTTP API via fetch (Metro/Expo compatible)
+
+
+TABLES
+------
+
+1. ARTICLES (Primary content)
+   - id            INTEGER  Primary key, auto-increment
+   - slug          TEXT     Unique URL identifier
+   - title         TEXT     Article headline
+   - seo_description TEXT   Meta description for SEO
+   - content       TEXT     Full article body
+   - created_at    TEXT     Timestamp (default: CURRENT_TIMESTAMP)
+
+2. ARTWORKS (One-to-one with articles)
+   - id            INTEGER  Primary key, auto-increment
+   - article_id    INTEGER  FK -> articles.id (unique, cascade delete)
+   - title         TEXT     Artwork name
+   - year          TEXT     Year of creation
+   - type          TEXT     Category (painting, sculpture, photograph, etc.)
+   - medium        TEXT     Materials/technique
+   - artist        TEXT     Creator name
+   - image_prompt  TEXT     AI prompt used for generation
+   - image_url     TEXT     CDN URL of the generated image
+   - created_at    TEXT     Timestamp
+
+3. QUOTES (One-to-many with articles)
+   - id            INTEGER  Primary key, auto-increment
+   - article_id    INTEGER  FK -> articles.id (cascade delete)
+   - content       TEXT     Quote text
+   - author        TEXT     Attribution
+   - created_at    TEXT     Timestamp
+
+
+RELATIONSHIPS
+-------------
+
+  articles (1) -----> (1) artworks
+      |
+      +-------------> (N) quotes
+
+- Each article has exactly ONE artwork (the featured piece)
+- Each article can have MULTIPLE quotes
+- Deleting an article cascades to its artwork and quotes
+
+
+CONNECTION SETUP
+----------------
+
+The app uses Turso's HTTP pipeline API instead of the native libsql
+client because Metro (Expo's bundler) cannot bundle native Node modules.
+
+Flow:
+  1. API route (e.g., feed+api.ts) calls executeQuery()
+  2. executeQuery() sends POST to https://<db>.turso.io/v2/pipeline
+  3. Response is parsed and mapped to typed objects
+
+Environment variables required:
+  - TURSO_DATABASE_URL  (libsql://... format, converted to https)
+  - TURSO_AUTH_TOKEN    (JWT from Turso dashboard)
+
+
+FILE LOCATIONS
+--------------
+
+  src/db/
+    index.ts     - Connection & executeQuery helper
+    schema.ts    - Drizzle table definitions & relations
+
+  src/app/api/
+    feed+api.ts           - GET /api/feed (latest 5 articles)
+    article/[slug]+api.ts - GET /api/article/:slug (single article)
+
+  drizzle.config.ts - Drizzle Kit config for migrations

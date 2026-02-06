@@ -5,6 +5,7 @@ import {
   SafeAreaProvider,
   initialWindowMetrics,
 } from "react-native-safe-area-context";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import tamaguiConfig from "../../tamagui.config";
 import Header from "@/components/Header";
@@ -15,6 +16,8 @@ import { ThemeProvider, useTheme } from "@/context/ThemeContext";
 if (Platform.OS === "web") {
   require("@/styles/tamagui.generated.css");
 }
+
+const queryClient = new QueryClient();
 
 function AppContent() {
   const { resolvedTheme, isLoaded } = useTheme();
@@ -38,10 +41,12 @@ function AppContent() {
 
 export default function RootLayout() {
   return (
-    <SafeAreaProvider initialMetrics={initialWindowMetrics}>
-      <ThemeProvider defaultTheme="system">
-        <AppContent />
-      </ThemeProvider>
-    </SafeAreaProvider>
+    <QueryClientProvider client={queryClient}>
+      <SafeAreaProvider initialMetrics={initialWindowMetrics}>
+        <ThemeProvider defaultTheme="system">
+          <AppContent />
+        </ThemeProvider>
+      </SafeAreaProvider>
+    </QueryClientProvider>
   );
 }
