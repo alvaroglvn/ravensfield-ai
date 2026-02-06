@@ -65,6 +65,43 @@ Environment variables required:
   - TURSO_AUTH_TOKEN    (JWT from Turso dashboard)
 
 
+METRO + EXPO CAVEATS
+--------------------
+
+The standard @libsql/client package DOES NOT work with Expo/Metro because:
+
+1. Native bindings issue
+   @libsql/client tries to load platform-specific native modules like
+   @libsql/darwin-arm64 (macOS), @libsql/linux-x64, etc. Metro cannot
+   bundle these Node.js native addons.
+
+2. The /web and /http imports don't help
+   Even imports like @libsql/client/web or @libsql/client/http still
+   pull in the hrana-client dependency which has the same bundling
+   issues (hrana.openHttp is not a function error).
+
+3. drizzle-orm/libsql/web also fails
+   Drizzle's web driver internally depends on the same problematic
+   packages.
+
+SOLUTION: Raw HTTP API
+   We bypass all libsql packages entirely and call Turso's HTTP API
+   directly using fetch(). This works because:
+   - fetch() is available in both Node.js and browser environments
+   - No native dependencies to bundle
+   - The v2/pipeline endpoint accepts SQL statements as JSON
+
+The trade-off is we lose Drizzle's query builder in API routes and
+must write raw SQL. However, Drizzle is still used for:
+   - Schema definitions (src/db/schema.ts)
+   - Migrations via drizzle-kit
+   - Type generation
+
+Metro config (metro.config.js) also includes resolver rules to return
+empty modules for any @libsql/* or libsql imports, preventing Metro
+from attempting to bundle them if they're accidentally imported.
+
+
 FILE LOCATIONS
 --------------
 
@@ -77,3 +114,4 @@ FILE LOCATIONS
     article/[slug]+api.ts - GET /api/article/:slug (single article)
 
   drizzle.config.ts - Drizzle Kit config for migrations
+  metro.config.js   - Resolver rules to exclude libsql native modules
