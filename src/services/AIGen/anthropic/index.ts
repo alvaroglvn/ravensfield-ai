@@ -5,5 +5,8 @@ export {
   validateAnthropicData,
 } from "@/services/AIGen/anthropic/parse-and-validate";
 
-export { jsonSchema, OutputSchema } from "@/services/AIGen/anthropic/output-schema";
+export {
+  jsonSchema,
+  OutputSchema,
+} from "@/services/AIGen/anthropic/output-schema";
 export type { OutputSchemaType } from "@/services/AIGen/anthropic/output-schema";
