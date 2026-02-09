@@ -3488,6 +3488,72 @@ var themes2 = {
   dark_neutral_SwitchThumb: n1222
 };
 
+// src/themes/fonts.ts
+var headingFont = (0, import_core4.createFont)({
+  family: "CormorantGaramond_700Bold",
+  size: {
+    1: 14,
+    2: 18,
+    3: 24,
+    4: 30,
+    5: 42,
+    6: 64,
+    7: 80,
+    8: 96
+  },
+  lineHeight: {
+    1: 18,
+    2: 24,
+    3: 30,
+    4: 40,
+    5: 50,
+    6: 74
+  },
+  weight: {
+    1: "400",
+    2: "700"
+  },
+  letterSpacing: {
+    1: 0,
+    2: -1
+  },
+  // NATIVE MAPPING: This ensures Android knows which file to use
+  face: {
+    400: { normal: "CormorantGaramond_400Regular" },
+    700: { normal: "CormorantGaramond_700Bold" }
+  }
+});
+var bodyFont = (0, import_core4.createFont)({
+  family: "Inter_400Regular",
+  size: {
+    1: 12,
+    2: 14,
+    3: 16,
+    4: 18,
+    5: 20,
+    6: 24
+  },
+  lineHeight: {
+    1: 16,
+    2: 20,
+    3: 24,
+    4: 28,
+    5: 32
+  },
+  weight: {
+    1: "400",
+    2: "600"
+  },
+  letterSpacing: {
+    1: 0,
+    2: 0
+  },
+  face: {
+    400: { normal: "Inter_400Regular" },
+    600: { normal: "Inter_600SemiBold" }
+  }
+});
+
 // tamagui.config.ts
 var tamaguiConfig = createTamagui({
   ...defaultConfig,
@@ -3497,6 +3563,10 @@ var tamaguiConfig = createTamagui({
   themes: {
     ...defaultConfig.themes,
     ...themes2
+  },
+  fonts: {
+    heading: headingFont,
+    body: bodyFont
   }
 });
 var tamagui_config_default = tamaguiConfig;

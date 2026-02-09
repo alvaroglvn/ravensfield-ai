@@ -1,18 +1,27 @@
 import { TamaguiProvider, Theme, YStack } from "tamagui";
-import { Slot } from "expo-router";
+import { Slot, SplashScreen } from "expo-router"; // 1. Import SplashScreen
 import { Platform } from "react-native";
+import { useFonts } from "expo-font";
+import { useEffect } from "react"; // 2. Import useEffect
 import {
   SafeAreaProvider,
   initialWindowMetrics,
 } from "react-native-safe-area-context";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import {
+  CormorantGaramond_400Regular,
+  CormorantGaramond_700Bold,
+} from "@expo-google-fonts/cormorant-garamond";
+import { Inter_400Regular, Inter_600SemiBold } from "@expo-google-fonts/inter";
 
 import tamaguiConfig from "../../tamagui.config";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { ThemeProvider, useTheme } from "@/context/ThemeContext";
 
-// Import generated CSS for web theme switching
+// 3. Prevent the splash screen from hiding automatically
+SplashScreen.preventAutoHideAsync();
+
 if (Platform.OS === "web") {
   require("@/styles/tamagui.generated.css");
 }
@@ -20,9 +29,29 @@ if (Platform.OS === "web") {
 const queryClient = new QueryClient();
 
 function AppContent() {
-  const { resolvedTheme, isLoaded } = useTheme();
+  const { resolvedTheme, isLoaded: themeLoaded } = useTheme();
 
-  if (!isLoaded) {
+  const [fontsLoaded] = useFonts({
+    Inter: require("@tamagui/font-inter/otf/Inter-Medium.otf"),
+    InterBold: require("@tamagui/font-inter/otf/Inter-Bold.otf"),
+    CormorantGaramond_400Regular,
+    CormorantGaramond_700Bold,
+    Inter_400Regular,
+    Inter_600SemiBold,
+  });
+
+  // 4. Combine your loading states
+  const appIsReady = themeLoaded && fontsLoaded;
+
+  // 5. Hide splash screen ONLY when everything is ready
+  useEffect(() => {
+    if (appIsReady) {
+      SplashScreen.hideAsync();
+    }
+  }, [appIsReady]);
+
+  // 6. Don't render ANYTHING until ready
+  if (!appIsReady) {
     return null;
   }
 
