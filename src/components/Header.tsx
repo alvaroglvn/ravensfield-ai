@@ -8,10 +8,7 @@ type HeaderProps = {
   subtitle?: string;
 };
 
-export default function Header({
-  title = "Ravensfield AI",
-  subtitle = "An AI Museum",
-}: HeaderProps) {
+export default function Header({ title, subtitle }: HeaderProps) {
   return (
     <Theme name="inverse">
       <XStack
@@ -28,8 +25,8 @@ export default function Header({
           <ThemeToggle />
         </YStack>
         <YStack style={{ alignItems: "center" }}>
-          <H1>{title}</H1>
-          {subtitle && <H2>{subtitle}</H2>}
+          <H1 size="$6">{title}</H1>
+          {subtitle && <H2 size="$4">{subtitle}</H2>}
         </YStack>
         <YStack>
           <HamburguerMenu />

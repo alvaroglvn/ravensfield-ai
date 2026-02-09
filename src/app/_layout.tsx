@@ -59,7 +59,10 @@ function AppContent() {
     <TamaguiProvider config={tamaguiConfig} defaultTheme={resolvedTheme}>
       <Theme name={resolvedTheme}>
         <YStack flex={1} background="$background">
-          <Header title="The Ravensfield Collection" />
+          <Header
+            title="The Ravensfield Collection"
+            subtitle="An AI Museum that Dreams of Itself"
+          />
           <Slot />
           <Footer />
         </YStack>

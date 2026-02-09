@@ -55,6 +55,7 @@ export default function Home() {
       <XStack
         gap="$3"
         width="100%"
+        items="stretch"
         style={{
           alignSelf: "center",
           maxWidth: 1000,
@@ -69,15 +70,11 @@ export default function Home() {
             type={data[0].artwork.type}
             title={data[0].title}
             seoDescription={data[0].seoDescription}
+            flex={1}
           ></ContentCard>
         </YStack>
         {/* --- MOST RECENT --- */}
-        <YStack
-          flex={1}
-          style={{
-            justifyContent: "space-between",
-          }}
-        >
+        <YStack flex={1.5} gap="$3">
           {data.slice(1).map((item: any) => (
             <ContentCard
               slug={item.slug}

@@ -1,10 +1,21 @@
-import { XStack, Card, H3, Paragraph, Text, Theme, YStack } from "tamagui";
+import {
+  XStack,
+  Card,
+  H3,
+  Paragraph,
+  Text,
+  Theme,
+  YStack,
+  YStackProps,
+} from "tamagui";
 import { useRouter } from "expo-router";
 
 import { Image } from "@/components/ExpoImage";
 import { Ribbon } from "@/components/Ribbon";
+import { CardWrapper, StyledCard } from "@/styles/StyledContentCard";
+import { is } from "drizzle-orm";
 
-interface ContentCardProps {
+interface ContentCardProps extends YStackProps {
   slug: string;
   imageUrl: string;
   type: string;
@@ -22,119 +33,72 @@ export function ContentCard({
   seoDescription,
   isNew = false,
   variant = "default",
+  ...rest
 }: ContentCardProps) {
   const router = useRouter();
+  const isCompact = variant === "compact";
 
-  if (variant === "compact") {
-    return (
-      <Theme name="inverse">
-        <YStack
-          style={{ position: "relative" }}
-          scale={1}
-          cursor="pointer"
-          transition="slow"
-          hoverStyle={{ scale: 1.01 }}
-          pressStyle={{ scale: 0.98 }}
-        >
-          <Card
-            elevation={2}
-            borderTopLeftRadius="$6"
-            borderTopRightRadius="$2"
-            borderBottomRightRadius="$6"
-            borderBottomLeftRadius="$2"
-            overflow="hidden"
-            minHeight={95}
-            borderWidth={1}
-            borderColor="$background"
-            style={{
-              backfaceVisibility: "hidden",
-              WebkitBackfaceVisibility: "hidden",
-              willChange: "transform",
-              transform: "translateZ(0)",
-              boxShadow: "inset 0 0 0 1px rgba(0,0,0,0.12)",
-              outline: "1px solid transparent",
-              isolation: "isolate",
-            }}
-          >
-            <XStack height="100%">
-              <Image src={imageUrl} width="35%" contentPosition={"center"} />
+  return (
+    <Theme name="inverse">
+      <CardWrapper onPress={() => router.push(`/articles/${slug}`)} {...rest}>
+        {/* Only show Ribbon in default mode */}
+        {isNew && !isCompact && <Ribbon label="New Acquisition" />}
+
+        <StyledCard size={variant} flex={isCompact ? undefined : 1}>
+          {/* LAYOUT A: Compact (Horizontal) */}
+          {isCompact ? (
+            <XStack height="100%" gap="$3">
+              <Image src={imageUrl} width="35%" contentPosition="center" />
               <YStack
-                paddingBlock="$3"
-                paddingInline="$3"
+                paddingBlock="$4"
                 flex={1}
-                style={{ justifyContent: "center", alignItems: "flex-end" }}
+                justify="center"
+                items="flex-start"
+                gap="$1.5"
               >
                 <Text
-                  fontSize={"$2"}
-                  style={{
-                    textAlign: "right",
-                  }}
+                  fontSize="$2"
+                  color="$gray11"
+                  textTransform="uppercase"
+                  numberOfLines={1}
                 >
                   {type}
                 </Text>
-                <H3
-                  fontSize={"$4"}
-                  style={{
-                    textAlign: "right",
-                  }}
-                >
+                <H3 fontSize="$3" lineHeight="$4" numberOfLines={2} ellipsis>
                   {title}
                 </H3>
               </YStack>
             </XStack>
-          </Card>
-        </YStack>
-      </Theme>
-    );
-  }
-
-  return (
-    <Theme name="inverse">
-      <YStack
-        style={{ position: "relative" }}
-        scale={1}
-        cursor="pointer"
-        transition="slow"
-        hoverStyle={{ scale: 1.01 }}
-        pressStyle={{ scale: 0.98 }}
-      >
-        {isNew && <Ribbon label="New Acquisition" />}
-        <Card
-          elevation={5}
-          maxHeight={500}
-          minHeight={400}
-          borderTopLeftRadius="$12"
-          borderTopRightRadius="$2"
-          borderBottomRightRadius="$12"
-          borderBottomLeftRadius="$2"
-          overflow="hidden"
-          onPress={() => router.push(`/articles/${slug}`)}
-          borderWidth={1}
-          borderColor="$background"
-          style={{
-            backfaceVisibility: "hidden",
-            WebkitBackfaceVisibility: "hidden",
-            willChange: "transform",
-            transform: "translateZ(0)",
-            outline: "1px solid transparent",
-            isolation: "isolate",
-          }}
-        >
-          <Image
-            src={imageUrl}
-            width={"100%"}
-            height={300}
-            contentPosition={"top"}
-          />
-          <Card.Header>
-            <Text>{type}</Text>
-            <H3>{title}</H3>
-            <Paragraph>{seoDescription}</Paragraph>
-          </Card.Header>
-          <Card.Footer></Card.Footer>
-        </Card>
-      </YStack>
+          ) : (
+            /* LAYOUT B: Default (Vertical) */
+            <>
+              <YStack flex={1} width="100%" overflow="hidden">
+                {/* IMAGE: Just fills the wrapper */}
+                <Image
+                  src={imageUrl}
+                  width="100%"
+                  height="100%"
+                  contentFit="cover"
+                  contentPosition="top"
+                />
+              </YStack>
+              <Card.Header flexWrap="wrap">
+                <Text fontSize="$4" color="$gray11" textTransform="uppercase">
+                  {type}
+                </Text>
+                <H3 size="$5" numberOfLines={2} ellipsis>
+                  {title}
+                </H3>
+                <Paragraph size="$2" marginBlock={15}>
+                  {seoDescription}
+                </Paragraph>
+              </Card.Header>
+            </>
+          )}
+        </StyledCard>
+      </CardWrapper>
     </Theme>
   );
 }
+
 export type ContentCardPropsType = ContentCardProps;
