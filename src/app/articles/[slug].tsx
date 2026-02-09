@@ -1,9 +1,9 @@
-import { Image } from "expo-image";
 import { useLocalSearchParams } from "expo-router";
 import { useQuery } from "@tanstack/react-query";
-import { YStack, Text, H1, Spinner, ScrollView } from "tamagui";
+import { YStack, Text, Paragraph, H1, Spinner, ScrollView } from "tamagui";
 
-import { MuseumTag } from "src/components/MuseumTag";
+import { MuseumTag } from "@/components/MuseumTag";
+import { Image } from "@/components/ExpoImage";
 
 // --- Fetch data from article API ---
 async function fetchArticleData(slug: string) {
@@ -26,7 +26,7 @@ export default function ArticlePage() {
 
   if (isLoading) {
     return (
-      <YStack flex={1} justifyContent="center" alignItems="center">
+      <YStack flex={1} content="center" items="center">
         <Text>Loading...</Text>
         <Spinner size="large" />
       </YStack>
@@ -35,31 +35,36 @@ export default function ArticlePage() {
 
   if (error) {
     return (
-      <YStack flex={1} justifyContent="center" alignItems="center">
+      <YStack flex={1} content="center" items="center">
         <Text>Error loading article: {(error as Error).message}</Text>
       </YStack>
     );
   }
 
   return (
-    <ScrollView flex={1} showsVerticalScrollIndicator={true}>
-      <YStack
-        width="100%"
-        backgroundColor="$background"
-        padding="$15"
-        alignItems="center"
-      >
-        <H1 fontSize="$8" marginBottom="$4">
-          {data.title}
-        </H1>
+    <ScrollView
+      flex={1}
+      showsVerticalScrollIndicator={true}
+      contentContainerStyle={{ paddingBlockEnd: 100 }} // Make sure scroll doesn't cut off content
+    >
+      {/* --- ARTWORK HEADER --- */}
+      <YStack gap="$4" marginBlock="$10" items={"center"}>
         <Image
-          source={{ uri: data.artwork.imageUrl }}
-          style={{ width: "100%", height: 700, alignSelf: "center" }}
+          src={data.artwork.imageUrl}
           contentFit="contain"
+          width="100%"
+          maxWidth={800} // Don't let it get huge on desktop
+          height={650} // Needs explicit height or aspectRatio to render well
         />
         <MuseumTag artwork={data.artwork} />
+      </YStack>
 
-        <Text fontSize="$4" lineHeight="$6">
+      {/* ---- STORY CONTENT --- */}
+      <YStack width="100%" maxW={700} self="center" items={"center"}>
+        <H1 fontSize="$6" marginBlockEnd={"$4"}>
+          {data.title}
+        </H1>
+        <Text fontSize="$4" lineHeight={30} text="left">
           {data.content}
         </Text>
       </YStack>

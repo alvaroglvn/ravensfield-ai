@@ -1,5 +1,5 @@
 import React from "react";
-import { SizableText } from "tamagui";
+import { XStack, SizableText, YStack, Separator } from "tamagui";
 
 type Artwork = {
   title?: string | null;
@@ -12,15 +12,36 @@ export function MuseumTag({ artwork }: { artwork?: Artwork | null }) {
   if (!artwork) return null;
 
   return (
-    <SizableText
-      fontSize="$3"
-      marginVertical="$4"
-      color="$color"
-      opacity={0.5}
-      textAlign="center"
-      backgroundColor="$background"
+    <YStack
+      borderWidth={2}
+      borderColor="$gray8"
+      paddingBlock={12}
+      paddingInline={12}
+      borderTopLeftRadius="$10"
+      borderTopRightRadius="$2"
+      borderBottomRightRadius="$10"
+      borderBottomLeftRadius="$2"
+      maxW={450}
     >
-      {artwork.artist} | {artwork.title} ({artwork.year}) | {artwork.medium}
-    </SizableText>
+      <SizableText size="$2" textTransform="uppercase" color="$gray11">
+        {artwork.artist}
+      </SizableText>
+      <SizableText
+        size="$4"
+        fontFamily={"$heading"}
+        fontStyle="italic"
+        color="$gray11"
+      >
+        {artwork.title}
+      </SizableText>
+      <XStack gap={12}>
+        <SizableText size="$2" color="$gray11">
+          {artwork.year}
+        </SizableText>
+        <SizableText size="$2" color="$gray11">
+          {artwork.medium}
+        </SizableText>
+      </XStack>
+    </YStack>
   );
 }
