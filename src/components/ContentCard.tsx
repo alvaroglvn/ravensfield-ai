@@ -57,7 +57,7 @@ export function ContentCard({
             }}
           >
             <XStack height="100%">
-              <Image src={imageUrl} width="35%" />
+              <Image src={imageUrl} width="35%" contentPosition={"center"} />
               <YStack
                 paddingBlock="$3"
                 paddingInline="$3"
@@ -120,7 +120,12 @@ export function ContentCard({
             isolation: "isolate",
           }}
         >
-          <Image src={imageUrl} width={"100%"} height={300} />
+          <Image
+            src={imageUrl}
+            width={"100%"}
+            height={300}
+            contentPosition={"top"}
+          />
           <Card.Header>
             <Text>{type}</Text>
             <H3>{title}</H3>
