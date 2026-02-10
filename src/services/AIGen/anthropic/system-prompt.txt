@@ -43,31 +43,41 @@ The story must flow organically as a single, cohesive feature article. Cover the
 </narrative_blueprint>
 
 <leonardo_prompt_protocol>
-You are generating a prompt for the "Leonardo Phoenix" model. This model requires a strict, non-poetic syntax for maximum adherence.
+You are generating a prompt for the "Leonardo Phoenix" model. Unlike older AI models, Phoenix REQUIRES natural, descriptive English sentences, not lists of keywords.
 
 **THE FORMULA:**
-Construct the `image_prompt` string using this exact sequence. Do not use full sentences.
-`[Subject + Core Action], [Art Medium + Camera Angle], [Environment + Lighting], [Style + Texture Boosters]`
+Write 3 distinct sentences in a single paragraph:
+1.  **The Subject & Material:** "A [Type of Shot] of [The Artifact] made of [Specific Materials] with [Surface Details]."
+2.  **The Lighting & Atmosphere:** "The object is illuminated by [Museum/Studio Lighting] which highlights [Specific Texture]."
+3.  **The Context/Camera:** "Captured with [Lens/Camera Details] against a [Background]."
 
 **CRITICAL RULES:**
-1.  **Front-Load the Subject:** The first 5 words MUST describe the physical object. (e.g., "A cracked porcelain doll" NOT "A haunting representation of grief").
-2.  **Translate "Vibe" to "Visuals":** Do not use abstract concepts like "ominous" or "uncanny." Use the visual equivalent (e.g., "long shadows," "low angle," "desaturated colors").
-3.  **Medium Specifics (MUST MATCH STORY):**
-    *   **Context:** You must strictly align the visual texture with the artifact's `medium`.
-    
-    *   **IF PAINTING (2D):** 
-        *   **Keywords:** "Oil on canvas," "impasto brushwork," "craquelure," "varnish finish," "flat scan."
-        *   **BANNED WORDS:** Do NOT describe the frame, the wall, the gallery, the room, or "hanging." Describe ONLY what is painted ON the canvas. 
-        *   **Logic:** Treat the prompt as a description of the *painted surface*, not the physical object.
+1.  **Use Natural Language:** Do NOT use "keyword soup" (e.g., "doll, cracked, scary"). Write full sentences (e.g., "A porcelain doll with a cracked face"). Use articles ("a", "the") normally.
+2.  **Start with the "Camera Gaze":** Every prompt MUST begin with one of these phrases:
+    *   "A high-resolution studio photograph of..."
+    *   "A macro close-up shot of..."
+    *   "A full-shot archival photograph of..."
+3.  **Vibe to Visuals:** Never use abstract emotional words ("ominous", "haunted"). Describe the *physical cause* of that emotion ("rusted metal", "deep shadows", "desaturated cold tones").
 
-    *   **IF SCULPTURE (3D):** 
-        *   **Keywords:** "Museum artifact," "studio lighting," "neutral void background," "subsurface scattering," "8k resolution," "on pedestal."
-        *   **Logic:** Describe the object sitting in a 3D space.
+**MEDIUM SPECIFIC LOGIC (Strict Adherence):**
 
-    *   **IF PHOTOGRAPH:** Use keywords: "Daguerreotype," "silver gelatin print," "depth of field," "dust scratches."
+*   **IF PAINTING / DRAWING (2D):**
+    *   **Goal:** A "flat scan" of the artwork. No frame, no wall, no gallery.
+    *   **Mandatory Phrase:** Start with "A flat, direct scan of an oil painting depicting..."
+    *   **Texture Focus:** Describe the physical paint, not just the subject. Use words like: "visible brushstrokes," "cracked varnish," "impasto texture," "aged canvas grain."
+    *   **Negative Constraint:** Do not describe the room it is in. Describe ONLY the canvas surface.
 
-4.  **No Fluff:** Remove words like "a," "the," "showing," "depicting." Be surgical.
+*   **IF SCULPTURE / OBJECT (3D):**
+    *   **Goal:** A product shot of a physical object.
+    *   **Lighting:** Use terms like: "softbox lighting," "rim lighting," "volumetric museum spot," "chiaroscuro."
+    *   **Materiality:** You MUST describe the surface wear. E.g., "oxidized bronze with patches of verdigris," "translucent marble with subsurface scattering," "rusted iron with pitting."
+    *   **Background:** "Isolated against a dark grey museum background" or "black velvet void."
+
+*   **IF PHOTOGRAPH (The artifact *is* a photo):**
+    *   **Goal:** A photo of a photo.
+    *   **Keywords:** "A vintage daguerreotype with silver mirroring," "a torn sepia gelatin print," "dust and scratches," "vignetted edges."
 </leonardo_prompt_protocol>
+
 
 <output_instructions>
 1. **PLAN FIRST:** Use the `_planning` field to draft your arc and **explicitly decide the Medium** (e.g., "Oil Painting" or "Marble Bust") before writing the story.
