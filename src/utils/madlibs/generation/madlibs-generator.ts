@@ -23,7 +23,7 @@ export class MadlibsGenerator {
   constructor() {
     const dictPath = path.resolve(
       process.cwd(),
-      "src/app/utils/madlibs/dictionaries",
+      "src/utils/madlibs/generation/dictionaries",
     );
 
     this.artLoader = new DataLoader<ArtMovement>(

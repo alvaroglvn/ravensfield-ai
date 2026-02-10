@@ -8,9 +8,8 @@ import {
 
 export async function contentGenPipeline(maxRetries = 3) {
   let attempt = 0;
-  let lastError;
+  let lastError: any;
   while (attempt < maxRetries) {
-    ``;
     try {
       // 1. Create a randomized prompt
       const newPrompt = new MadlibsGenerator().createPrompt();
@@ -41,6 +40,8 @@ export async function contentGenPipeline(maxRetries = 3) {
       attempt++;
       lastError = error;
       console.error(`Attempt ${attempt} failed in generation pipeline:`, error);
+      // brief delay before retrying
+      await new Promise((res) => setTimeout(res, 500 * attempt));
     }
   }
   // After all retries, throw last error

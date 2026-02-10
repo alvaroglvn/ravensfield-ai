@@ -1,5 +1,4 @@
-import { db } from "@/db";
-import { articles, artworks, quotes } from "@/db/schema";
+import { executeQuery } from "@/db";
 import { OutputSchemaType } from "@/services/AIGen/anthropic";
 
 // Slug from title helper
@@ -9,58 +8,80 @@ export async function storeGeneratedData(
   data: OutputSchemaType,
 ): Promise<number> {
   try {
-    // We will need this id to store the generated artwork image url later
-    // This assumes only ONE ITEM is generated per pipeline run
+    if (!data || !Array.isArray(data.items) || data.items.length === 0) {
+      throw new Error("No items present in generated data to store");
+    }
+
+    // Assumes one item per run; returns artwork id for the first item
     let newArtworkId: number | undefined;
 
-    await db.transaction(async (tx) => {
-      for (const item of data.items) {
-        // --- 1. INSERT ARTICLE ---
-        const [newArticle] = await tx
-          .insert(articles)
-          .values({
-            slug: createSlugFromTitle(item.title),
-            title: item.title,
-            seoDescription: item.seoDescription,
-            content: item.content,
-          })
-          .returning({ id: articles.id });
+    for (const item of data.items) {
+      const slug = createSlugFromTitle(item.title);
 
-        const articleId = newArticle.id;
+      // 1) Insert article
+      await executeQuery(
+        `INSERT INTO articles (slug, title, seo_description, content) VALUES (?, ?, ?, ?)`,
+        [slug, item.title, item.seoDescription, item.content],
+      );
 
-        // --- 2. INSERT ARTWORK  ---
-        const [newArtwork] = await tx
-          .insert(artworks)
-          .values({
-            articleId: articleId,
-            title: item.artwork.title,
-            year: item.artwork.year,
-            type: item.artwork.type,
-            medium: item.artwork.medium,
-            artist: item.artwork.artist,
-            imagePrompt: item.artwork.imagePrompt,
-            imageUrl: "PENDING_GENERATION",
-          })
-          .returning({ id: artworks.id });
-
-        newArtworkId = newArtwork.id;
-
-        // --- 3. INSERT QUOTES  ---
-        const generatedQuotes = item.quotes.map((quote) => ({
-          articleId: articleId,
-          content: quote.content,
-          author: quote.author,
-        }));
-
-        await tx.insert(quotes).values(generatedQuotes);
+      const articleRows = await executeQuery<{ id: number }>(
+        `SELECT id FROM articles WHERE slug = ? LIMIT 1`,
+        [slug],
+      );
+      if (articleRows.length === 0) {
+        throw new Error("Failed to read back inserted article id");
       }
-    });
-    return newArtworkId!;
+      const articleId = articleRows[0].id;
+
+      // 2) Insert artwork
+      await executeQuery(
+        `INSERT INTO artworks (article_id, title, year, type, medium, artist, image_prompt, image_url) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+        [
+          articleId,
+          item.artwork.title,
+          item.artwork.year,
+          item.artwork.type,
+          item.artwork.medium,
+          item.artwork.artist,
+          item.artwork.imagePrompt,
+          "PENDING_GENERATION",
+        ],
+      );
+
+      const artworkRows = await executeQuery<{ id: number }>(
+        `SELECT id FROM artworks WHERE article_id = ? LIMIT 1`,
+        [articleId],
+      );
+      if (artworkRows.length === 0) {
+        throw new Error("Failed to read back inserted artwork id");
+      }
+      newArtworkId = artworkRows[0].id;
+
+      // 3) Insert quotes (if any)
+      const generatedQuotes = (item.quotes || []).map((quote) => [
+        articleId,
+        quote.content,
+        quote.author,
+      ]);
+
+      if (generatedQuotes.length > 0) {
+        // Build multi-row INSERT
+        const placeholders = generatedQuotes.map(() => `(?, ?, ?)`).join(", ");
+        const flatValues = generatedQuotes.flat();
+        await executeQuery(
+          `INSERT INTO quotes (article_id, content, author) VALUES ${placeholders}`,
+          flatValues,
+        );
+      }
+    }
+
+    if (!newArtworkId) {
+      throw new Error("No artwork id was created during storage pipeline");
+    }
+
+    return newArtworkId;
   } catch (error) {
-    console.error(
-      "Error storing generated data. Rolled back transaction:",
-      error,
-    );
+    console.error("Error storing generated data:", error);
     throw error;
   }
 }

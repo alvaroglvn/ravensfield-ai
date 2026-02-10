@@ -8,8 +8,12 @@ export async function articleCreationPipeline() {
 
     // --- 1. GENERATE NEW CONTENT ---\n
     const generatedData = await contentGenPipeline();
-    if (!generatedData) {
-      throw new Error("Content generation failed (returned null).");
+    if (
+      !generatedData ||
+      !Array.isArray(generatedData.items) ||
+      generatedData.items.length === 0
+    ) {
+      throw new Error("Content generation failed or returned no items.");
     }
     console.log(`✅ Content Generated: "${generatedData.items[0].title}"`);
 
@@ -24,7 +28,10 @@ export async function articleCreationPipeline() {
     }
     console.log(`✅ Data Stored. Artwork ID: ${artworkId}`);
 
-    const imagePrompt = generatedData.items[0].artwork.imagePrompt;
+    const imagePrompt = generatedData.items[0]?.artwork?.imagePrompt;
+    if (!imagePrompt || typeof imagePrompt !== "string") {
+      throw new Error("No valid image prompt provided in generated data.");
+    }
 
     // --- 3. GENERATE IMAGE ---\n
     console.log("🎨 Starting Image Generation...");

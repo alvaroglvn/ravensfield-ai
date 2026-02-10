@@ -1,11 +1,9 @@
-import { eq } from "drizzle-orm";
 import {
   generateLeonardoImage,
   getLeonardoImageUrl,
 } from "@/services/AIGen/leonardo/generate-image";
 import { getRandomImgSize } from "@/utils/randomize-img-size";
-import { db } from "@/db";
-import { artworks } from "@/db/schema";
+import { executeQuery } from "@/db";
 
 export async function imageGenPipeline(prompt: string, artworkId: number) {
   try {
@@ -34,24 +32,24 @@ export async function imageGenPipeline(prompt: string, artworkId: number) {
     }
     console.log(`   - Got Image URL: ${imageUrl.substring(0, 30)}...`);
 
-    // --- Store image URL in database ---\n
-    await db.transaction(async (tx) => {
-      const result = await tx
-        .update(artworks)
-        .set({
-          imageUrl: imageUrl,
-        })
-        .where(eq(artworks.id, artworkId))
-        .returning({ updatedId: artworks.id }); // Return ID to confirm update matches
+    // --- Store image URL in database ---
+    await executeQuery(`UPDATE artworks SET image_url = ? WHERE id = ?`, [
+      imageUrl,
+      artworkId,
+    ]);
 
-      if (result.length === 0) {
-        throw new Error(
-          `❌ DB Update Failed: Could not find artwork with ID ${artworkId}`,
-        );
-      }
+    // Confirm update
+    const check = await executeQuery<{ id: number }>(
+      `SELECT id FROM artworks WHERE id = ? LIMIT 1`,
+      [artworkId],
+    );
+    if (check.length === 0) {
+      throw new Error(
+        `DB Update Failed: Could not find artwork with ID ${artworkId}`,
+      );
+    }
 
-      console.log(`   - ✅ DB Updated successfully.`);
-    });
+    console.log(`   - ✅ DB Updated successfully.`);
   } catch (error) {
     console.error("❌ Error in image generation pipeline:", error);
     throw error;
