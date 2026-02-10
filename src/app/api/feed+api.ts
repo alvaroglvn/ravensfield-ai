@@ -25,7 +25,7 @@ export async function GET(request: Request): Promise<Response> {
       FROM articles
       LEFT JOIN artworks ON articles.id = artworks.article_id
       ORDER BY articles.created_at DESC
-      LIMIT 5
+      LIMIT 6
     `);
 
     // Transform to match expected format with nested artwork

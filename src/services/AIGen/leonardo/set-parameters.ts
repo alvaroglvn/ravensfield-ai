@@ -15,8 +15,8 @@ export function setLeonardoParameters(
 ): CreateGenerationRequestBody {
   let genRequestBody: CreateGenerationRequestBody = {
     // General Parameters
-    modelId: "de7d3faf-762f-48e0-b3b7-9d0ac3a3fcf3", // Phoenix 1.0
-    sdVersion: SdVersions.Phoenix,
+    modelId: "b2614463-296c-462a-9586-aafdb8f00e36", // Flux Dev
+    sdVersion: SdVersions.FluxDev,
     prompt: prompt,
     negativePrompt:
       "text, watermark, signature, blurry, low resolution, deep fried, cartoon, illustration, 3d render, plastic, deformed, ugly, mutated, distortion, oversaturated, high contrast, cgi, octane render, unreal engine, gloss, bloom",
@@ -25,7 +25,7 @@ export function setLeonardoParameters(
     public: false,
     numImages: 1,
 
-    // Phoenix 1.0 Best Practices
+    // Flux Dev Best Practices
     alchemy: false,
     photoReal: false,
     promptMagic: false,
@@ -37,10 +37,8 @@ export function setLeonardoParameters(
     ultra: false,
 
     // Style and Scheduler
-    presetStyle: SdGenerationStyle.Cinematic,
-    scheduler: SdGenerationSchedulers.Leonardo,
-    guidanceScale: 8,
-    contrastRatio: 0.5,
+    presetStyle: SdGenerationStyle.General,
+    guidanceScale: 3,
 
     // Miscellaneous
     tiling: false,
