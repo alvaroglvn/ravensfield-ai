@@ -21,7 +21,7 @@ export function MuseumTag({ artwork }: { artwork?: Artwork | null }) {
       borderTopRightRadius="$2"
       borderBottomRightRadius="$10"
       borderBottomLeftRadius="$2"
-      maxW={450}
+      maxW={700}
     >
       <SizableText size="$2" textTransform="uppercase" color="$gray11">
         {artwork.artist}

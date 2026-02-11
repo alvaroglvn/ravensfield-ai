@@ -13,7 +13,6 @@ import { useRouter } from "expo-router";
 import { Image } from "@/components/ExpoImage";
 import { Ribbon } from "@/components/Ribbon";
 import { CardWrapper, StyledCard } from "@/styles/StyledContentCard";
-import { is } from "drizzle-orm";
 
 interface ContentCardProps extends YStackProps {
   slug: string;

@@ -1,7 +1,9 @@
-import { YStack, XStack, H1, H2, Theme } from "tamagui";
+import { YStack, XStack, Text, Theme } from "tamagui";
+import { Link } from "expo-router";
 
-import HamburguerMenu from "@/components/HamburguerMenu";
 import ThemeToggle from "@/components/ThemeToggle";
+import { Image } from "@/components/ExpoImage";
+import logo from "@/logos/ravensfield-logo.webp";
 
 type HeaderProps = {
   title: string;
@@ -12,24 +14,33 @@ export default function Header({ title, subtitle }: HeaderProps) {
   return (
     <Theme name="inverse">
       <XStack
-        elevation={"$1"}
         background="$background"
-        style={{
-          padding: 25,
-          justifyContent: "space-between",
-          alignItems: "center",
-          alignContent: "center",
-        }}
+        paddingBlock={30}
+        paddingInline={55}
+        width="100%"
+        items="center"
       >
-        <YStack>
+        <YStack flex={1} items="flex-start">
+          <Link href="/">
+            <Image src={logo} width={80} height={80} alt="Ravensfield logo" />
+          </Link>
+        </YStack>
+
+        <YStack flex={3} items="center">
+          <Text fontFamily={"$heading"} fontSize="$5">
+            {title}
+          </Text>
+
+          {subtitle && (
+            <Text fontFamily={"$body"} fontSize="$4" fontStyle="italic">
+              {subtitle}
+            </Text>
+          )}
+        </YStack>
+
+        <YStack flex={1} items="flex-end">
           <ThemeToggle />
-        </YStack>
-        <YStack style={{ alignItems: "center" }}>
-          <H1 size="$6">{title}</H1>
-          {subtitle && <H2 size="$4">{subtitle}</H2>}
-        </YStack>
-        <YStack>
-          <HamburguerMenu />
+          {/* <HamburguerMenu /> */}
         </YStack>
       </XStack>
     </Theme>

@@ -26,7 +26,7 @@ export const StyledCard = styled(Card, {
     size: {
       default: {
         elevation: 5,
-        minHeight: 400,
+        minHeight: 560,
         borderTopLeftRadius: "$12",
         borderTopRightRadius: "$2",
         borderBottomRightRadius: "$12",
