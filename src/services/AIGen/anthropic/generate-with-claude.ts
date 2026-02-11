@@ -23,8 +23,12 @@ export async function generateWithClaude(
 ): Promise<Anthropic.Beta.Messages.BetaMessage> {
   const response = await anthropic.beta.messages.create({
     model: "claude-sonnet-4-5",
-    max_tokens: 4096,
-    temperature: 0.7,
+    thinking: {
+      type: "enabled",
+      budget_tokens: 3500,
+    },
+    max_tokens: 6000,
+    temperature: 1,
     betas: ["structured-outputs-2025-11-13"],
     system: loadSystemPrompt(),
     messages: [
