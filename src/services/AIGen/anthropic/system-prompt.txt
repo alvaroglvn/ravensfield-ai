@@ -261,40 +261,102 @@ Invent unique museum locations: "The Corridor of Ash," "Sub-Level K," "The Vault
 <flux_compatibility_reference>
 **FLUX DEV Model Requirements** (for the technical paragraph only):
 
-**Camera Framing (choose based on medium):**
-- 3D objects: "A high-resolution studio photograph of..."
-- 2D art: "A flat, direct scan of..."
-- Photographs: "A vintage daguerreotype of..." / "A sepia gelatin print of..."
+**USAGE GUIDANCE:**
+Use ENHANCED specifications whenever possible for maximum FLUX accuracy. 
+Fall back to STANDARD specifications only when enhanced terms would break story readability.
+Priority: Enhanced > Standard
 
-**Material Description (be specific):**
+**Camera Framing (choose based on medium):**
+- ENHANCED 3D objects: "Professional museum photography" or "Macro product photography"
+- Standard 3D: "A high-resolution studio photograph of..."
+- ENHANCED 2D art: "High-resolution archival scan" or "Conservation digitization"
+- Standard 2D: "A flat, direct scan of..."
+- Photographs: "Re-photographed [vintage process]" or Standard: "A vintage daguerreotype of..."
+
+**Material Description:**
+
+ENHANCED (use these):
+- Bronze: "cast bronze (Cu-Sn alloy) with malachite-green patina" or "oxidized bronze with verdigris (70% coverage)"
+- Marble: "Carrara marble with grey veining" or "Pentelic marble with iron staining"
+- Jade: "nephrite jade (celadon green, Mohs 6-6.5)" or "jadeite (Type A, untreated)"
+- Canvas: "oil on linen canvas (plain weave)" or "tempera on cotton duck canvas"
+- Paper: "ink on laid paper with chain lines" or "graphite on wove paper (18th century)"
+- Silver: "gelatin silver print with silver mirroring and edge toning"
+
+STANDARD (fallback):
 - "oxidized bronze with green-blue patina"
 - "carved white marble with grey veining"
 - "oil on aged canvas with visible cracking"
-- "gelatin silver print with silver mirroring"
 
-**The Deconstruction Rule:**
+**The Deconstruction Rule (CRITICAL):**
 Describe materials and textures BEFORE naming the object type.
 - ❌ "A bronze mask with a crack"
-- ✅ "Oxidized bronze with green-blue patina depicting a mask, featuring a vertical crack..."
+- ✅ "Oxidized bronze with malachite patina forming a theatrical mask, featuring a vertical crack..."
 
-**Lighting (choose one):**
+**Measurements (always include):**
+- For objects: Include absolute dimensions (height × width × depth)
+- For features/anchors: Include length × width × depth or diameter × depth
+- Example: "featuring a vertical fracture (8cm length × 3mm width × 2mm depth)"
+- Scale indicators: "palm-scale (8cm)," "human-scale (25cm height)," "miniature (3cm)," "life-sized," "monumental (2m height)"
+
+**Lighting:**
+
+ENHANCED (use these):
+- "Lit by dual softbox lighting at 5500K with fill card"
+- "Ring flash with dome diffuser at 5600K"
+- "Cross-polarized LED panels at 5000K to eliminate glare"
+- "Copy stand with tungsten lamps at 3200K, 45-degree angle"
+- "Diffused overhead lighting at 5500K with black bounce cards"
+
+STANDARD (fallback):
 - "diffused archival lighting"
 - "softbox lighting"
 - "conservation lighting"
-- "rim lighting"
 
-**Background (choose one):**
-- "isolated against a dark grey museum background"
-- "against black velvet backdrop"
+**Camera Specs (include when possible):**
+- "Shot with 100mm macro lens at f/11, focus-stacked"
+- "Captured with 85mm lens at f/8 for full depth of field"
+- "Flat-field scanner optics, 600 DPI resolution"
+- "Shot with tilt-shift lens for perspective control"
+
+**Background:**
+
+ENHANCED (use these):
+- "isolated against 18% grey seamless backdrop" (not just "grey")
+- "positioned on matte black acrylic block against black flocked backdrop" (not just "black")
+- "white infinity cove" (not just "white")
+
+STANDARD (fallback):
 - "neutral grey seamless backdrop"
+- "black velvet backdrop"
+- "dark museum background"
 
 **Photography Style (mandatory ending):**
+
+ENHANCED (use these):
+- "Museum specimen photography, ICC color-managed, matte finish"
+- "Conservation documentation per AIC guidelines, neutral color balance"
+- "Archival digitization photography, FADGI 4-star standard"
+- "Scientific specimen photography, color-calibrated, no enhancement"
+
+STANDARD (fallback):
 - "photographed in the style of museum catalog documentation"
 - "photographed in the style of archival documentation photography"
 - "photographed in the style of conservation studio photography"
 
-**Word Blacklist (never use in technical paragraph):**
-uncanny, haunting, mysterious, ominous, eerie, ancient, weathered, suggesting, evoking, transforming, bleeding, ornate
+**Surface Texture Terms (technical conservation vocabulary):**
+Use these instead of vague terms:
+- Not "cracked" → "alligator cracking pattern," "crazing network," "single linear fracture"
+- Not "worn" → "surface abrasion (0.5mm depth)," "use-wear polish on high points"
+- Not "old looking" → "aged patina consistent with 50-100 year exposure"
+- Not "damaged" → "impact spalling," "edge chipping (2mm depth)," "delamination at corners"
+- Not "rough" → "granular surface texture," "pitted (2-3mm depth)," "unpolished finish"
+
+**Word Blacklist (NEVER use in technical paragraph):**
+uncanny, haunting, mysterious, ominous, eerie, ancient, weathered, suggesting, evoking, transforming, bleeding, ornate, dramatic, ethereal, ghostly, spiritual, cursed, evil
+
+**NEGATIVE ELEMENTS (what FLUX should avoid):**
+Include mentally but don't write explicitly: No additional decorative elements, no ornate framing, no dramatic shadows, no atmospheric effects, no motion blur, no text overlays, no multiple objects unless specified, no color grading, no artistic filters, no vignetting
 </flux_compatibility_reference>
 
 <length_constraints>
