@@ -19,7 +19,7 @@ export class MadlibsGenerator {
   private artLoader: DataLoader<ArtMovement>;
   private storyLoader: DataLoader<StorySubgenre>;
   private descLoader: DataLoader<string>;
-
+  private fluxLoader: DataLoader<string>;
   constructor() {
     const dictPath = path.resolve(
       process.cwd(),
@@ -38,6 +38,10 @@ export class MadlibsGenerator {
       path.join(dictPath, "descriptors"),
       "descriptors",
     );
+    this.fluxLoader = new DataLoader<string>(
+      path.join(dictPath, "flux-descriptors"),
+      "flux-descriptors",
+    );
   }
 
   private pickOne(arr: string[]): string {
@@ -52,36 +56,52 @@ export class MadlibsGenerator {
     return /^[aeiou]/i.test(word) ? "An" : "A";
   }
 
-  public createPrompt(): string {
-    const artCtx = this.artLoader.pickRandom();
-    const storyCtx = this.storyLoader.pickRandom();
+  public createArtwork(): string {
+    const artMovement = this.artLoader.pickRandom();
+    const artTheme = this.pickOne(artMovement.themes);
+    const artTechnique = this.pickOne(artMovement.techniques);
+    const descriptor1 = this.descLoader.pickRandom();
+    const descriptor2 = this.descLoader.pickRandom();
+    const [fluxDescriptor1, fluxDescriptor2] = [
+      this.fluxLoader.pickRandom(),
+      this.fluxLoader.pickRandom(),
+    ];
 
-    const desc1 = this.descLoader.pickRandom();
-    const desc2 = this.descLoader.pickRandom();
+    const startArticle = this.getArticle(fluxDescriptor1);
 
-    const artTheme = this.pickOne(artCtx.themes);
-    const artObject = this.pickOne(artCtx.techniques);
-
-    const storyTheme = this.pickOne(storyCtx.themes);
-    const storyProtag = this.pickOne(storyCtx.protagonists);
-    const storyFate = this.pickOne(storyCtx.fates);
-    const storyEnding = this.pickOne(storyCtx.endings);
-
-    const startArticle = this.getArticle(desc1);
-    const storyArticle = this.getArticle(storyCtx.name);
-    const protagArticle = this.getArticle(storyProtag);
-
-    return `
-      ${startArticle} ${desc1} and ${desc2} ${
-        artCtx.name
-      } ${artTheme} ${artObject}. 
-      This artwork carries ${storyArticle.toLowerCase()} ${
-        storyCtx.name
-      } story with a ${storyTheme} theme 
-      where ${protagArticle.toLowerCase()} ${storyProtag} ${storyFate} 
-      and ultimately ${storyEnding}.
-    `
-      .replace(/\s+/g, " ")
-      .trim();
+    return `${startArticle} ${fluxDescriptor1} and ${fluxDescriptor2} ${artMovement.name} ${artTheme} ${artTechnique}`;
   }
+
+  // public createPrompt(): string {
+  //   const artCtx = this.artLoader.pickRandom();
+  //   const storyCtx = this.storyLoader.pickRandom();
+
+  //   const desc1 = this.descLoader.pickRandom();
+  //   const desc2 = this.descLoader.pickRandom();
+
+  //   const artTheme = this.pickOne(artCtx.themes);
+  //   const artObject = this.pickOne(artCtx.techniques);
+
+  //   const storyTheme = this.pickOne(storyCtx.themes);
+  //   const storyProtag = this.pickOne(storyCtx.protagonists);
+  //   const storyFate = this.pickOne(storyCtx.fates);
+  //   const storyEnding = this.pickOne(storyCtx.endings);
+
+  //   const startArticle = this.getArticle(desc1);
+  //   const storyArticle = this.getArticle(storyCtx.name);
+  //   const protagArticle = this.getArticle(storyProtag);
+
+  //   return `
+  //     ${startArticle} ${desc1} and ${desc2} ${
+  //       artCtx.name
+  //     } ${artTheme} ${artObject}.
+  //     This artwork carries ${storyArticle.toLowerCase()} ${
+  //       storyCtx.name
+  //     } story with a ${storyTheme} theme
+  //     where ${protagArticle.toLowerCase()} ${storyProtag} ${storyFate}
+  //     and ultimately ${storyEnding}.
+  //   `
+  //     .replace(/\s+/g, " ")
+  //     .trim();
+  // }
 }
