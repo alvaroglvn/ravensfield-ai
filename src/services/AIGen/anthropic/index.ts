@@ -8,5 +8,5 @@ export {
 export {
   jsonSchema,
   OutputSchema,
-} from "@/services/AIGen/anthropic/output-schema";
-export type { OutputSchemaType } from "@/services/AIGen/anthropic/output-schema";
+} from "@/services/AIGen/anthropic/output-schemas/content-schema";
+export type { OutputSchemaType } from "@/services/AIGen/anthropic/output-schemas/content-schema";

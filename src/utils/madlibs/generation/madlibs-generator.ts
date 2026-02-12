@@ -72,36 +72,19 @@ export class MadlibsGenerator {
     return `${startArticle} ${fluxDescriptor1} and ${fluxDescriptor2} ${artMovement.name} ${artTheme} ${artTechnique}`;
   }
 
-  // public createPrompt(): string {
-  //   const artCtx = this.artLoader.pickRandom();
-  //   const storyCtx = this.storyLoader.pickRandom();
+  public createStory(): string {
+    const storySubgenre = this.storyLoader.pickRandom();
+    const storyTheme = this.pickOne(storySubgenre.themes);
+    const protagonist = this.pickOne(storySubgenre.protagonists);
+    const fate = this.pickOne(storySubgenre.fates);
+    const ending = this.pickOne(storySubgenre.endings);
 
-  //   const desc1 = this.descLoader.pickRandom();
-  //   const desc2 = this.descLoader.pickRandom();
+    const storyArticle = this.getArticle(storySubgenre.name);
+    const protagArticle = this.getArticle(protagonist);
 
-  //   const artTheme = this.pickOne(artCtx.themes);
-  //   const artObject = this.pickOne(artCtx.techniques);
-
-  //   const storyTheme = this.pickOne(storyCtx.themes);
-  //   const storyProtag = this.pickOne(storyCtx.protagonists);
-  //   const storyFate = this.pickOne(storyCtx.fates);
-  //   const storyEnding = this.pickOne(storyCtx.endings);
-
-  //   const startArticle = this.getArticle(desc1);
-  //   const storyArticle = this.getArticle(storyCtx.name);
-  //   const protagArticle = this.getArticle(storyProtag);
-
-  //   return `
-  //     ${startArticle} ${desc1} and ${desc2} ${
-  //       artCtx.name
-  //     } ${artTheme} ${artObject}.
-  //     This artwork carries ${storyArticle.toLowerCase()} ${
-  //       storyCtx.name
-  //     } story with a ${storyTheme} theme
-  //     where ${protagArticle.toLowerCase()} ${storyProtag} ${storyFate}
-  //     and ultimately ${storyEnding}.
-  //   `
-  //     .replace(/\s+/g, " ")
-  //     .trim();
-  // }
+    return `${storyArticle} ${storySubgenre.name} story with a ${storyTheme} theme where ${protagArticle.toLowerCase()} ${protagonist} ${fate} and ultimately ${ending}.
+    `
+      .replace(/\s+/g, " ")
+      .trim();
+  }
 }

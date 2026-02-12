@@ -1,7 +1,7 @@
 import Anthropic from "@anthropic-ai/sdk";
 import * as v from "valibot";
 
-import { OutputSchemaType } from "@/services/AIGen/anthropic/output-schema";
+import { OutputSchemaType } from "@/services/AIGen/anthropic/output-schemas/content-schema";
 
 export function parseAnthropicResponse(
   response: Anthropic.Beta.Messages.BetaMessage,
