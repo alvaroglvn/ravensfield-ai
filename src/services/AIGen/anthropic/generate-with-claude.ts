@@ -29,8 +29,8 @@ export async function requestArtworkDescription(
       type: "enabled",
       budget_tokens: 2000,
     },
-    max_tokens: 300,
-    temperature: 0.8,
+    max_tokens: 2500,
+    temperature: 1,
     betas: ["structured-outputs-2025-11-13"],
     system: loadSystemPrompt(
       "src/services/AIGen/anthropic/system/image-describe.txt",
@@ -60,7 +60,7 @@ export async function requestNewStory(
       type: "enabled",
       budget_tokens: 3000,
     },
-    max_tokens: 2000,
+    max_tokens: 5000,
     temperature: 1,
     betas: ["structured-outputs-2025-11-13"],
     system: loadSystemPrompt(

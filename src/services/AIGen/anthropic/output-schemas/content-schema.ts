@@ -36,12 +36,12 @@ const QuoteSchema = v.strictObject({
   content: v.pipe(
     v.string(),
     v.minLength(10),
-    v.maxLength(120),
+    v.maxLength(200),
     v.description("Quote about the artifact (under 20 words)."),
   ),
   author: v.pipe(
     v.string(),
-    v.maxLength(140),
+    v.maxLength(200),
     v.description("Attribution with name and optional role."),
   ),
 });

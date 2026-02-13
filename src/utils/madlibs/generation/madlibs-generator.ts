@@ -18,8 +18,7 @@ interface StorySubgenre {
 export class MadlibsGenerator {
   private artLoader: DataLoader<ArtMovement>;
   private storyLoader: DataLoader<StorySubgenre>;
-  // private descLoader: DataLoader<string>;
-  private fluxLoader: DataLoader<string>;
+  private descriptorLoader: DataLoader<string>;
   constructor() {
     const dictPath = path.resolve(
       process.cwd(),
@@ -34,13 +33,9 @@ export class MadlibsGenerator {
       path.join(dictPath, "storytelling"),
       "subgenres",
     );
-    // this.descLoader = new DataLoader<string>(
-    //   path.join(dictPath, "descriptors"),
-    //   "descriptors",
-    // );
-    this.fluxLoader = new DataLoader<string>(
-      path.join(dictPath, "flux-descriptors"),
-      "flux-descriptors",
+    this.descriptorLoader = new DataLoader<string>(
+      path.join(dictPath, "descriptors"),
+      "descriptors",
     );
   }
 
@@ -60,16 +55,14 @@ export class MadlibsGenerator {
     const artMovement = this.artLoader.pickRandom();
     const artTheme = this.pickOne(artMovement.themes);
     const artTechnique = this.pickOne(artMovement.techniques);
-    // const descriptor1 = this.descLoader.pickRandom();
-    // const descriptor2 = this.descLoader.pickRandom();
-    const [fluxDescriptor1, fluxDescriptor2] = [
-      this.fluxLoader.pickRandom(),
-      this.fluxLoader.pickRandom(),
+    const [descriptor1, descriptor2] = [
+      this.descriptorLoader.pickRandom(),
+      this.descriptorLoader.pickRandom(),
     ];
 
-    const startArticle = this.getArticle(fluxDescriptor1);
+    const startArticle = this.getArticle(descriptor1);
 
-    return `${startArticle} ${fluxDescriptor1} and ${fluxDescriptor2} ${artMovement.name} ${artTheme} ${artTechnique}`;
+    return `${startArticle} ${descriptor1} and ${descriptor2} ${artMovement.name} ${artTheme} ${artTechnique}`;
   }
 
   public createStory(): string {
