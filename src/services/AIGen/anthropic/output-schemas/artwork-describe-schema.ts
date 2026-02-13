@@ -1,7 +1,7 @@
 import * as v from "valibot";
 import { toJsonSchema } from "@valibot/to-json-schema";
 
-const ImagePromptSchema = v.strictObject({
+const artworkDescribeSchema = v.strictObject({
   imagePrompt: v.pipe(
     v.string(),
     v.minLength(80),
@@ -14,13 +14,13 @@ const ImagePromptSchema = v.strictObject({
   ),
 });
 
-export const OutputSchema = v.strictObject({
-  items: v.array(ImagePromptSchema),
+export const artworkOutputSchema = v.strictObject({
+  items: v.array(artworkDescribeSchema),
 });
 
-export type OutputSchemaType = v.InferOutput<typeof OutputSchema>;
+export type ArtworkSchemaType = v.InferOutput<typeof artworkOutputSchema>;
 
-export const ImagePromptJsonSchema = toJsonSchema(OutputSchema, {
+export const artworkSchema = toJsonSchema(artworkOutputSchema, {
   typeMode: "output",
 }) as {
   [key: string]: unknown;

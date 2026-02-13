@@ -73,13 +73,13 @@ const ArticleSchema = v.strictObject({
   quotes: v.array(QuoteSchema),
 });
 
-export const OutputSchema = v.strictObject({
+export const contentOutputSchema = v.strictObject({
   items: v.array(ArticleSchema),
 });
 
-export type OutputSchemaType = v.InferOutput<typeof OutputSchema>;
+export type ContentSchemaType = v.InferOutput<typeof contentOutputSchema>;
 
-export const contentSchema = toJsonSchema(OutputSchema, {
+export const contentSchema = toJsonSchema(contentOutputSchema, {
   typeMode: "output",
 }) as {
   [key: string]: unknown;

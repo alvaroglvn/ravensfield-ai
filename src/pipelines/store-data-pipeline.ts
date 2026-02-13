@@ -1,8 +1,35 @@
 import { executeQuery } from "@/db";
-import { OutputSchemaType } from "@/services/AIGen/anthropic";
+import { ContentSchemaType } from "@/services/AIGen/anthropic";
 
 // Slug from title helper
 import { createSlugFromTitle } from "@/utils/slug-from-title";
+
+export async function storeArticleData(
+  data: ContentSchemaType,
+): Promise<number> {
+  try {
+    if (!data || !Array.isArray(data.items) || data.items.length === 0) {
+      throw new Error("No items present in generated data to store");
+    }
+
+    const slug = createSlugFromTitle(data.items[0].title);
+
+    await executeQuery(
+      `INSERT INTO articles (slug, title, seo_description, content) VALUES (?, ?, ?, ?)`,
+      [
+        slug,
+        data.items[0].title,
+        data.items[0].seoDescription,
+        data.items[0].content,
+      ],
+    );
+
+    const articleId = await executeQuery<{ id: number }>(
+      `SELECT id FROM articles WHERE slug = ? LIMIT 1`,
+      [slug],
+    );
+  } catch (error) {}
+}
 
 export async function storeGeneratedData(
   data: OutputSchemaType,

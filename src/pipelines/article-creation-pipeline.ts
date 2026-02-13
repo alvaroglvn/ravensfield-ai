@@ -1,6 +1,6 @@
 import { contentGenPipeline } from "@/pipelines/content-gen-pipeline";
 import { storeGeneratedData } from "@/pipelines/store-data-pipeline";
-import { imageGenPipeline } from "@/pipelines/image-gen-pipeline";
+import { imageGenPipeline } from "@/pipelines/image-generation";
 
 export async function articleCreationPipeline() {
   try {

@@ -1,12 +1,22 @@
-export { generateWithClaude } from "@/services/AIGen/anthropic/generate-with-claude";
+export {
+  requestArtworkDescription,
+  requestNewStory,
+} from "@/services/AIGen/anthropic/generate-with-claude";
 
 export {
-  parseAnthropicResponse,
-  validateAnthropicData,
+  parseClaudeResponse,
+  // parseAnthropicResponse,
+  validateClaudeData,
 } from "@/services/AIGen/anthropic/parse-and-validate";
 
 export {
-  jsonSchema,
-  OutputSchema,
+  artworkOutputSchema,
+  ArtworkSchemaType,
+  artworkSchema,
+} from "@/services/AIGen/anthropic/output-schemas/artwork-describe-schema";
+
+export {
+  contentOutputSchema,
+  ContentSchemaType,
+  contentSchema,
 } from "@/services/AIGen/anthropic/output-schemas/content-schema";
-export type { OutputSchemaType } from "@/services/AIGen/anthropic/output-schemas/content-schema";

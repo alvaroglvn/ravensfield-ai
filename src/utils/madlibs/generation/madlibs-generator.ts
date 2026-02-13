@@ -18,7 +18,7 @@ interface StorySubgenre {
 export class MadlibsGenerator {
   private artLoader: DataLoader<ArtMovement>;
   private storyLoader: DataLoader<StorySubgenre>;
-  private descLoader: DataLoader<string>;
+  // private descLoader: DataLoader<string>;
   private fluxLoader: DataLoader<string>;
   constructor() {
     const dictPath = path.resolve(
@@ -34,10 +34,10 @@ export class MadlibsGenerator {
       path.join(dictPath, "storytelling"),
       "subgenres",
     );
-    this.descLoader = new DataLoader<string>(
-      path.join(dictPath, "descriptors"),
-      "descriptors",
-    );
+    // this.descLoader = new DataLoader<string>(
+    //   path.join(dictPath, "descriptors"),
+    //   "descriptors",
+    // );
     this.fluxLoader = new DataLoader<string>(
       path.join(dictPath, "flux-descriptors"),
       "flux-descriptors",
@@ -60,8 +60,8 @@ export class MadlibsGenerator {
     const artMovement = this.artLoader.pickRandom();
     const artTheme = this.pickOne(artMovement.themes);
     const artTechnique = this.pickOne(artMovement.techniques);
-    const descriptor1 = this.descLoader.pickRandom();
-    const descriptor2 = this.descLoader.pickRandom();
+    // const descriptor1 = this.descLoader.pickRandom();
+    // const descriptor2 = this.descLoader.pickRandom();
     const [fluxDescriptor1, fluxDescriptor2] = [
       this.fluxLoader.pickRandom(),
       this.fluxLoader.pickRandom(),
