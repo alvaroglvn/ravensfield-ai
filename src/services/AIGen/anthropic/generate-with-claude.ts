@@ -3,7 +3,7 @@ import * as fs from "node:fs";
 import * as path from "node:path";
 
 import { contentSchema } from "@/services/AIGen/anthropic/output-schemas/content-schema";
-import { ImagePromptJsonSchema } from "@/services/AIGen/anthropic/output-schemas/image-prompt-schema";
+import { artworkSchema } from "@/services/AIGen/anthropic/output-schemas/artwork-describe-schema";
 
 // --- Initialize Anthropic Client ---
 const anthropic = new Anthropic({
@@ -11,16 +11,47 @@ const anthropic = new Anthropic({
 });
 
 // --- Helper to load system prompt safely ---
-function loadContentSystemPrompt(): string {
-  const promptPath = path.resolve(
-    process.cwd(),
-    "src/services/AIGen/anthropic/system/content-describe.txt",
-  );
+function loadSystemPrompt(filePath: string): string {
+  const promptPath = path.resolve(process.cwd(), filePath);
+  if (!fs.existsSync(promptPath)) {
+    throw new Error(`System prompt file not found at path: ${promptPath}`);
+  }
   return fs.readFileSync(promptPath, "utf-8");
 }
 
-export async function generateContent(
-  artifactPrompt: string,
+// --- Function to request artwork description from Claude ---
+export async function requestArtworkDescription(
+  randomArtworkPrompt: string,
+): Promise<Anthropic.Beta.Messages.BetaMessage> {
+  const response = await anthropic.beta.messages.create({
+    model: "claude-sonnet-4-5",
+    thinking: {
+      type: "enabled",
+      budget_tokens: 2000,
+    },
+    max_tokens: 300,
+    temperature: 0.8,
+    betas: ["structured-outputs-2025-11-13"],
+    system: loadSystemPrompt(
+      "src/services/AIGen/anthropic/system/image-describe.txt",
+    ),
+    messages: [
+      {
+        role: "user",
+        content: `Describe the following artwork in a technical paragraph: ${randomArtworkPrompt}`,
+      },
+    ],
+    output_format: {
+      type: "json_schema",
+      schema: artworkSchema,
+    },
+  });
+  return response;
+}
+
+// --- Main function to generate content based on artwork and story prompts ---
+export async function requestNewStory(
+  artworkPrompt: string,
   storyPrompt: string,
 ): Promise<Anthropic.Beta.Messages.BetaMessage> {
   const response = await anthropic.beta.messages.create({
@@ -32,53 +63,18 @@ export async function generateContent(
     max_tokens: 2000,
     temperature: 1,
     betas: ["structured-outputs-2025-11-13"],
-    system: loadContentSystemPrompt(),
+    system: loadSystemPrompt(
+      "src/services/AIGen/anthropic/system/content-describe.txt",
+    ),
     messages: [
       {
         role: "user",
-        content: `Document the following artifact and its story: ${artifactPrompt} ${storyPrompt}`,
+        content: `Document the following artwork and its story: ${artworkPrompt} ${storyPrompt}`,
       },
     ],
     output_format: {
       type: "json_schema",
       schema: contentSchema,
-    },
-  });
-  return response;
-}
-
-// --- New function to generate image description prompts ---
-
-function loadImageDescribeSystem(): string {
-  const promptPath = path.resolve(
-    process.cwd(),
-    "src/services/AIGen/anthropic/system/image-describe.txt",
-  );
-  return fs.readFileSync(promptPath, "utf-8");
-}
-
-export async function generateArtifact(
-  randomArtwork: string,
-): Promise<Anthropic.Beta.Messages.BetaMessage> {
-  const response = await anthropic.beta.messages.create({
-    model: "claude-sonnet-4-5",
-    thinking: {
-      type: "enabled",
-      budget_tokens: 2000,
-    },
-    max_tokens: 300,
-    temperature: 0.8,
-    betas: ["structured-outputs-2025-11-13"],
-    system: loadImageDescribeSystem(),
-    messages: [
-      {
-        role: "user",
-        content: `Describe the following artwork in a technical paragraph: ${randomArtwork}`,
-      },
-    ],
-    output_format: {
-      type: "json_schema",
-      schema: ImagePromptJsonSchema,
     },
   });
   return response;
