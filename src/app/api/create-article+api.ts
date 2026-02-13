@@ -1,8 +1,8 @@
-import { articleCreationPipeline } from "@/pipelines";
+import { fullPipeline } from "@/pipelines/full-pipeline";
 
 export async function POST(request: Request): Promise<Response> {
   try {
-    await articleCreationPipeline();
+    await fullPipeline();
     return new Response("New article created and stored", {
       status: 201,
       headers: {

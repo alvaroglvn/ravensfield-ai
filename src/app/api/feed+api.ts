@@ -1,47 +1,36 @@
-import { executeQuery } from "@/db";
+import { db } from "@/db";
 
-interface FeedItem {
-  id: number;
-  title: string;
-  slug: string;
-  seoDescription: string;
-  createdAt: string;
-  imageUrl: string;
-  type: string;
-}
-
-// --- The feed will load 5 content cards: one hero and four list items ---
+// --- The feed will load 6 content cards (Hero + List) ---
 export async function GET(request: Request): Promise<Response> {
   try {
-    const data = await executeQuery<FeedItem>(`
-      SELECT 
-        articles.id,
-        articles.title,
-        articles.slug,
-        articles.seo_description as seoDescription,
-        articles.created_at as createdAt,
-        artworks.image_url as imageUrl,
-        artworks.type
-      FROM articles
-      LEFT JOIN artworks ON articles.id = artworks.article_id
-      ORDER BY articles.created_at DESC
-      LIMIT 6
-    `);
+    // Drizzle does the SQL generation, Joining, and Mapping for us
+    const data = await db.query.articles.findMany({
+      orderBy: (articles, { desc }) => [desc(articles.createdAt)],
+      limit: 6,
 
-    // Transform to match expected format with nested artwork
-    const transformed = data.map((item) => ({
-      id: item.id,
-      title: item.title,
-      slug: item.slug,
-      seoDescription: item.seoDescription,
-      createdAt: item.createdAt,
-      artwork: {
-        imageUrl: item.imageUrl,
-        type: item.type,
+      // 1. Select Article Fields
+      columns: {
+        id: true,
+        title: true,
+        slug: true,
+        seoDescription: true,
+        createdAt: true,
       },
-    }));
 
-    return Response.json(transformed);
+      // 2. Select Linked Artwork Fields (Auto-nested!)
+      with: {
+        artwork: {
+          columns: {
+            imageUrl: true,
+            type: true, // You requested 'type' in your SQL
+          },
+        },
+      },
+    });
+
+    // No need to manually .map()! Drizzle returns exactly:
+    // [{ id: 1, title: "...", artwork: { imageUrl: "..." } }]
+    return Response.json(data);
   } catch (error) {
     return Response.json(
       { error: `Failed to fetch feed data: ${error}` },

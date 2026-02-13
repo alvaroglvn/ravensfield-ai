@@ -3,17 +3,14 @@ const { withTamagui } = require("@tamagui/metro-plugin");
 
 const config = getDefaultConfig(__dirname);
 
-// Exclude native/server-only modules that don't work with Metro
 config.resolver.resolveRequest = (context, moduleName, platform) => {
-  // Handle all libsql and hrana related packages
-  if (
-    moduleName.startsWith("@libsql/") ||
-    moduleName === "libsql" ||
-    moduleName.startsWith("@hrana/") ||
-    moduleName === "hrana-client"
-  ) {
-    return { type: "empty" };
+  // If anything tries to import the heavy native client...
+  if (moduleName === "@libsql/client") {
+    // ...redirect it to the lightweight web client!
+    return context.resolveRequest(context, "@libsql/client/web", platform);
   }
+
+  // Perform normal resolution for everything else
   return context.resolveRequest(context, moduleName, platform);
 };
 
