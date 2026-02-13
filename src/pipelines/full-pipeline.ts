@@ -4,6 +4,16 @@ import {
   newStoryPipeline,
 } from "@/pipelines/content-generation";
 import { leonardoGeneration } from "@/pipelines/image-generation";
+import {
+  storeArticle,
+  storeArtwork,
+  storeQuote,
+} from "@/pipelines/data-storage";
+import type {
+  ArticleData,
+  ArtworkData,
+  QuoteData,
+} from "@/pipelines/data-storage";
 
 export async function fullPipeline() {
   try {
@@ -38,6 +48,37 @@ export async function fullPipeline() {
     ]);
 
     // --- STEP 4: Store results in database ---
+    const newArticle: ArticleData = {
+      title: story ? story.items[0].title : "Untitled Story",
+      seoDescription: story ? story.items[0].seoDescription : "",
+      content: story ? story.items[0].content : "",
+    };
+    const articleId = await storeArticle(newArticle);
+    if (!articleId) {
+      throw new Error("Failed to store article in database");
+    }
+    console.log("Stored article in database with ID:", articleId);
+
+    const newArtwork: ArtworkData = {
+      articleId: articleId,
+      title: story ? story.items[0].artwork.title : "Untitled Artwork",
+      year: story ? story.items[0].artwork.year : "Unknown Year",
+      type: story ? story.items[0].artwork.type : "Unknown Type",
+      medium: story ? story.items[0].artwork.medium : "Unknown Medium",
+      artist: story ? story.items[0].artwork.artist : "Unknown Artist",
+      imagePrompt: artworkDescription,
+      imageUrl: imageUrl || "",
+    };
+    await storeArtwork(newArtwork);
+    console.log("Stored artwork in database linked to article ID:", articleId);
+
+    const newQuotes: QuoteData[] = story ? story.items[0].quotes : [];
+    for (const quote of newQuotes) {
+      await storeQuote(articleId, quote);
+      console.log("Stored quote in database linked to article ID:", articleId);
+    }
+
+    console.log("Pipeline completed successfully!");
   } catch (error) {
     console.error("❌ Error in pipeline:", error);
     throw error;

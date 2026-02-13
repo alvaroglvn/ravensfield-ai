@@ -49,7 +49,7 @@ export async function newArtworkPipeline(
 
 export async function newStoryPipeline(
   artworkDescription: string,
-): Promise<void> {
+): Promise<ContentSchemaType | void> {
   try {
     // --- Generate random story prompt using Madlibs ---
     console.log("Generating random story prompt using Madlibs...");
@@ -80,6 +80,7 @@ export async function newStoryPipeline(
     if (!isValid) {
       throw new Error("Validation failed for parsed story");
     }
+    return parsedStory;
   } catch (error) {
     console.error("Error in new story pipeline:", error);
   }
