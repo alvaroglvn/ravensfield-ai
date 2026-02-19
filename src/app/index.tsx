@@ -2,6 +2,7 @@ import { ScrollView, XStack, YStack, Text } from "tamagui";
 import { useQuery } from "@tanstack/react-query";
 
 import { ContentCard } from "@/components/ContentCard";
+import { CompactCard } from "@/components/CompactCard";
 
 // --- Fetch data from feed API ---
 async function fetchFeedData() {
@@ -76,14 +77,12 @@ export default function Home() {
         {/* --- MOST RECENT --- */}
         <YStack flex={1.5} gap="$3">
           {data.slice(1).map((item: any) => (
-            <ContentCard
+            <CompactCard
               slug={item.slug}
               imageUrl={item.artwork.imageUrl}
               type={item.artwork.type}
               title={item.title}
-              seoDescription={item.seoDescription}
-              variant="compact"
-            ></ContentCard>
+            ></CompactCard>
           ))}
         </YStack>
       </XStack>
