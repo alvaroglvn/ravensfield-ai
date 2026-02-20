@@ -1,13 +1,12 @@
-import { YStack, H1, Paragraph, styled } from "tamagui";
+import { YStack } from "tamagui";
 import { useMemo } from "react";
 
 import { QuoteCard } from "@/components/QuoteCard";
-
-const ArticleParagraph = styled(Paragraph, {
-  fontSize: "$4",
-  lineHeight: "$5",
-  color: "$gray11",
-});
+import {
+  ArticleTitle,
+  ArticleBody,
+  ArticleParagraph,
+} from "@/styles/StyledArticle";
 
 interface Quote {
   content: string;
@@ -77,8 +76,8 @@ export function Article({ title, content, quotes }: ArticleProps) {
   }, [paragraphs, insertionMap]);
 
   return (
-    <YStack role="article" width="100%" maxW={850} gap="$5" self="center">
-      <H1 fontSize={52} color="$color">{title}</H1>
+    <YStack role="article" width="100%" maxW={ArticleBody.maxWidth} gap="$5" self="center">
+      <ArticleTitle>{title}</ArticleTitle>
       <YStack role="region" gap="$4">
         {body}
       </YStack>

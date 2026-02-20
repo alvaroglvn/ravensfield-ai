@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { H2, ScrollView, Spinner, Text, XStack, YStack } from "tamagui";
 
 import { ContentCard } from "@/components/ContentCard";
+import { CATEGORY_MAX_WIDTH } from "@/styles/layout";
 
 async function fetchCategoryData(type: string) {
   const response = await fetch(`/api/category/${encodeURIComponent(type)}`);
@@ -45,7 +46,7 @@ export default function CategoryPage() {
 
   return (
     <ScrollView paddingInline="$5" paddingBlock="$5">
-      <YStack maxW={1200} self="center" width="100%" gap="$5">
+      <YStack maxW={CATEGORY_MAX_WIDTH} self="center" width="100%" gap="$5">
         <H2 textTransform="capitalize">
           {type === "objectdart"
             ? "object d'art"

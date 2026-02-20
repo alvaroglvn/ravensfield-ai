@@ -1,14 +1,8 @@
-import { H3, Text, Theme, XStack, YStack, YStackProps, styled } from "tamagui";
+import { H3, Theme, XStack, YStack, YStackProps } from "tamagui";
 import { useRouter } from "expo-router";
 
 import { Image } from "@/components/ExpoImage";
-import { CardWrapper, StyledCard } from "@/styles/StyledContentCard";
-
-const CardTypeLabel = styled(Text, {
-  fontSize: "$2",
-  color: "$gray11",
-  textTransform: "uppercase",
-});
+import { CardWrapper, StyledCard, CardTypeLabel } from "@/styles/StyledContentCard";
 
 interface CompactCardProps extends YStackProps {
   slug: string;

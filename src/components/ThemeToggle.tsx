@@ -1,6 +1,8 @@
-import { XStack, Button, useThemeName } from "tamagui";
+import { Button, useThemeName } from "tamagui";
 import { Sun, Moon, Monitor } from "@tamagui/lucide-icons";
+
 import { useTheme, type ThemePreference } from "@/context/ThemeContext";
+import { ThemeToggleBar } from "@/styles/StyledThemeToggle";
 
 type ThemeOption = {
   value: ThemePreference;
@@ -19,14 +21,7 @@ export default function ThemeToggle() {
   const themeName = useThemeName();
 
   return (
-    <XStack
-      gap="$1"
-      paddingBlock={4}
-      paddingInline={4}
-      r={8}
-      borderWidth={1}
-      borderColor="rgba(128, 128, 128, 0.3)"
-    >
+    <ThemeToggleBar>
       {themeOptions.map(({ value, icon: Icon, label }) => {
         const isActive = themePreference === value;
 
@@ -50,6 +45,6 @@ export default function ThemeToggle() {
           />
         );
       })}
-    </XStack>
+    </ThemeToggleBar>
   );
 }

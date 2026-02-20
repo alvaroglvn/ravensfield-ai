@@ -1,4 +1,4 @@
-import { styled, Card, YStack } from "tamagui";
+import { styled, Card, YStack, Text } from "tamagui";
 
 // 1. The Interactive Wrapper (Handles animations & cursor)
 export const CardWrapper = styled(YStack, {
@@ -46,6 +46,13 @@ export const StyledCard = styled(Card, {
   defaultVariants: {
     size: "default",
   },
+});
+
+// 3. Shared label for card type (used in ContentCard and CompactCard)
+export const CardTypeLabel = styled(Text, {
+  fontSize: "$2",
+  color: "$gray11",
+  textTransform: "uppercase",
 });
 
 export default StyledCard;

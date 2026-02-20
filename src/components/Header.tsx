@@ -1,8 +1,9 @@
-import { YStack, XStack, Text, Theme } from "tamagui";
+import { YStack, Text, Theme } from "tamagui";
 import { Link } from "expo-router";
 
 import ThemeToggle from "@/components/ThemeToggle";
 import { Image } from "@/components/ExpoImage";
+import { HeaderBar } from "@/styles/StyledHeader";
 import logo from "@/logos/ravensfield-logo.webp";
 
 type HeaderProps = {
@@ -13,13 +14,7 @@ type HeaderProps = {
 export default function Header({ title, subtitle }: HeaderProps) {
   return (
     <Theme name="inverse">
-      <XStack
-        background="$background"
-        paddingBlock={30}
-        paddingInline={55}
-        width="100%"
-        items="center"
-      >
+      <HeaderBar>
         <YStack flex={1} items="flex-start">
           <Link href="/">
             <Image src={logo} width={80} height={80} alt="Ravensfield logo" />
@@ -42,7 +37,7 @@ export default function Header({ title, subtitle }: HeaderProps) {
           <ThemeToggle />
           {/* <HamburguerMenu /> */}
         </YStack>
-      </XStack>
+      </HeaderBar>
     </Theme>
   );
 }

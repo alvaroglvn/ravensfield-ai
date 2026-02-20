@@ -1,6 +1,8 @@
 import { ScrollView, XStack, YStack, Text } from "tamagui";
 import { useQuery } from "@tanstack/react-query";
 
+import { HERO_MAX_WIDTH } from "@/styles/layout";
+
 import { ContentCard } from "@/components/ContentCard";
 import { CompactCard } from "@/components/CompactCard";
 
@@ -59,7 +61,7 @@ export default function Home() {
         items="stretch"
         style={{
           alignSelf: "center",
-          maxWidth: 1000,
+          maxWidth: HERO_MAX_WIDTH,
         }}
       >
         {/* --- FEATURED POST --- */}

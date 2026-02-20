@@ -2,6 +2,8 @@ import { useLocalSearchParams } from "expo-router";
 import { useQuery } from "@tanstack/react-query";
 import { YStack, Text, Spinner, ScrollView } from "tamagui";
 
+import { ARTWORK_IMAGE_MAX_WIDTH, ARTWORK_IMAGE_HEIGHT } from "@/styles/layout";
+
 import { MuseumTag } from "@/components/MuseumTag";
 import { Image } from "@/components/ExpoImage";
 import { Article } from "@/components/Article";
@@ -54,8 +56,8 @@ export default function ArticlePage() {
           src={data.artwork.imageUrl}
           contentFit="contain"
           width="100%"
-          maxWidth={800} // Don't let it get huge on desktop
-          height={650} // Needs explicit height or aspectRatio to render well
+          maxWidth={ARTWORK_IMAGE_MAX_WIDTH}
+          height={ARTWORK_IMAGE_HEIGHT}
         />
         <MuseumTag artwork={data.artwork} />
       </YStack>
