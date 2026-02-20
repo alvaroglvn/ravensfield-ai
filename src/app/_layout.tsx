@@ -18,6 +18,7 @@ import tamaguiConfig from "../../tamagui.config";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { ThemeProvider, useTheme } from "@/context/ThemeContext";
+import { SITE_MAX_WIDTH } from "@/styles/layout";
 
 // 3. Prevent the splash screen from hiding automatically
 SplashScreen.preventAutoHideAsync();
@@ -58,13 +59,24 @@ function AppContent() {
   return (
     <TamaguiProvider config={tamaguiConfig} defaultTheme={resolvedTheme}>
       <Theme name={resolvedTheme}>
-        <YStack flex={1} background="$background">
-          <Header
-            title="The Ravensfield Collection"
-            subtitle="An AI Museum that Dreams of Itself"
-          />
-          <Slot />
-          <Footer />
+        <YStack background="$color3" style={{ minHeight: "100dvh" }}>
+          <YStack
+            width="100%"
+            maxW={SITE_MAX_WIDTH}
+            self="center"
+            flex={1}
+            background="$background"
+            boxShadow="0 0 60px rgba(0,0,0,0.18)"
+          >
+            <Header
+              title="The Ravensfield Collection"
+              subtitle="An AI Museum that Dreams of Itself"
+            />
+            <YStack flex={1}>
+              <Slot />
+            </YStack>
+            <Footer />
+          </YStack>
         </YStack>
       </Theme>
     </TamaguiProvider>

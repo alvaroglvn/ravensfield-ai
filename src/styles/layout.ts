@@ -1,6 +1,7 @@
 // Layout dimension constants used across pages and components.
 // These represent intentional design decisions for max-widths and fixed heights.
 
+export const SITE_MAX_WIDTH = 1440;
 export const CATEGORY_MAX_WIDTH = 1200;
 export const HERO_MAX_WIDTH = 1000;
 export const ARTICLE_MAX_WIDTH = 850;

@@ -1,7 +1,6 @@
 import { ScrollView, XStack, YStack, Text } from "tamagui";
 import { useQuery } from "@tanstack/react-query";
 
-import { HERO_MAX_WIDTH } from "@/styles/layout";
 
 import { ContentCard } from "@/components/ContentCard";
 import { CompactCard } from "@/components/CompactCard";
@@ -53,16 +52,12 @@ export default function Home() {
   }
 
   return (
-    <ScrollView paddingInline={20} paddingBlock={20}>
+    <ScrollView paddingInline={55} paddingBlock={20}>
       {/* --- HERO SECTION --- */}
       <XStack
         gap="$3"
         width="100%"
         items="stretch"
-        style={{
-          alignSelf: "center",
-          maxWidth: HERO_MAX_WIDTH,
-        }}
       >
         {/* --- FEATURED POST --- */}
         <YStack flex={2}>
@@ -78,6 +73,9 @@ export default function Home() {
         </YStack>
         {/* --- MOST RECENT --- */}
         <YStack flex={1.5} gap="$3">
+          <YStack width="50%" paddingBlock="$2" paddingInline="$3" background="$gray9">
+            <Text color="white" fontSize="$3" fontWeight="bold" textTransform="uppercase" letterSpacing={1}>Latest Discoveries</Text>
+          </YStack>
           {data.slice(1).map((item: any) => (
             <CompactCard
               slug={item.slug}
