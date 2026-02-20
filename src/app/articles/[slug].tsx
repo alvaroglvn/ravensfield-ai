@@ -1,9 +1,10 @@
 import { useLocalSearchParams } from "expo-router";
 import { useQuery } from "@tanstack/react-query";
-import { YStack, Text, Paragraph, H1, Spinner, ScrollView } from "tamagui";
+import { YStack, Text, Spinner, ScrollView } from "tamagui";
 
 import { MuseumTag } from "@/components/MuseumTag";
 import { Image } from "@/components/ExpoImage";
+import { Article } from "@/components/Article";
 
 // --- Fetch data from article API ---
 async function fetchArticleData(slug: string) {
@@ -60,14 +61,11 @@ export default function ArticlePage() {
       </YStack>
 
       {/* ---- STORY CONTENT --- */}
-      <YStack width="100%" maxW={700} self="center" items={"center"}>
-        <H1 fontSize="$6" marginBlockEnd={"$4"}>
-          {data.title}
-        </H1>
-        <Text fontSize="$4" lineHeight={30} text="left">
-          {data.content}
-        </Text>
-      </YStack>
+      <Article
+        title={data.title}
+        content={data.content}
+        quotes={data.quotes ?? []}
+      />
     </ScrollView>
   );
 }
