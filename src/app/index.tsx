@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 
 import { ContentCard } from "@/components/ContentCard";
 import { CompactCard } from "@/components/CompactCard";
+import { CategoryCarousel } from "@/components/CategoryCarousel";
 
 // --- Fetch data from feed API ---
 async function fetchFeedData() {
@@ -86,6 +87,9 @@ export default function Home() {
           ))}
         </YStack>
       </XStack>
+
+      {/* --- PAINTING CAROUSEL --- */}
+      <CategoryCarousel category="painting" />
     </ScrollView>
   );
 }
