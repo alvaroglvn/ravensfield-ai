@@ -4,7 +4,8 @@ import { Link } from "expo-router";
 import ThemeToggle from "@/components/ThemeToggle";
 import { Image } from "@/components/ExpoImage";
 import { HeaderBar } from "@/styles/StyledHeader";
-import logo from "@/logos/ravensfield-logo.webp";
+import { useTheme } from "@/context/ThemeContext";
+import logo from "assets/icon.svg";
 
 type HeaderProps = {
   title: string;
@@ -12,12 +13,19 @@ type HeaderProps = {
 };
 
 export default function Header({ title, subtitle }: HeaderProps) {
+  const { resolvedTheme } = useTheme();
+  // Header uses <Theme name="inverse">, so its background is dark when the
+  // resolved theme is "light". Invert the raster icon to keep it visible.
+  const shouldInvert = resolvedTheme === "light";
+
   return (
     <Theme name="inverse">
       <HeaderBar>
         <YStack flex={1} items="flex-start">
           <Link href="/">
-            <Image src={logo} width={80} height={80} alt="Ravensfield logo" />
+            <YStack style={shouldInvert ? { filter: "invert(1)" } : undefined}>
+              <Image src={logo} width={80} height={80} alt="Ravensfield logo" contentFit="contain" />
+            </YStack>
           </Link>
         </YStack>
 
