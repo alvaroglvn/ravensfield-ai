@@ -1,4 +1,3 @@
-import React from "react";
 import { XStack, SizableText, YStack, Separator } from "tamagui";
 
 type Artwork = {
@@ -15,8 +14,8 @@ export function MuseumTag({ artwork }: { artwork?: Artwork | null }) {
     <YStack
       borderWidth={2}
       borderColor="$gray8"
-      paddingBlock={12}
-      paddingInline={12}
+      paddingBlock="$3"
+      paddingInline="$3"
       borderTopLeftRadius="$10"
       borderTopRightRadius="$2"
       borderBottomRightRadius="$10"
@@ -28,13 +27,13 @@ export function MuseumTag({ artwork }: { artwork?: Artwork | null }) {
       </SizableText>
       <SizableText
         size="$4"
-        fontFamily={"$heading"}
+        fontFamily="$heading"
         fontStyle="italic"
         color="$gray11"
       >
         {artwork.title}
       </SizableText>
-      <XStack gap={12}>
+      <XStack gap="$3">
         <SizableText size="$2" color="$gray11">
           {artwork.year}
         </SizableText>

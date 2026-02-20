@@ -1,9 +1,15 @@
-import { Card, H3, Paragraph, Text, Theme, YStack, YStackProps } from "tamagui";
+import { Card, H3, Paragraph, Text, Theme, YStack, YStackProps, styled } from "tamagui";
 import { useRouter } from "expo-router";
 
 import { Image } from "@/components/ExpoImage";
 import { Ribbon } from "@/components/Ribbon";
 import { CardWrapper, StyledCard } from "@/styles/StyledContentCard";
+
+const CardTypeLabel = styled(Text, {
+  fontSize: "$2",
+  color: "$gray11",
+  textTransform: "uppercase",
+});
 
 interface ContentCardProps extends YStackProps {
   slug: string;
@@ -40,13 +46,11 @@ export function ContentCard({
             />
           </YStack>
           <Card.Header flexWrap="wrap">
-            <Text fontSize="$4" color="$gray11" textTransform="uppercase">
-              {type}
-            </Text>
+            <CardTypeLabel>{type}</CardTypeLabel>
             <H3 size="$5" numberOfLines={2} ellipsis>
               {title}
             </H3>
-            <Paragraph size="$2" marginBlock={15}>
+            <Paragraph size="$2" marginBlock="$3">
               {seoDescription}
             </Paragraph>
           </Card.Header>

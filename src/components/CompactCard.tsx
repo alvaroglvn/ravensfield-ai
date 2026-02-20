@@ -1,8 +1,14 @@
-import { H3, Text, Theme, XStack, YStack, YStackProps } from "tamagui";
+import { H3, Text, Theme, XStack, YStack, YStackProps, styled } from "tamagui";
 import { useRouter } from "expo-router";
 
 import { Image } from "@/components/ExpoImage";
 import { CardWrapper, StyledCard } from "@/styles/StyledContentCard";
+
+const CardTypeLabel = styled(Text, {
+  fontSize: "$2",
+  color: "$gray11",
+  textTransform: "uppercase",
+});
 
 interface CompactCardProps extends YStackProps {
   slug: string;
@@ -33,14 +39,7 @@ export function CompactCard({
               items="flex-start"
               gap="$1.5"
             >
-              <Text
-                fontSize="$2"
-                color="$gray11"
-                textTransform="uppercase"
-                numberOfLines={1}
-              >
-                {type}
-              </Text>
+              <CardTypeLabel numberOfLines={1}>{type}</CardTypeLabel>
               <H3 fontSize="$3" lineHeight="$4" numberOfLines={2} ellipsis>
                 {title}
               </H3>

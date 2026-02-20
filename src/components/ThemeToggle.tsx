@@ -21,12 +21,11 @@ export default function ThemeToggle() {
   return (
     <XStack
       gap="$1"
-      style={{
-        padding: 4,
-        borderRadius: 8,
-        borderWidth: 1,
-        borderColor: "rgba(128, 128, 128, 0.3)",
-      }}
+      paddingBlock={4}
+      paddingInline={4}
+      r={8}
+      borderWidth={1}
+      borderColor="rgba(128, 128, 128, 0.3)"
     >
       {themeOptions.map(({ value, icon: Icon, label }) => {
         const isActive = themePreference === value;

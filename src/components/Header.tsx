@@ -27,12 +27,12 @@ export default function Header({ title, subtitle }: HeaderProps) {
         </YStack>
 
         <YStack flex={3} items="center">
-          <Text fontFamily={"$heading"} fontSize="$5">
+          <Text fontFamily="$heading" fontSize="$5">
             {title}
           </Text>
 
           {subtitle && (
-            <Text fontFamily={"$body"} fontSize="$4" fontStyle="italic">
+            <Text fontFamily="$body" fontSize="$4" fontStyle="italic">
               {subtitle}
             </Text>
           )}

@@ -6,17 +6,15 @@ export default function Footer() {
   return (
     <Theme name="inverse">
       <XStack
-        elevation={"$1"}
+        elevation="$1"
         background="$background"
-        style={{
-          padding: 25,
-          justifyContent: "space-between",
-          alignItems: "center",
-          alignContent: "center",
-        }}
+        paddingBlock={25}
+        paddingInline={25}
+        justify="space-between"
+        items="center"
       >
         <YStack />
-        <YStack style={{ alignItems: "center" }}>
+        <YStack items="center">
           <Text fontSize="$2">© {year} Ravensfield AI</Text>
         </YStack>
         <YStack />
