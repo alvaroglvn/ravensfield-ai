@@ -3,9 +3,9 @@ import { styled, XStack, YStack, Text } from "tamagui";
 export const RibbonWrapper = styled(XStack, {
   pointerEvents: "none",
   position: "absolute",
-  top: 40,
-  left: 0,
-  zIndex: 10,
+  t: 40,
+  l: 0,
+  z: 10,
 });
 
 export const RibbonBadge = styled(YStack, {

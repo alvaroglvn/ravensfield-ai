@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useWindowDimensions } from "react-native";
 import { useQuery } from "@tanstack/react-query";
 import { useRouter } from "expo-router";
-import { ScrollView, XStack } from "tamagui";
+import { ScrollView, XStack, YStack } from "tamagui";
 
 import { Image } from "@/components/ExpoImage";
 import {
@@ -18,11 +18,13 @@ import {
   NavStrip,
   NavArrow,
 } from "@/styles/StyledCategoryCarousel";
-
-const VISIBLE_COUNT = 4;
-const SMALL_BREAKPOINT = 768;
-// Mirrors the page's paddingInline (55px each side)
-const PAGE_PADDING = 110;
+import {
+  MOBILE_BREAKPOINT,
+  TABLET_BREAKPOINT,
+  DESKTOP_BREAKPOINT,
+  PADDING_MOBILE,
+  PADDING_TABLET,
+} from "@/styles/layout";
 
 interface CarouselItem {
   slug: string;
@@ -45,7 +47,9 @@ export function CategoryCarousel({ category, label }: CategoryCarouselProps) {
   const [startIndex, setStartIndex] = useState(0);
   const router = useRouter();
   const { width } = useWindowDimensions();
-  const isSmall = width < SMALL_BREAKPOINT;
+  const isSmall = width < TABLET_BREAKPOINT;
+  const visibleCount = width >= DESKTOP_BREAKPOINT ? 4 : 3;
+  const pagePadding = width < MOBILE_BREAKPOINT ? PADDING_MOBILE * 2 : PADDING_TABLET * 2;
 
   const { data, isLoading } = useQuery({
     queryKey: ["category", category],
@@ -55,8 +59,8 @@ export function CategoryCarousel({ category, label }: CategoryCarouselProps) {
   if (isLoading || !data || data.length === 0) return null;
 
   const canGoBack = startIndex > 0;
-  const canGoForward = startIndex + VISIBLE_COUNT < data.length;
-  const visibleItems = data.slice(startIndex, startIndex + VISIBLE_COUNT);
+  const canGoForward = startIndex + visibleCount < data.length;
+  const visibleItems = data.slice(startIndex, startIndex + visibleCount);
 
   const sectionLabel =
     label ?? category.charAt(0).toUpperCase() + category.slice(1);
@@ -73,14 +77,25 @@ export function CategoryCarousel({ category, label }: CategoryCarouselProps) {
   );
 
   if (isSmall) {
-    const tileSize = width - PAGE_PADDING;
+    const tileSize = width - pagePadding;
     return (
       <CarouselSection>
         {header}
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
           <XStack gap="$3">
             {data.map((item) => (
-              <TileWrapper key={item.slug} width={tileSize} flex={0}>
+              <YStack
+                key={item.slug}
+                width={tileSize}
+                height={tileSize}
+                style={{ flexShrink: 0 }}
+                overflow="hidden"
+                position="relative"
+                borderTopLeftRadius="$6"
+                borderTopRightRadius="$2"
+                borderBottomRightRadius="$6"
+                borderBottomLeftRadius="$2"
+              >
                 <ImageTile onPress={() => router.push(`/articles/${item.slug}`)}>
                   <Image
                     src={item.artwork.imageUrl}
@@ -90,7 +105,7 @@ export function CategoryCarousel({ category, label }: CategoryCarouselProps) {
                     contentPosition="center"
                   />
                 </ImageTile>
-              </TileWrapper>
+              </YStack>
             ))}
           </XStack>
         </ScrollView>

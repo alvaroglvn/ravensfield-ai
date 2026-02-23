@@ -1,10 +1,18 @@
 import { YStack, Text, Theme } from "tamagui";
 import { Link } from "expo-router";
+import { useWindowDimensions } from "react-native";
 
 import ThemeToggle from "@/components/ThemeToggle";
 import { Image } from "@/components/ExpoImage";
 import { HeaderBar } from "@/styles/StyledHeader";
 import { useTheme } from "@/context/ThemeContext";
+import {
+  MOBILE_BREAKPOINT,
+  TABLET_BREAKPOINT,
+  PADDING_MOBILE,
+  PADDING_TABLET,
+  PADDING_DESKTOP,
+} from "@/styles/layout";
 import logo from "assets/icon.svg";
 
 type HeaderProps = {
@@ -14,27 +22,38 @@ type HeaderProps = {
 
 export default function Header({ title, subtitle }: HeaderProps) {
   const { resolvedTheme } = useTheme();
+  const { width } = useWindowDimensions();
   // Header uses <Theme name="inverse">, so its background is dark when the
   // resolved theme is "light". Invert the raster icon to keep it visible.
   const shouldInvert = resolvedTheme === "light";
 
+  const isMobile = width < MOBILE_BREAKPOINT;
+  const isTablet = width < TABLET_BREAKPOINT;
+  const hPadding = isMobile ? PADDING_MOBILE : isTablet ? PADDING_TABLET : PADDING_DESKTOP;
+  const vPadding = isMobile ? 16 : 30;
+  const logoSize = isMobile ? 48 : 80;
+
   return (
     <Theme name="inverse">
-      <HeaderBar>
+      <HeaderBar paddingInline={hPadding} paddingBlock={vPadding}>
         <YStack flex={1} items="flex-start">
           <Link href="/">
             <YStack style={shouldInvert ? { filter: "invert(1)" } : undefined}>
-              <Image src={logo} width={80} height={80} alt="Ravensfield logo" contentFit="contain" />
+              <Image src={logo} width={logoSize} height={logoSize} alt="Ravensfield logo" contentFit="contain" />
             </YStack>
           </Link>
         </YStack>
 
         <YStack flex={3} items="center">
-          <Text fontFamily="$heading" fontSize="$5">
+          <Text
+            fontFamily="$heading"
+            numberOfLines={1}
+            style={{ whiteSpace: "nowrap", fontSize: "clamp(14px, 3.8vw, 42px)" } as any}
+          >
             {title}
           </Text>
 
-          {subtitle && (
+          {!isMobile && subtitle && (
             <Text fontFamily="$body" fontSize="$4" fontStyle="italic">
               {subtitle}
             </Text>
@@ -43,7 +62,6 @@ export default function Header({ title, subtitle }: HeaderProps) {
 
         <YStack flex={1} items="flex-end">
           <ThemeToggle />
-          {/* <HamburguerMenu /> */}
         </YStack>
       </HeaderBar>
     </Theme>

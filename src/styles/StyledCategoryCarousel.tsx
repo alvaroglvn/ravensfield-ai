@@ -5,15 +5,15 @@ export const CarouselSection = styled(YStack, {
 });
 
 export const CarouselHeader = styled(XStack, {
-  justifyContent: "space-between",
-  alignItems: "center",
+  justify: "space-between",
+  items: "center",
 });
 
 export const SectionTitleBox = styled(YStack, {
   paddingBlock: "$2",
   paddingInline: "$3",
-  backgroundColor: "$gray9",
-  alignSelf: "flex-start",
+  bg: "$gray9",
+  self: "flex-start",
 });
 
 export const SectionTitle = styled(Text, {
@@ -56,10 +56,10 @@ export const TileWrapper = styled(YStack, {
 // Inner pressable: fills the wrapper, handles article navigation
 export const ImageTile = styled(YStack, {
   position: "absolute",
-  top: 0,
-  left: 0,
-  right: 0,
-  bottom: 0,
+  t: 0,
+  l: 0,
+  r: 0,
+  b: 0,
   cursor: "pointer",
   hoverStyle: { opacity: 0.88 },
   pressStyle: { scale: 0.97 },
@@ -69,22 +69,22 @@ export const ImageTile = styled(YStack, {
 // Vertical strip button overlaid on the first / last tile
 export const NavStrip = styled(YStack, {
   position: "absolute",
-  top: 0,
-  bottom: 0,
+  t: 0,
+  b: 0,
   width: 36,
-  backgroundColor: "$gray9",
-  alignItems: "center",
-  justifyContent: "center",
+  bg: "$gray9",
+  items: "center",
+  justify: "center",
   cursor: "pointer",
-  zIndex: 1,
+  z: 1,
   transition: "slow",
-  hoverStyle: { backgroundColor: "$gray10" },
+  hoverStyle: { bg: "$gray10" },
   pressStyle: { opacity: 0.75 },
 
   variants: {
     side: {
-      left: { left: 0 },
-      right: { right: 0 },
+      left: { l: 0 },
+      right: { r: 0 },
     },
   } as const,
 });
@@ -92,16 +92,16 @@ export const NavStrip = styled(YStack, {
 export const NavArrow = styled(Text, {
   fontSize: "$4",
   color: "white",
-  userSelect: "none",
+  select: "none",
   lineHeight: 1,
 });
 
 export const ImageOverlay = styled(YStack, {
   position: "absolute",
-  bottom: 0,
-  left: 0,
-  right: 0,
-  padding: "$3",
+  b: 0,
+  l: 0,
+  r: 0,
+  p: "$3",
   gap: "$1",
 });
 

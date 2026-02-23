@@ -1,10 +1,17 @@
 import { ScrollView, XStack, YStack, Text } from "tamagui";
 import { useQuery } from "@tanstack/react-query";
-
+import { useWindowDimensions } from "react-native";
 
 import { ContentCard } from "@/components/ContentCard";
 import { CompactCard } from "@/components/CompactCard";
 import { CategoryCarousel } from "@/components/CategoryCarousel";
+import {
+  MOBILE_BREAKPOINT,
+  TABLET_BREAKPOINT,
+  PADDING_MOBILE,
+  PADDING_TABLET,
+  PADDING_DESKTOP,
+} from "@/styles/layout";
 
 // --- Fetch data from feed API ---
 async function fetchFeedData() {
@@ -21,6 +28,11 @@ export default function Home() {
     queryKey: ["feedData"],
     queryFn: fetchFeedData,
   });
+
+  const { width } = useWindowDimensions();
+  const isMobile = width < MOBILE_BREAKPOINT;
+  const isNarrow = width < TABLET_BREAKPOINT;
+  const hPadding = isMobile ? PADDING_MOBILE : isNarrow ? PADDING_TABLET : PADDING_DESKTOP;
 
   if (isLoading) {
     return (
@@ -52,13 +64,30 @@ export default function Home() {
     );
   }
 
+  const latestDiscoveries = (
+    <YStack gap="$3">
+      <YStack self="flex-start" paddingBlock="$2" paddingInline="$3" background="$gray9">
+        <Text color="white" fontSize="$3" fontWeight="bold" textTransform="uppercase" letterSpacing={1}>Latest Discoveries</Text>
+      </YStack>
+      {data.slice(1).map((item: any) => (
+        <CompactCard
+          key={item.slug}
+          slug={item.slug}
+          imageUrl={item.artwork.imageUrl}
+          type={item.artwork.type}
+          title={item.title}
+        />
+      ))}
+    </YStack>
+  );
+
   return (
-    <ScrollView paddingInline={55} paddingBlock={48}>
-      <YStack gap={48}>
+    <ScrollView paddingInline={hPadding} paddingBlock={isMobile ? 24 : 48}>
+      <YStack gap={isMobile ? 32 : 48}>
         {/* --- HERO SECTION --- */}
-        <XStack gap="$3" width="100%" items="stretch">
-          {/* --- FEATURED POST --- */}
-          <YStack flex={2}>
+        {isNarrow ? (
+          // Mobile / narrow tablet: stack vertically
+          <YStack gap="$3">
             <ContentCard
               isNew={true}
               slug={data[0].slug}
@@ -66,24 +95,28 @@ export default function Home() {
               type={data[0].artwork.type}
               title={data[0].title}
               seoDescription={data[0].seoDescription}
-              flex={1}
-            ></ContentCard>
+            />
+            {latestDiscoveries}
           </YStack>
-          {/* --- MOST RECENT --- */}
-          <YStack flex={1.5} gap="$3">
-            <YStack width="50%" paddingBlock="$2" paddingInline="$3" background="$gray9">
-              <Text color="white" fontSize="$3" fontWeight="bold" textTransform="uppercase" letterSpacing={1}>Latest Discoveries</Text>
+        ) : (
+          // Tablet / desktop: side-by-side
+          <XStack gap="$3" width="100%" items="stretch">
+            <YStack flex={2}>
+              <ContentCard
+                isNew={true}
+                slug={data[0].slug}
+                imageUrl={data[0].artwork.imageUrl}
+                type={data[0].artwork.type}
+                title={data[0].title}
+                seoDescription={data[0].seoDescription}
+                flex={1}
+              />
             </YStack>
-            {data.slice(1).map((item: any) => (
-              <CompactCard
-                slug={item.slug}
-                imageUrl={item.artwork.imageUrl}
-                type={item.artwork.type}
-                title={item.title}
-              ></CompactCard>
-            ))}
-          </YStack>
-        </XStack>
+            <YStack flex={1.5}>
+              {latestDiscoveries}
+            </YStack>
+          </XStack>
+        )}
 
         {/* --- CATEGORY CAROUSELS --- */}
         <CategoryCarousel category="painting" />
