@@ -1,8 +1,7 @@
 import { styled, YStack, XStack, Text } from "tamagui";
 
 export const CarouselSection = styled(YStack, {
-  paddingBlock: "$6",
-  gap: "$4",
+  gap: "$5",
 });
 
 export const CarouselHeader = styled(XStack, {
@@ -48,9 +47,9 @@ export const TileWrapper = styled(YStack, {
   aspectRatio: 1,
   overflow: "hidden",
   position: "relative",
-  borderTopLeftRadius: "$4",
+  borderTopLeftRadius: "$6",
   borderTopRightRadius: "$2",
-  borderBottomRightRadius: "$4",
+  borderBottomRightRadius: "$6",
   borderBottomLeftRadius: "$2",
 });
 

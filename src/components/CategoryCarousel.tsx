@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useWindowDimensions } from "react-native";
 import { useQuery } from "@tanstack/react-query";
 import { useRouter } from "expo-router";
+import { ScrollView, XStack } from "tamagui";
 
 import { Image } from "@/components/ExpoImage";
 import {
@@ -18,6 +20,9 @@ import {
 } from "@/styles/StyledCategoryCarousel";
 
 const VISIBLE_COUNT = 4;
+const SMALL_BREAKPOINT = 768;
+// Mirrors the page's paddingInline (55px each side)
+const PAGE_PADDING = 110;
 
 interface CarouselItem {
   slug: string;
@@ -33,11 +38,14 @@ async function fetchCategory(category: string): Promise<CarouselItem[]> {
 
 interface CategoryCarouselProps {
   category: string;
+  label?: string;
 }
 
-export function CategoryCarousel({ category }: CategoryCarouselProps) {
+export function CategoryCarousel({ category, label }: CategoryCarouselProps) {
   const [startIndex, setStartIndex] = useState(0);
   const router = useRouter();
+  const { width } = useWindowDimensions();
+  const isSmall = width < SMALL_BREAKPOINT;
 
   const { data, isLoading } = useQuery({
     queryKey: ["category", category],
@@ -51,19 +59,48 @@ export function CategoryCarousel({ category }: CategoryCarouselProps) {
   const visibleItems = data.slice(startIndex, startIndex + VISIBLE_COUNT);
 
   const sectionLabel =
-    category.charAt(0).toUpperCase() + category.slice(1);
+    label ?? category.charAt(0).toUpperCase() + category.slice(1);
+
+  const header = (
+    <CarouselHeader>
+      <SectionTitleBox>
+        <SectionTitle>{sectionLabel}</SectionTitle>
+      </SectionTitleBox>
+      <ViewAllButton onPress={() => router.push(`/category/${category}`)}>
+        <ViewAllText>View All →</ViewAllText>
+      </ViewAllButton>
+    </CarouselHeader>
+  );
+
+  if (isSmall) {
+    const tileSize = width - PAGE_PADDING;
+    return (
+      <CarouselSection>
+        {header}
+        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+          <XStack gap="$3">
+            {data.map((item) => (
+              <TileWrapper key={item.slug} width={tileSize} flex={0}>
+                <ImageTile onPress={() => router.push(`/articles/${item.slug}`)}>
+                  <Image
+                    src={item.artwork.imageUrl}
+                    width="100%"
+                    height="100%"
+                    contentFit="cover"
+                    contentPosition="center"
+                  />
+                </ImageTile>
+              </TileWrapper>
+            ))}
+          </XStack>
+        </ScrollView>
+      </CarouselSection>
+    );
+  }
 
   return (
     <CarouselSection>
-      <CarouselHeader>
-        <SectionTitleBox>
-          <SectionTitle>{sectionLabel}</SectionTitle>
-        </SectionTitleBox>
-        <ViewAllButton onPress={() => router.push(`/category/${category}`)}>
-          <ViewAllText>View All →</ViewAllText>
-        </ViewAllButton>
-      </CarouselHeader>
-
+      {header}
       <CarouselRow>
         {visibleItems.map((item, index) => {
           const isFirst = index === 0;

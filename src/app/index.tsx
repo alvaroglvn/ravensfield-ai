@@ -53,43 +53,46 @@ export default function Home() {
   }
 
   return (
-    <ScrollView paddingInline={55} paddingBlock={20}>
-      {/* --- HERO SECTION --- */}
-      <XStack
-        gap="$3"
-        width="100%"
-        items="stretch"
-      >
-        {/* --- FEATURED POST --- */}
-        <YStack flex={2}>
-          <ContentCard
-            isNew={true}
-            slug={data[0].slug}
-            imageUrl={data[0].artwork.imageUrl}
-            type={data[0].artwork.type}
-            title={data[0].title}
-            seoDescription={data[0].seoDescription}
-            flex={1}
-          ></ContentCard>
-        </YStack>
-        {/* --- MOST RECENT --- */}
-        <YStack flex={1.5} gap="$3">
-          <YStack width="50%" paddingBlock="$2" paddingInline="$3" background="$gray9">
-            <Text color="white" fontSize="$3" fontWeight="bold" textTransform="uppercase" letterSpacing={1}>Latest Discoveries</Text>
+    <ScrollView paddingInline={55} paddingBlock={48}>
+      <YStack gap={48}>
+        {/* --- HERO SECTION --- */}
+        <XStack gap="$3" width="100%" items="stretch">
+          {/* --- FEATURED POST --- */}
+          <YStack flex={2}>
+            <ContentCard
+              isNew={true}
+              slug={data[0].slug}
+              imageUrl={data[0].artwork.imageUrl}
+              type={data[0].artwork.type}
+              title={data[0].title}
+              seoDescription={data[0].seoDescription}
+              flex={1}
+            ></ContentCard>
           </YStack>
-          {data.slice(1).map((item: any) => (
-            <CompactCard
-              slug={item.slug}
-              imageUrl={item.artwork.imageUrl}
-              type={item.artwork.type}
-              title={item.title}
-            ></CompactCard>
-          ))}
-        </YStack>
-      </XStack>
+          {/* --- MOST RECENT --- */}
+          <YStack flex={1.5} gap="$3">
+            <YStack width="50%" paddingBlock="$2" paddingInline="$3" background="$gray9">
+              <Text color="white" fontSize="$3" fontWeight="bold" textTransform="uppercase" letterSpacing={1}>Latest Discoveries</Text>
+            </YStack>
+            {data.slice(1).map((item: any) => (
+              <CompactCard
+                slug={item.slug}
+                imageUrl={item.artwork.imageUrl}
+                type={item.artwork.type}
+                title={item.title}
+              ></CompactCard>
+            ))}
+          </YStack>
+        </XStack>
 
-      {/* --- PAINTING CAROUSEL --- */}
-      <CategoryCarousel category="painting" />
+        {/* --- CATEGORY CAROUSELS --- */}
+        <CategoryCarousel category="painting" />
+        <CategoryCarousel category="sculpture" />
+        <CategoryCarousel category="drawing" />
+        <CategoryCarousel category="photography" />
+        <CategoryCarousel category="objectdart" label="Object d'Art" />
+        <CategoryCarousel category="archaeological-finding" label="Archaeological Finding" />
+      </YStack>
     </ScrollView>
   );
 }
