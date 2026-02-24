@@ -80,7 +80,10 @@ export async function requestNewStory(
   return response;
 }
 
-async function visualConsistencyCheck(imageUrl: string, story: string) {
+export async function visionRequest(
+  imageUrl: string,
+  story: string,
+): Promise<string> {
   const response = await anthropic.messages.create({
     model: "claude-opus-4-6",
     max_tokens: 1000,
@@ -104,4 +107,11 @@ async function visualConsistencyCheck(imageUrl: string, story: string) {
       },
     ],
   });
+
+  const responseString = response.content
+    .filter((block) => block.type === "text")
+    .map((block) => block.text)
+    .join("");
+
+  return responseString;
 }

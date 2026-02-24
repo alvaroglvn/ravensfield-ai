@@ -4,6 +4,7 @@ import {
   newStoryPipeline,
 } from "@/pipelines/content-generation";
 import { leonardoGeneration } from "@/pipelines/image-generation";
+import { visionConsistencyCheck } from "@/pipelines/vision-checker";
 import {
   storeArticle,
   storeArtwork,
@@ -82,6 +83,10 @@ export async function fullPipeline() {
       await storeQuote(articleId, quote);
       console.log("Stored quote in database linked to article ID:", articleId);
     }
+
+    // --- STEP 5: Vision consistency check ---
+    console.log("Starting vision consistency check...");
+    await visionConsistencyCheck(articleId);
 
     console.log("Pipeline completed successfully!");
   } catch (error) {
