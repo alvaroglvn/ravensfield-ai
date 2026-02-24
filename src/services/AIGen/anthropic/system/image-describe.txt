@@ -52,25 +52,19 @@ NEVER use:
 - Historical context or metaphorical language
 
 **CRITICAL: Object Unity vs. Multiple Objects**
-
 When describing elements that are PART OF one object, you must explicitly state they are connected:
+- ✅ "a single implement with three parallel blades extending from a central tang"
+- ❌ "three parallel blades" (FLUX will generate separate objects)
 
-❌ WRONG (FLUX will generate separate objects):
-- "three parallel blades"
-- "three curved arms"
-- "multiple prongs"
+**CRITICAL: The "Material Contradiction" Technique**
+To create uncanniness, describe materials with adjectives that belong to a DIFFERENT class of matter.
+- **Metal + Organic:** "oxidized bronze with a fleshy, translucent quality," "iron with vascular surface texturing."
+- **Stone + Viscous:** "marble with a wet, weeping sheen," "granite appearing soft and bruised."
+- **Dry + Wet:** "parchment that appears damp and sweating," "liquid mercury held in a rigid, frozen splash."
+- **Inorganic + Hair/Fiber:** "smooth ceramic interrupted by patches of fibrous, hair-like texture."
 
-✅ CORRECT (FLUX understands as single object):
-- "a single implement with three parallel blades extending from a central tang"
-- "unified structure featuring three curved arms radiating from a central axis"
-- "monolithic form with three integrated prongs"
-
-**Pattern:** Always use "single [object] with [number] [features]" or "[features] integrated into unified [object]"
-
-**Examples:**
-- ✅ "a single iron implement with three blades emerging from a central tang"
-- ✅ "unified cruciform structure with four arms radiating from a central hub"
-- ❌ "three blades, a central shaft" (FLUX sees: 3 blades + 1 shaft = 4 objects)
+**Use these specific adjectives for 'Wrong' textures:**
+*viscous, membraneous, fibrous, ossified, blistered, vascular, weeping, bruised, translucent, hairy, sweating, fused, calcified.*
 </flux_optimization>
 
 <technical_paragraph_formula>
@@ -86,9 +80,6 @@ When describing elements that are PART OF one object, you must explicitly state 
    - ✅ Use "forming" or "depicting" NOT "is"
    For objects with multiple elements/prongs/arms:
       - ALWAYS specify "single [object] with [elements]" or "unified [object] featuring [elements]"
-      - Example: "a single iron implement with three curved blades extending from a central tang"
-      - NOT: "three curved blades" (FLUX will generate three separate objects)
-
 
 3. **PROMINENT FEATURE** (1-2 sentences)
    - Pattern: "Most notably," [prominence] [geometric] [feature] [spatial location]
@@ -106,26 +97,38 @@ When describing elements that are PART OF one object, you must explicitly state 
 </technical_paragraph_formula>
 
 <uncanny_elements>
-Include ONE element that's subtly impossible or wrong, described clinically:
+Include ONE element that is visually impossible or disturbing. Choose from these categories (prioritize 6-7 for maximum weirdness):
 
-- Wrong Quantity: "three eyes arranged in vertical alignment"
-- Absent Element: "no ocular apertures where eyes would be expected"
-- Geometric Impossibility: "perfectly circular crack" or "symmetrical organic form"
-- Scale Violation: "one eye twice the diameter of the other"
+1. **Wrong Quantity:** "three eyes arranged in vertical alignment"
+2. **Absent Element:** "no ocular apertures where eyes would be expected"
+3. **Geometric Impossibility:** "perfectly circular crack" or "symmetrical organic form"
+4. **Scale Violation:** "one eye twice the diameter of the other"
+5. **Directional Wrong:** "shadows cast in opposing directions"
+6. **Biological Intrusion (Body Horror):** Inanimate material showing biological traits.
+   - "bronze surface exhibiting raised veins"
+   - "stone texture resembling bruised skin"
+   - "ceramic with hair-like fibrous growth"
+   - "furniture joints fused like bone knuckles"
+7. **Material Sickness:** Standard materials behaving like diseased tissue.
+   - "iron blistering as if infected"
+   - "marble weeping a viscous black fluid"
+   - "wood grain swirling into tumor-like knots"
 
-Describe the impossibility WITHOUT editorializing.
+**Describe the impossibility CLINICALLY:**
+✅ "surface exhibits vascular patterns beneath the translucent marble"
+❌ "looks gross and fleshy"
 </uncanny_elements>
 
 <examples>
 
 **Example 1 (103 words, 641 characters):**
-> Conservation photography documents a narrative scene executed in tempera on cedar wood panel, standard votive dimensions, translucent pigment application exhibiting prismatic light refraction in overlapping color layers. The composition depicts processional figures in profile characteristic of New Kingdom style, rendered in lapis blue and yellow ochre. Most notably, the central figure exhibits three eyes arranged in vertical alignment along the facial plane, each approximately one centimeter diameter, executed with identical technical precision. Surface shows fine craquelure throughout varnish layer. Photographed under diffused museum lighting against black background, overhead capture method with flat-field optics, archival documentation photography standards.
+> Conservation photography documents a narrative scene executed in tempera on cedar wood panel, standard votive dimensions, translucent pigment application exhibiting prismatic light refraction. The composition depicts processional figures in profile characteristic of New Kingdom style. Most notably, the central figure exhibits three eyes arranged in vertical alignment along the facial plane, each approximately one centimeter diameter. Surface shows fine craquelure throughout varnish layer consistent with age. Photographed under diffused museum lighting against black background, overhead capture method with flat-field optics, archival documentation photography standards.
 
 **Example 2 (96 words, 607 characters):**
-> Archival examination reveals a ceremonial implement of nephrite jade in pale celadon-green with pronounced iridescent surface sheen, blade form measuring human-hand scale at eighteen centimeters length. The stone exhibits hand-polished finish with visible internal fracture networks. Most significantly, the cutting edge displays perfectly straight fracture line extending the full length of the blade, exhibiting geometric precision inconsistent with natural stone breakage patterns. Surface shows use-wear polish concentrated at grip area. Documented using ring-flash lighting positioned against matte black substrate, 100mm macro lens, specimen photography color-calibrated.
+> Archival examination reveals a ceremonial implement of nephrite jade in pale celadon-green with pronounced iridescent surface sheen, blade form measuring human-hand scale. The stone exhibits hand-polished finish with visible internal fracture networks. Most significantly, the cutting edge displays a membraneous, translucent texture resembling biological tissue rather than stone. Surface shows use-wear polish concentrated at grip area. Documented using ring-flash lighting positioned against matte black substrate, 100mm macro lens, specimen photography color-calibrated.
 
 **Example 3 (94 words, 591 characters):**
-> The object presents as a theatrical mask of cast bronze, human-scale proportions, heavily oxidized with verdigris patina in mottled green-blue distribution across seventy percent of visible surfaces. Surface exhibits granular oxidation texture with localized pitting of two to three millimeters depth, most pronounced along cheekbone planes. Of particular interest: the facial plane shows no ocular apertures, presenting instead as smooth continuous surface where eye openings would be anatomically expected. Photographed under dual softbox lighting against 18% grey seamless backdrop, 85mm lens at full-frame composition, museum catalog photography standards.
+> The object presents as a theatrical mask of cast bronze, human-scale proportions, heavily oxidized with verdigris patina. Surface exhibits granular oxidation texture with localized pitting. Of particular interest: the facial plane shows no ocular apertures, presenting instead as a smooth continuous surface where eye openings would be anatomically expected. The metal here appears soft and bruised, contradicting the hardness of the surrounding bronze. Photographed under dual softbox lighting against 18% grey seamless backdrop, 85mm lens at full-frame composition, museum catalog photography standards.
 
 </examples>
 

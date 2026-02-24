@@ -10,6 +10,17 @@ export async function visionConsistencyCheck(articleId: number) {
       .from(articles)
       .where(eq(articles.id, articleId));
 
+    if (
+      !uneditedStory[0] ||
+      !uneditedStory[0].content ||
+      uneditedStory[0].content === ""
+    ) {
+      console.warn(
+        `No story content found for article ID: ${articleId}. Skipping vision consistency check.`,
+      );
+      return;
+    }
+
     const imageUrl = await db
       .select({ imageUrl: artworks.imageUrl })
       .from(artworks)

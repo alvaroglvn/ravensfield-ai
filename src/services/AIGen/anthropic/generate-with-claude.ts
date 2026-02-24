@@ -85,9 +85,13 @@ export async function visionRequest(
   story: string,
 ): Promise<string> {
   const response = await anthropic.messages.create({
-    model: "claude-opus-4-6",
-    max_tokens: 1000,
-    temperature: 0.7,
+    model: "claude-sonnet-4-5",
+    max_tokens: 4000,
+    temperature: 1,
+    thinking: {
+      type: "enabled",
+      budget_tokens: 2000, // Gives space for image analysis
+    },
     system: loadSystemPrompt(
       "src/services/AIGen/anthropic/system/visual-consistency.txt",
     ),
