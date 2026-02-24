@@ -119,12 +119,12 @@ export default function Home() {
         )}
 
         {/* --- CATEGORY CAROUSELS --- */}
-        <CategoryCarousel category="painting" />
-        <CategoryCarousel category="sculpture" />
-        <CategoryCarousel category="drawing" />
-        <CategoryCarousel category="photography" />
-        <CategoryCarousel category="objectdart" label="Object d'Art" />
-        <CategoryCarousel category="archaeological-finding" label="Archaeological Finding" />
+        <CategoryCarousel category="painting" label="Painting" />
+        <CategoryCarousel category="sculpture" label="Sculpture" />
+        <CategoryCarousel category="drawing" label="Drawing" />
+        <CategoryCarousel category="photography" label="Photography" />
+        <CategoryCarousel category="objectdart" label="Objects d'Art" />
+        <CategoryCarousel category="archaeological-finding" label="Archaeological Findings" />
       </YStack>
     </ScrollView>
   );

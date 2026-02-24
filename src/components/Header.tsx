@@ -1,8 +1,9 @@
-import { YStack, Text, Theme } from "tamagui";
+import { YStack, XStack, Text, Theme } from "tamagui";
 import { Link } from "expo-router";
 import { useWindowDimensions } from "react-native";
 
 import ThemeToggle from "@/components/ThemeToggle";
+import HamburguerMenu from "@/components/HamburguerMenu";
 import { Image } from "@/components/ExpoImage";
 import { HeaderBar } from "@/styles/StyledHeader";
 import { useTheme } from "@/context/ThemeContext";
@@ -33,36 +34,58 @@ export default function Header({ title, subtitle }: HeaderProps) {
   const vPadding = isMobile ? 16 : 30;
   const logoSize = isMobile ? 48 : 80;
 
+  const logoEl = (
+    <Link href="/">
+      <YStack style={shouldInvert ? { filter: "invert(1)" } : undefined}>
+        <Image src={logo} width={logoSize} height={logoSize} alt="Ravensfield logo" contentFit="contain" />
+      </YStack>
+    </Link>
+  );
+
+  const controlsEl = (
+    <XStack gap="$2" items="center">
+      <HamburguerMenu />
+      <ThemeToggle />
+    </XStack>
+  );
+
   return (
     <Theme name="inverse">
       <HeaderBar paddingInline={hPadding} paddingBlock={vPadding}>
-        <YStack flex={1} items="flex-start">
-          <Link href="/">
-            <YStack style={shouldInvert ? { filter: "invert(1)" } : undefined}>
-              <Image src={logo} width={logoSize} height={logoSize} alt="Ravensfield logo" contentFit="contain" />
+        {isMobile ? (
+          <>
+            <XStack flex={1} items="center">
+              {logoEl}
+            </XStack>
+            {controlsEl}
+          </>
+        ) : (
+          <>
+            <YStack flex={1} items="flex-start">
+              {logoEl}
             </YStack>
-          </Link>
-        </YStack>
 
-        <YStack flex={3} items="center">
-          <Text
-            fontFamily="$heading"
-            numberOfLines={1}
-            style={{ whiteSpace: "nowrap", fontSize: "clamp(14px, 3.8vw, 42px)" } as any}
-          >
-            {title}
-          </Text>
+            <YStack flex={3} items="center">
+              <Text
+                fontFamily="$heading"
+                numberOfLines={1}
+                style={{ whiteSpace: "nowrap", fontSize: "clamp(14px, 3.8vw, 42px)" } as any}
+              >
+                {title}
+              </Text>
 
-          {!isMobile && subtitle && (
-            <Text fontFamily="$body" fontSize="$4" fontStyle="italic">
-              {subtitle}
-            </Text>
-          )}
-        </YStack>
+              {subtitle && (
+                <Text fontFamily="$body" fontSize="$4" fontStyle="italic">
+                  {subtitle}
+                </Text>
+              )}
+            </YStack>
 
-        <YStack flex={1} items="flex-end">
-          <ThemeToggle />
-        </YStack>
+            <YStack flex={1} items="flex-end">
+              {controlsEl}
+            </YStack>
+          </>
+        )}
       </HeaderBar>
     </Theme>
   );

@@ -1,9 +1,17 @@
 import { useLocalSearchParams } from "expo-router";
 import { useQuery } from "@tanstack/react-query";
-import { H2, ScrollView, Spinner, Text, XStack, YStack } from "tamagui";
+import { useWindowDimensions } from "react-native";
+import { ScrollView, Spinner, Text, XStack, YStack } from "tamagui";
 
 import { ContentCard } from "@/components/ContentCard";
-import { CATEGORY_MAX_WIDTH } from "@/styles/layout";
+import {
+  CATEGORY_MAX_WIDTH,
+  MOBILE_BREAKPOINT,
+  DESKTOP_BREAKPOINT,
+  PADDING_MOBILE,
+  PADDING_TABLET,
+  PADDING_DESKTOP,
+} from "@/styles/layout";
 
 async function fetchCategoryData(type: string) {
   const response = await fetch(`/api/category/${encodeURIComponent(type)}`);
@@ -13,6 +21,12 @@ async function fetchCategoryData(type: string) {
 
 export default function CategoryPage() {
   const { type } = useLocalSearchParams<{ type: string }>();
+  const { width } = useWindowDimensions();
+
+  const isMobile = width < MOBILE_BREAKPOINT;
+  const isDesktop = width >= DESKTOP_BREAKPOINT;
+  const hPadding = isMobile ? PADDING_MOBILE : isDesktop ? PADDING_DESKTOP : PADDING_TABLET;
+  const cardBasis = isMobile ? "100%" : isDesktop ? "31%" : "48%";
 
   const { data, isLoading, error } = useQuery({
     queryKey: ["categoryData", type],
@@ -45,20 +59,13 @@ export default function CategoryPage() {
   }
 
   return (
-    <ScrollView paddingInline="$5" paddingBlock="$5">
-      <YStack maxW={CATEGORY_MAX_WIDTH} self="center" width="100%" gap="$5">
-        <H2 textTransform="capitalize">
-          {type === "objectdart"
-            ? "object d'art"
-            : type === "archaeological-finding"
-              ? "archaeological finding"
-              : type}
-        </H2>
+    <ScrollView paddingInline={hPadding} paddingBlock="$5">
+      <YStack maxW={CATEGORY_MAX_WIDTH} self="center" width="100%" gap="$4">
         <XStack flexWrap="wrap" gap="$4">
           {data.map((item: any) => (
             <ContentCard
               key={item.slug}
-              flexBasis="31%"
+              flexBasis={cardBasis}
               slug={item.slug}
               imageUrl={item.artwork.imageUrl}
               type={item.artwork.type}

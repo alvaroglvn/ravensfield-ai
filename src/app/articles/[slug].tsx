@@ -1,8 +1,17 @@
 import { useLocalSearchParams } from "expo-router";
 import { useQuery } from "@tanstack/react-query";
+import { useWindowDimensions } from "react-native";
 import { YStack, Text, Spinner, ScrollView } from "tamagui";
 
-import { ARTWORK_IMAGE_MAX_WIDTH, ARTWORK_IMAGE_HEIGHT } from "@/styles/layout";
+import {
+  ARTWORK_IMAGE_MAX_WIDTH,
+  ARTWORK_IMAGE_HEIGHT,
+  MOBILE_BREAKPOINT,
+  DESKTOP_BREAKPOINT,
+  PADDING_MOBILE,
+  PADDING_TABLET,
+  PADDING_DESKTOP,
+} from "@/styles/layout";
 
 import { MuseumTag } from "@/components/MuseumTag";
 import { Image } from "@/components/ExpoImage";
@@ -20,6 +29,10 @@ async function fetchArticleData(slug: string) {
 
 export default function ArticlePage() {
   const { slug } = useLocalSearchParams<{ slug: string }>();
+  const { width } = useWindowDimensions();
+  const isMobile = width < MOBILE_BREAKPOINT;
+  const isDesktop = width >= DESKTOP_BREAKPOINT;
+  const hPadding = isMobile ? PADDING_MOBILE : isDesktop ? PADDING_DESKTOP : PADDING_TABLET;
 
   const { data, isLoading, error } = useQuery({
     queryKey: ["articleData", slug],
@@ -48,16 +61,17 @@ export default function ArticlePage() {
     <ScrollView
       flex={1}
       showsVerticalScrollIndicator={true}
+      paddingInline={hPadding}
       contentContainerStyle={{ paddingBlockEnd: 100 }} // Make sure scroll doesn't cut off content
     >
       {/* --- ARTWORK HEADER --- */}
-      <YStack gap="$4" marginBlock="$10" items={"center"}>
+      <YStack gap={isMobile ? "$3" : "$4"} marginBlockStart={isMobile ? "$6" : "$10"} marginBlockEnd={isMobile ? "$4" : "$10"} items={"center"}>
         <Image
           src={data.artwork.imageUrl}
           contentFit="contain"
           width="100%"
           maxWidth={ARTWORK_IMAGE_MAX_WIDTH}
-          height={ARTWORK_IMAGE_HEIGHT}
+          height={isMobile ? 300 : ARTWORK_IMAGE_HEIGHT}
         />
         <MuseumTag artwork={data.artwork} />
       </YStack>
