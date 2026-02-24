@@ -88,6 +88,9 @@ export async function visionRequest(
     model: "claude-opus-4-6",
     max_tokens: 1000,
     temperature: 0.7,
+    system: loadSystemPrompt(
+      "src/services/AIGen/anthropic/system/visual-consistency.txt",
+    ),
     messages: [
       {
         role: "user",
