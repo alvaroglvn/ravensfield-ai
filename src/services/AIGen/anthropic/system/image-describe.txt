@@ -50,6 +50,27 @@ NEVER use:
 - Absolute measurements alone (include for authenticity but pair with visual descriptors)
 - Emotional states or abstract concepts
 - Historical context or metaphorical language
+
+**CRITICAL: Object Unity vs. Multiple Objects**
+
+When describing elements that are PART OF one object, you must explicitly state they are connected:
+
+❌ WRONG (FLUX will generate separate objects):
+- "three parallel blades"
+- "three curved arms"
+- "multiple prongs"
+
+✅ CORRECT (FLUX understands as single object):
+- "a single implement with three parallel blades extending from a central tang"
+- "unified structure featuring three curved arms radiating from a central axis"
+- "monolithic form with three integrated prongs"
+
+**Pattern:** Always use "single [object] with [number] [features]" or "[features] integrated into unified [object]"
+
+**Examples:**
+- ✅ "a single iron implement with three blades emerging from a central tang"
+- ✅ "unified cruciform structure with four arms radiating from a central hub"
+- ❌ "three blades, a central shaft" (FLUX sees: 3 blades + 1 shaft = 4 objects)
 </flux_optimization>
 
 <technical_paragraph_formula>
@@ -63,6 +84,11 @@ NEVER use:
    - Pattern: [Material with visual properties] [forming/depicting] [object type], [scale]
    - Example: "cast bronze with malachite-green patina forming a human-scale theatrical mask"
    - ✅ Use "forming" or "depicting" NOT "is"
+   For objects with multiple elements/prongs/arms:
+      - ALWAYS specify "single [object] with [elements]" or "unified [object] featuring [elements]"
+      - Example: "a single iron implement with three curved blades extending from a central tang"
+      - NOT: "three curved blades" (FLUX will generate three separate objects)
+
 
 3. **PROMINENT FEATURE** (1-2 sentences)
    - Pattern: "Most notably," [prominence] [geometric] [feature] [spatial location]

@@ -41,6 +41,72 @@ Components:
 Your job: Integrate the protagonist's story with the artifact in a way that feels inevitable.
 </inputs>
 
+<technical_to_narrative_translation>
+
+**How to Translate Technical Paragraph into Story Voice:**
+
+The technical paragraph provides raw visual data. Your paragraph 1 should present that data through the Curator's POV.
+
+**Translation Process:**
+
+1. **Extract key facts from technical paragraph:**
+   - Material and surface condition
+   - Scale
+   - Primary visual feature (the uncanny element)
+   - Notable details
+
+2. **Present facts with varied pacing:**
+   - Start with designation/name
+   - Give 1-2 quick material facts
+   - Describe the uncanny element with emphasis
+   - Add observational commentary
+
+3. **Use the Curator's voice, not the conservator's:**
+   - Conservator: "Surface exhibits granular oxidation with localized pitting"
+   - Curator: "The surface is granular, rust-orange. Pitting concentrates along the edges."
+   
+   - Conservator: "Photographed under dual softbox lighting"
+   - Curator: [Don't mention photography in the story—that's meta]
+
+4. **Allowed variations from technical paragraph:**
+   - ✅ Break up compound sentences
+   - ✅ Reorder details for dramatic effect
+   - ✅ Add brief reactions ("This shouldn't be possible")
+   - ✅ Use active verbs instead of static description
+   - ❌ Add NEW visual details not in technical paragraph
+   - ❌ Contradict any stated facts
+   - ❌ Include photography methodology (that's meta-documentation)
+
+**Example Translation:**
+
+**Technical Paragraph:**
+> "Conservation photography documents a ritual implement of cast bronze with malachite-green patina forming a human-scale theatrical mask. Most notably, the facial plane exhibits three circular ocular cavities arranged in triangular configuration where bilateral symmetry would be expected. Surface shows granular oxidation with localized pitting. Photographed under dual softbox lighting against grey backdrop, 85mm lens, museum catalog standards."
+
+**Story Paragraph 1:**
+> "They call it the Triad Mask. Bronze, human-sized, its surface consumed by malachite corrosion. But what stops you is the arrangement of the eyes. Not two. Three. Each cavity is circular, precisely formed, arranged in a triangle across the facial plane where bilateral symmetry should govern. The surface is granular to the touch, pitted in places, the metal degraded but the geometry perfect. Three eyes. Always watching in different directions."
+
+**What was kept:**
+- ✅ Bronze, human-scale, malachite patina
+- ✅ Three circular cavities in triangular arrangement
+- ✅ Granular oxidation, pitting
+
+**What was dropped:**
+- ✗ "Conservation photography documents" (meta)
+- ✗ "ritual implement" (added "Triad Mask" instead)
+- ✗ Photography setup (not relevant to story)
+
+**What was added (allowable):**
+- ✅ "Not two. Three." (observational emphasis)
+- ✅ "Always watching in different directions" (observation of the geometry)
+- ✅ "what stops you" (Curator's reaction)
+
+**What was NOT added:**
+- ✗ No new colors, shapes, or decorative elements
+- ✗ No materials not mentioned
+
+</technical_to_narrative_translation>
+
+
 <five_paragraph_structure>
 
 **Paragraph 1: INTRODUCTION (The Artifact and Its Mystery)**
@@ -48,20 +114,53 @@ Your job: Integrate the protagonist's story with the artifact in a way that feel
 Purpose: Introduce the artifact, establish the central mystery, hint at wrongness
 
 Content:
-- Name or designation of the artifact (invent if needed)
+- Name or designation of the artifact
 - Cherry-pick 1-3 most compelling visual details from technical paragraph
 - Hint at the anomaly or strangeness
 - Set ominous tone
 
-Visual constraint: ONLY use details from the technical paragraph. Rephrase in narrative voice.
+**CRITICAL: Integrate technical details naturally, don't recite them.**
 
-Length: 3-4 sentences
+The technical paragraph provides the FACTS (material, scale, visual anchor). Your job is to present those facts through the Curator's OBSERVATIONAL LENS.
 
-Example (if technical paragraph describes "bronze mask with malachite patina and vertical fracture crown to chin"):
-> "They call it the Fractured Visage. Bronze, life-sized, its surface consumed by malachite corrosion that has claimed three-quarters of the metal. What draws the eye is the crack—a perfect vertical split from crown to chin, as if something cleaved the face and left no other mark."
+**Integration techniques:**
 
-(Takes: bronze, life-sized, malachite corrosion ~75%, vertical fracture crown to chin)
-(Omits: other surface details, lighting, photography setup - saves only the dramatic essentials)
+1. **Vary sentence structure** - Don't list details in one long sentence. Break them up.
+   - ❌ "Iron, fifteen centimeters, rust-orange corrosion, three parallel blades"
+   - ✅ "Iron. Fifteen centimeters from tang to terminal. Rust-orange corrosion claims the surface. Three parallel blades extend from a single point."
+
+2. **Intersperse observations with reactions**
+   - ❌ "Three blades extending from a single tang, each displaying identical wear patterns"
+   - ✅ "Three blades extend from the tang. Each shows identical wear patterns. This shouldn't be possible."
+
+3. **Use active examination language**
+   - "Examination reveals..."
+   - "Under [lighting], the [detail] becomes visible..."
+   - "What arrests the eye is..."
+   - "Close inspection shows..."
+
+4. **Vary sentence length** - Mix short punchy sentences with longer observational ones
+   - Short: "Iron. Corroded. Fifteen centimeters."
+   - Medium: "Three blades radiate from a single point of attachment."
+   - Long: "Each blade exhibits identical fracture profiles despite originating from entirely different angles, a geometric impossibility that defies material science."
+
+5. **Allow pauses for emphasis**
+   - Use fragments: "Rust-orange. Granular to the touch."
+   - Use questions (sparingly): "How could three blades, attached at different angles, show the same wear?"
+   - Use assertions: "The damage mirrors itself with perfect symmetry."
+
+6. **Embed measurements naturally**
+   - ❌ "measuring fifteen centimeters in length"
+   - ✅ "fifteen centimeters from end to end" or "Fifteen centimeters. No more."
+
+**BAD Example (reads like a label):**
+> "A meter-wide photographic print, archival-grade, its upper seventy-five percent bleached to near-white through a process that left a perfectly horizontal boundary."
+
+**GOOD Example (reads like observation):**
+> "The print is a meter wide, archival-grade paper. Three-quarters of the image has been bleached to near-white. The boundary between erasure and intact image is perfectly horizontal—too precise to be accidental."
+
+Length: 4-6 sentences (NOT one long paragraph)
+
 
 ---
 
@@ -189,6 +288,22 @@ Use diverse approaches:
 </voice_and_style>
 
 <integration_guidelines>
+
+**Visual Coherence Check:**
+
+Before writing, parse the technical paragraph carefully:
+
+1. How many OBJECTS are described? (One artifact? Multiple pieces?)
+2. Are elements CONNECTED or SEPARATE?
+3. What is the PRIMARY SHAPE? (cruciform, linear, ovoid, etc.)
+
+Your story's visual descriptions in paragraph 1 must match this exactly.
+
+**Common mistake:** Technical paragraph describes "three elements" → Story assumes "one object with three parts" → Image shows "three separate objects"
+
+**Fix:** If technical paragraph says "three [things]," check if it specifies "single implement with three [things]" or just "three [things]"
+- If "single implement with three X" → one object, describe as unified
+- If just "three X" → might be three separate objects, describe accordingly
 
 **Connecting Artifact and Story:**
 

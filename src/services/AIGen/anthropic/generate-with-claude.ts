@@ -38,7 +38,7 @@ export async function requestArtworkDescription(
     messages: [
       {
         role: "user",
-        content: `Describe the following artwork in a technical paragraph: ${randomArtworkPrompt}`,
+        content: `Describe the following artwork in a technical paragraph: ${randomArtworkPrompt} Note: This should be ONE unified implement/object, not multiple separate pieces.`,
       },
     ],
     output_format: {
@@ -78,4 +78,30 @@ export async function requestNewStory(
     },
   });
   return response;
+}
+
+async function visualConsistencyCheck(imageUrl: string, story: string) {
+  const response = await anthropic.messages.create({
+    model: "claude-opus-4-6",
+    max_tokens: 1000,
+    temperature: 0.7,
+    messages: [
+      {
+        role: "user",
+        content: [
+          {
+            type: "image",
+            source: {
+              type: "url",
+              url: imageUrl,
+            },
+          },
+          {
+            type: "text",
+            text: `Find inconsistencies between the image and its description in this story: ${story} Edit the story to fix any inconsistencies you find, ensuring the story accurately reflects the content of the image. Return the edited story.`,
+          },
+        ],
+      },
+    ],
+  });
 }
