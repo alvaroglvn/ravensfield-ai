@@ -1,17 +1,15 @@
 import { useLocalSearchParams } from "expo-router";
 import { useQuery } from "@tanstack/react-query";
-import { useWindowDimensions } from "react-native";
 import { YStack, Text, Spinner, ScrollView } from "tamagui";
 
 import {
   ARTWORK_IMAGE_MAX_WIDTH,
   ARTWORK_IMAGE_HEIGHT,
-  MOBILE_BREAKPOINT,
-  DESKTOP_BREAKPOINT,
   PADDING_MOBILE,
   PADDING_TABLET,
   PADDING_DESKTOP,
 } from "@/styles/layout";
+import { useBreakpoints } from "@/hooks/useBreakpoints";
 
 import { MuseumTag } from "@/components/MuseumTag";
 import { Image } from "@/components/ExpoImage";
@@ -29,9 +27,7 @@ async function fetchArticleData(slug: string) {
 
 export default function ArticlePage() {
   const { slug } = useLocalSearchParams<{ slug: string }>();
-  const { width } = useWindowDimensions();
-  const isMobile = width < MOBILE_BREAKPOINT;
-  const isDesktop = width >= DESKTOP_BREAKPOINT;
+  const { isMobile, isDesktop } = useBreakpoints();
   const hPadding = isMobile ? PADDING_MOBILE : isDesktop ? PADDING_DESKTOP : PADDING_TABLET;
 
   const { data, isLoading, error } = useQuery({

@@ -1,6 +1,13 @@
-import { YStack, Text, Theme } from "tamagui";
+import { styled, XStack, YStack, Text, Theme } from "tamagui";
 
-import { FooterBar } from "@/styles/StyledFooter";
+const FooterBar = styled(XStack, {
+  elevation: "$1",
+  background: "$background",
+  paddingBlock: 25,
+  paddingInline: 25,
+  justify: "space-between",
+  items: "center",
+});
 
 export default function Footer() {
   const year = new Date().getFullYear();

@@ -1,20 +1,12 @@
-import { useWindowDimensions } from "react-native";
 import { ScrollView, YStack } from "tamagui";
 
 import { CategoryCarousel } from "@/components/CategoryCarousel";
-import {
-  MOBILE_BREAKPOINT,
-  TABLET_BREAKPOINT,
-  PADDING_MOBILE,
-  PADDING_TABLET,
-  PADDING_DESKTOP,
-} from "@/styles/layout";
+import { useBreakpoints } from "@/hooks/useBreakpoints";
+import { PADDING_MOBILE, PADDING_TABLET, PADDING_DESKTOP } from "@/styles/layout";
 
 export default function CategoriesPage() {
-  const { width } = useWindowDimensions();
-  const isMobile = width < MOBILE_BREAKPOINT;
-  const isNarrow = width < TABLET_BREAKPOINT;
-  const hPadding = isMobile ? PADDING_MOBILE : isNarrow ? PADDING_TABLET : PADDING_DESKTOP;
+  const { isMobile, isTablet } = useBreakpoints();
+  const hPadding = isMobile ? PADDING_MOBILE : isTablet ? PADDING_TABLET : PADDING_DESKTOP;
 
   return (
     <ScrollView paddingInline={hPadding} paddingBlock={isMobile ? 24 : 48}>

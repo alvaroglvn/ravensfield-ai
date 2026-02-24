@@ -1,13 +1,11 @@
 import { useLocalSearchParams } from "expo-router";
 import { useQuery } from "@tanstack/react-query";
-import { useWindowDimensions } from "react-native";
 import { ScrollView, Spinner, Text, XStack, YStack } from "tamagui";
 
 import { ContentCard } from "@/components/ContentCard";
+import { useBreakpoints } from "@/hooks/useBreakpoints";
 import {
   CATEGORY_MAX_WIDTH,
-  MOBILE_BREAKPOINT,
-  DESKTOP_BREAKPOINT,
   PADDING_MOBILE,
   PADDING_TABLET,
   PADDING_DESKTOP,
@@ -21,10 +19,7 @@ async function fetchCategoryData(type: string) {
 
 export default function CategoryPage() {
   const { type } = useLocalSearchParams<{ type: string }>();
-  const { width } = useWindowDimensions();
-
-  const isMobile = width < MOBILE_BREAKPOINT;
-  const isDesktop = width >= DESKTOP_BREAKPOINT;
+  const { isMobile, isDesktop } = useBreakpoints();
   const hPadding = isMobile ? PADDING_MOBILE : isDesktop ? PADDING_DESKTOP : PADDING_TABLET;
   const cardBasis = isMobile ? "100%" : isDesktop ? "31%" : "48%";
 

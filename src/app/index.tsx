@@ -1,17 +1,11 @@
 import { ScrollView, XStack, YStack, Text } from "tamagui";
 import { useQuery } from "@tanstack/react-query";
-import { useWindowDimensions } from "react-native";
 
 import { ContentCard } from "@/components/ContentCard";
 import { CompactCard } from "@/components/CompactCard";
 import { CategoryCarousel } from "@/components/CategoryCarousel";
-import {
-  MOBILE_BREAKPOINT,
-  TABLET_BREAKPOINT,
-  PADDING_MOBILE,
-  PADDING_TABLET,
-  PADDING_DESKTOP,
-} from "@/styles/layout";
+import { useBreakpoints } from "@/hooks/useBreakpoints";
+import { PADDING_MOBILE, PADDING_TABLET, PADDING_DESKTOP } from "@/styles/layout";
 
 // --- Fetch data from feed API ---
 async function fetchFeedData() {
@@ -29,10 +23,8 @@ export default function Home() {
     queryFn: fetchFeedData,
   });
 
-  const { width } = useWindowDimensions();
-  const isMobile = width < MOBILE_BREAKPOINT;
-  const isNarrow = width < TABLET_BREAKPOINT;
-  const hPadding = isMobile ? PADDING_MOBILE : isNarrow ? PADDING_TABLET : PADDING_DESKTOP;
+  const { isMobile, isTablet } = useBreakpoints();
+  const hPadding = isMobile ? PADDING_MOBILE : isTablet ? PADDING_TABLET : PADDING_DESKTOP;
 
   if (isLoading) {
     return (
@@ -85,7 +77,7 @@ export default function Home() {
     <ScrollView paddingInline={hPadding} paddingBlock={isMobile ? 24 : 48}>
       <YStack gap={isMobile ? 32 : 48}>
         {/* --- HERO SECTION --- */}
-        {isNarrow ? (
+        {isTablet ? (
           // Mobile / narrow tablet: stack vertically
           <YStack gap="$3">
             <ContentCard

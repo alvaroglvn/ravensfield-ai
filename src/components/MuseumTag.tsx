@@ -1,6 +1,18 @@
-import { XStack, SizableText } from "tamagui";
+import { styled, XStack, YStack, SizableText } from "tamagui";
 
-import { MuseumTagContainer } from "@/styles/StyledMuseumTag";
+import { MUSEUM_TAG_MAX_WIDTH } from "@/styles/layout";
+
+const MuseumTagContainer = styled(YStack, {
+  borderWidth: 2,
+  borderColor: "$gray8",
+  paddingBlock: "$3",
+  paddingInline: "$3",
+  borderTopLeftRadius: "$10",
+  borderTopRightRadius: "$2",
+  borderBottomRightRadius: "$10",
+  borderBottomLeftRadius: "$2",
+  maxW: MUSEUM_TAG_MAX_WIDTH,
+});
 
 type Artwork = {
   title?: string | null;

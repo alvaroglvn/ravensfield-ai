@@ -18,9 +18,6 @@ export const StyledCard = styled(Card, {
   elevation: 2,
 
   backfaceVisibility: "hidden",
-  outlineStyle: "solid",
-  outlineColor: "transparent",
-  outlineWidth: 1,
 
   variants: {
     size: {

@@ -1,12 +1,23 @@
-import { YStack } from "tamagui";
+import { styled, YStack, Paragraph, H1 } from "tamagui";
 import { useMemo } from "react";
 
 import { QuoteCard } from "@/components/QuoteCard";
-import {
-  ArticleTitle,
-  ArticleBody,
-  ArticleParagraph,
-} from "@/styles/StyledArticle";
+import { ARTICLE_MAX_WIDTH } from "@/styles/layout";
+
+const ArticleTitle = styled(H1, {
+  fontSize: 52,
+  color: "$color",
+});
+
+const ArticleBody = {
+  maxWidth: ARTICLE_MAX_WIDTH,
+} as const;
+
+const ArticleParagraph = styled(Paragraph, {
+  fontSize: "$4",
+  lineHeight: "$5",
+  color: "$gray11",
+});
 
 interface Quote {
   content: string;
