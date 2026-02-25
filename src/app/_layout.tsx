@@ -2,7 +2,7 @@ import { TamaguiProvider, Theme, YStack } from "tamagui";
 import { Slot, SplashScreen } from "expo-router"; // 1. Import SplashScreen
 import { Platform } from "react-native";
 import { useFonts } from "expo-font";
-import { useEffect } from "react"; // 2. Import useEffect
+import { useEffect, useState } from "react"; // 2. Import useEffect
 import {
   SafeAreaProvider,
   initialWindowMetrics,
@@ -26,8 +26,6 @@ SplashScreen.preventAutoHideAsync();
 if (Platform.OS === "web") {
   require("@/styles/tamagui.generated.css");
 }
-
-const queryClient = new QueryClient();
 
 function AppContent() {
   const { resolvedTheme, isLoaded: themeLoaded } = useTheme();
@@ -84,6 +82,7 @@ function AppContent() {
 }
 
 export default function RootLayout() {
+  const [queryClient] = useState(() => new QueryClient());
   return (
     <QueryClientProvider client={queryClient}>
       <SafeAreaProvider initialMetrics={initialWindowMetrics}>
