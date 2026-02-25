@@ -2,7 +2,7 @@ import { TamaguiProvider, Theme, YStack } from "tamagui";
 import { Slot, SplashScreen } from "expo-router"; // 1. Import SplashScreen
 import { Platform } from "react-native";
 import { useFonts } from "expo-font";
-import { useEffect, useState } from "react"; // 2. Import useEffect
+import { useEffect, useState } from "react";
 import {
   SafeAreaProvider,
   initialWindowMetrics,
@@ -29,6 +29,7 @@ if (Platform.OS === "web") {
 
 function AppContent() {
   const { resolvedTheme, isLoaded: themeLoaded } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
   const [fontsLoaded] = useFonts({
     Inter: require("@tamagui/font-inter/otf/Inter-Medium.otf"),
@@ -39,24 +40,31 @@ function AppContent() {
     Inter_600SemiBold,
   });
 
-  // 4. Combine your loading states
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const appIsReady = themeLoaded && fontsLoaded;
 
-  // 5. Hide splash screen ONLY when everything is ready
   useEffect(() => {
     if (appIsReady) {
       SplashScreen.hideAsync();
     }
   }, [appIsReady]);
 
-  // 6. Don't render ANYTHING until ready
-  if (!appIsReady) {
+  // On native, keep blocking render until ready (splash screen is visible).
+  // On web, always render — SSR must not return null.
+  if (!appIsReady && Platform.OS !== "web") {
     return null;
   }
 
+  // Before mount: "light" matches the SSR render and the +html.tsx default,
+  // preventing a Tamagui hydration mismatch. After mount, switch to the real theme.
+  const activeTheme: "light" | "dark" = mounted ? resolvedTheme : "light";
+
   return (
-    <TamaguiProvider config={tamaguiConfig} defaultTheme={resolvedTheme}>
-      <Theme name={resolvedTheme}>
+    <TamaguiProvider config={tamaguiConfig} defaultTheme="light">
+      <Theme name={activeTheme}>
         <YStack background="$color3" style={{ minHeight: "100dvh" }}>
           <YStack
             width="100%"
