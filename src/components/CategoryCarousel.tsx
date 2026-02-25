@@ -1,18 +1,12 @@
 import { useState } from "react";
-import { useWindowDimensions } from "react-native";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { useRouter } from "expo-router";
 import { styled, ScrollView, XStack, YStack, Text } from "tamagui";
 
 import { Image } from "@/components/ExpoImage";
-import {
-  MOBILE_BREAKPOINT,
-  TABLET_BREAKPOINT,
-  DESKTOP_BREAKPOINT,
-  PADDING_MOBILE,
-  PADDING_TABLET,
-} from "@/styles/layout";
+import { PADDING_MOBILE, PADDING_TABLET } from "@/styles/layout";
 import { apiFetch } from "@/lib/fetch";
+import { useBreakpoints } from "@/hooks/useBreakpoints";
 
 const CarouselSection = styled(YStack, {
   gap: "$5",
@@ -126,10 +120,10 @@ interface CategoryCarouselProps {
 export function CategoryCarousel({ category, label }: CategoryCarouselProps) {
   const [startIndex, setStartIndex] = useState(0);
   const router = useRouter();
-  const { width } = useWindowDimensions();
-  const isSmall = width < TABLET_BREAKPOINT;
-  const visibleCount = width >= DESKTOP_BREAKPOINT ? 4 : 3;
-  const pagePadding = width < MOBILE_BREAKPOINT ? PADDING_MOBILE * 2 : PADDING_TABLET * 2;
+  const { width, isMobile, isTablet, isDesktop } = useBreakpoints();
+  const isSmall = isTablet; // width < TABLET_BREAKPOINT
+  const visibleCount = isDesktop ? 4 : 3;
+  const pagePadding = isMobile ? PADDING_MOBILE * 2 : PADDING_TABLET * 2;
 
   const { data } = useSuspenseQuery({
     queryKey: ["category", category],
