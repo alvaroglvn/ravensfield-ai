@@ -1,9 +1,7 @@
-import { db } from "@/db";
-import { articles } from "@/db/schema";
-import { eq } from "drizzle-orm";
+import { getArticleData } from "@/lib/data";
 
 export async function GET(
-  request: Request,
+  _request: Request,
   { slug }: { slug: string },
 ): Promise<Response> {
   try {
@@ -14,13 +12,7 @@ export async function GET(
       );
     }
 
-    const article = await db.query.articles.findFirst({
-      where: eq(articles.slug, slug),
-      with: {
-        artwork: true,
-        quotes: true,
-      },
-    });
+    const article = await getArticleData(slug);
 
     if (!article) {
       return Response.json({ error: "Article not found" }, { status: 404 });

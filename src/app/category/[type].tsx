@@ -1,5 +1,6 @@
+import { Suspense } from "react";
 import { useLocalSearchParams } from "expo-router";
-import { useQuery } from "@tanstack/react-query";
+import { useSuspenseQuery } from "@tanstack/react-query";
 import { ScrollView, Spinner, Text, XStack, YStack } from "tamagui";
 
 import { ContentCard } from "@/components/ContentCard";
@@ -10,42 +11,20 @@ import {
   PADDING_TABLET,
   PADDING_DESKTOP,
 } from "@/styles/layout";
+import { apiFetch } from "@/lib/fetch";
 
-async function fetchCategoryData(type: string) {
-  const response = await fetch(`/api/category/${encodeURIComponent(type)}`);
-  if (!response.ok) throw new Error("Network response was not ok");
-  return response.json();
-}
-
-export default function CategoryPage() {
+function CategoryContent() {
   const { type } = useLocalSearchParams<{ type: string }>();
   const { isMobile, isDesktop } = useBreakpoints();
   const hPadding = isMobile ? PADDING_MOBILE : isDesktop ? PADDING_DESKTOP : PADDING_TABLET;
   const cardBasis = isMobile ? "100%" : isDesktop ? "31%" : "48%";
 
-  const { data, isLoading, error } = useQuery({
+  const { data } = useSuspenseQuery({
     queryKey: ["categoryData", type],
-    queryFn: () => fetchCategoryData(type),
-    enabled: !!type,
+    queryFn: () => apiFetch<any[]>(`/api/category/${encodeURIComponent(type)}`),
   });
 
-  if (isLoading) {
-    return (
-      <YStack flex={1} content="center" items="center">
-        <Spinner size="large" />
-      </YStack>
-    );
-  }
-
-  if (error) {
-    return (
-      <YStack flex={1} content="center" items="center">
-        <Text>Error loading category: {(error as Error).message}</Text>
-      </YStack>
-    );
-  }
-
-  if (!data || data.length === 0) {
+  if (data.length === 0) {
     return (
       <YStack flex={1} content="center" items="center">
         <Text>No artworks found in this category.</Text>
@@ -71,5 +50,17 @@ export default function CategoryPage() {
         </XStack>
       </YStack>
     </ScrollView>
+  );
+}
+
+export default function CategoryPage() {
+  return (
+    <Suspense fallback={
+      <YStack flex={1} content="center" items="center">
+        <Spinner size="large" />
+      </YStack>
+    }>
+      <CategoryContent />
+    </Suspense>
   );
 }

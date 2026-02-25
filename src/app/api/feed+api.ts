@@ -1,29 +1,8 @@
-import { db } from "@/db";
+import { getFeedData } from "@/lib/data";
 
-export async function GET(request: Request): Promise<Response> {
+export async function GET(_request: Request): Promise<Response> {
   try {
-    const data = await db.query.articles.findMany({
-      orderBy: (articles, { desc }) => [desc(articles.createdAt)],
-      limit: 6,
-
-      columns: {
-        id: true,
-        title: true,
-        slug: true,
-        seoDescription: true,
-        createdAt: true,
-      },
-
-      with: {
-        artwork: {
-          columns: {
-            imageUrl: true,
-            type: true,
-          },
-        },
-      },
-    });
-
+    const data = await getFeedData();
     return Response.json(data);
   } catch (error) {
     return Response.json(

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useWindowDimensions } from "react-native";
-import { useQuery } from "@tanstack/react-query";
+import { useSuspenseQuery } from "@tanstack/react-query";
 import { useRouter } from "expo-router";
 import { styled, ScrollView, XStack, YStack, Text } from "tamagui";
 
@@ -12,6 +12,7 @@ import {
   PADDING_MOBILE,
   PADDING_TABLET,
 } from "@/styles/layout";
+import { apiFetch } from "@/lib/fetch";
 
 const CarouselSection = styled(YStack, {
   gap: "$5",
@@ -116,11 +117,6 @@ interface CarouselItem {
   artwork: { imageUrl: string; type: string };
 }
 
-async function fetchCategory(category: string): Promise<CarouselItem[]> {
-  const res = await fetch(`/api/category/${category}`);
-  if (!res.ok) throw new Error("Failed to fetch category");
-  return res.json();
-}
 
 interface CategoryCarouselProps {
   category: string;
@@ -135,12 +131,12 @@ export function CategoryCarousel({ category, label }: CategoryCarouselProps) {
   const visibleCount = width >= DESKTOP_BREAKPOINT ? 4 : 3;
   const pagePadding = width < MOBILE_BREAKPOINT ? PADDING_MOBILE * 2 : PADDING_TABLET * 2;
 
-  const { data, isLoading } = useQuery({
+  const { data } = useSuspenseQuery({
     queryKey: ["category", category],
-    queryFn: () => fetchCategory(category),
+    queryFn: () => apiFetch<CarouselItem[]>(`/api/category/${category}`),
   });
 
-  if (isLoading || !data || data.length === 0) return null;
+  if (data.length === 0) return null;
 
   const canGoBack = startIndex > 0;
   const canGoForward = startIndex + visibleCount < data.length;
