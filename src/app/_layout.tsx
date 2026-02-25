@@ -94,7 +94,7 @@ export default function RootLayout() {
   return (
     <QueryClientProvider client={queryClient}>
       <SafeAreaProvider initialMetrics={initialWindowMetrics}>
-        <ThemeProvider defaultTheme="system">
+        <ThemeProvider defaultTheme="dark">
           <AppContent />
         </ThemeProvider>
       </SafeAreaProvider>

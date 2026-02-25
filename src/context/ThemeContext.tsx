@@ -14,7 +14,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 export type ThemePreference = "light" | "dark" | "system";
 export type ResolvedTheme = "light" | "dark";
 
-// Storage key for persistence
+// Storage key for persistence — must match the key used in +html.tsx
 const THEME_STORAGE_KEY = "ravensfield-theme-preference";
 
 // Context value type
@@ -33,7 +33,7 @@ const ThemeContext = createContext<ThemeContextValue | null>(null);
 
 type ThemeProviderProps = {
   children: ReactNode;
-  /** Default theme to use before preference is loaded */
+  /** Default theme to use when no preference has been stored yet */
   defaultTheme?: ThemePreference;
 };
 
@@ -46,13 +46,34 @@ function updateRootThemeClass(theme: ResolvedTheme) {
   }
 }
 
+// Read theme preference synchronously from localStorage on web.
+// This matches exactly what the +html.tsx inline script reads, so the
+// CSS class set before React loads and the initial React state are always
+// in sync — eliminating the flash caused by the async AsyncStorage read.
+function getInitialTheme(defaultTheme: ThemePreference): ThemePreference {
+  if (Platform.OS === "web" && typeof localStorage !== "undefined") {
+    try {
+      const stored = localStorage.getItem(THEME_STORAGE_KEY);
+      if (stored && ["light", "dark", "system"].includes(stored)) {
+        return stored as ThemePreference;
+      }
+    } catch {
+      // localStorage unavailable (private browsing, quota exceeded, etc.)
+    }
+  }
+  return defaultTheme;
+}
+
 export function ThemeProvider({
   children,
-  defaultTheme = "system",
+  defaultTheme = "dark",
 }: ThemeProviderProps) {
   const [themePreference, setThemePreferenceState] =
-    useState<ThemePreference>(defaultTheme);
-  const [isLoaded, setIsLoaded] = useState(false);
+    useState<ThemePreference>(() => getInitialTheme(defaultTheme));
+
+  // On web the sync read above is already authoritative; no async load needed.
+  // On native we still need to wait for AsyncStorage.
+  const [isLoaded, setIsLoaded] = useState(Platform.OS === "web");
 
   // Get device color scheme
   const deviceColorScheme = useDeviceColorScheme();
@@ -70,8 +91,10 @@ export function ThemeProvider({
     updateRootThemeClass(resolvedTheme);
   }, [resolvedTheme]);
 
-  // Load saved preference from storage on mount
+  // Load saved preference from storage on mount (native only)
   useEffect(() => {
+    if (Platform.OS === "web") return; // already loaded synchronously above
+
     async function loadThemePreference() {
       try {
         const savedPreference = await AsyncStorage.getItem(THEME_STORAGE_KEY);
@@ -95,10 +118,17 @@ export function ThemeProvider({
   const setThemePreference = useCallback((preference: ThemePreference) => {
     setThemePreferenceState(preference);
 
-    // Persist to storage (fire and forget with error logging)
-    AsyncStorage.setItem(THEME_STORAGE_KEY, preference).catch((error) => {
-      console.warn("Failed to save theme preference:", error);
-    });
+    if (Platform.OS === "web") {
+      try {
+        localStorage.setItem(THEME_STORAGE_KEY, preference);
+      } catch {
+        // localStorage unavailable — ignore
+      }
+    } else {
+      AsyncStorage.setItem(THEME_STORAGE_KEY, preference).catch((error) => {
+        console.warn("Failed to save theme preference:", error);
+      });
+    }
   }, []);
 
   const contextValue = useMemo<ThemeContextValue>(
