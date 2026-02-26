@@ -1,5 +1,6 @@
+import { Suspense } from "react";
 import { useLocalSearchParams } from "expo-router";
-import { useQuery } from "@tanstack/react-query";
+import { useSuspenseQuery } from "@tanstack/react-query";
 import { YStack, Text, Spinner, ScrollView } from "tamagui";
 
 import {
@@ -14,41 +15,22 @@ import { useBreakpoints } from "@/hooks/useBreakpoints";
 import { MuseumTag } from "@/components/MuseumTag";
 import { Image } from "@/components/ExpoImage";
 import { Article } from "@/components/Article";
+import { apiFetch } from "@/lib/fetch";
 
-// --- Fetch data from article API ---
-async function fetchArticleData(slug: string) {
-  const response = await fetch(`/api/article/${slug}`);
-
-  if (!response.ok) {
-    throw new Error("Network response was not ok");
-  }
-  return response.json();
-}
-
-export default function ArticlePage() {
+function ArticleContent() {
   const { slug } = useLocalSearchParams<{ slug: string }>();
   const { isMobile, isDesktop } = useBreakpoints();
   const hPadding = isMobile ? PADDING_MOBILE : isDesktop ? PADDING_DESKTOP : PADDING_TABLET;
 
-  const { data, isLoading, error } = useQuery({
+  const { data } = useSuspenseQuery({
     queryKey: ["articleData", slug],
-    queryFn: () => fetchArticleData(slug),
-    enabled: !!slug,
+    queryFn: () => apiFetch<any>(`/api/article/${slug}`),
   });
 
-  if (isLoading) {
+  if (!data) {
     return (
       <YStack flex={1} content="center" items="center">
-        <Text>Loading...</Text>
-        <Spinner size="large" />
-      </YStack>
-    );
-  }
-
-  if (error) {
-    return (
-      <YStack flex={1} content="center" items="center">
-        <Text>Error loading article: {(error as Error).message}</Text>
+        <Text>Article not found.</Text>
       </YStack>
     );
   }
@@ -79,5 +61,18 @@ export default function ArticlePage() {
         quotes={data.quotes ?? []}
       />
     </ScrollView>
+  );
+}
+
+export default function ArticlePage() {
+  return (
+    <Suspense fallback={
+      <YStack flex={1} content="center" items="center">
+        <Text>Loading...</Text>
+        <Spinner size="large" />
+      </YStack>
+    }>
+      <ArticleContent />
+    </Suspense>
   );
 }

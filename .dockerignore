@@ -1,0 +1,39 @@
+# --- Secrets / env files ---
+.env
+.env.*
+!.env.example
+!.env.template
+
+# --- VCS ---
+.git
+.gitignore
+
+# --- Dependencies / package manager caches ---
+node_modules
+.pnpm-store
+**/.pnpm-store
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+*.log
+
+# --- Expo / React Native / bundler caches ---
+.expo
+.expo-shared
+.metro-cache
+**/.cache
+**/.eslintcache
+
+# --- Build outputs (fine to ignore; you build dist inside the image) ---
+dist
+
+# --- OS / editor ---
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.vscode
+.idea
+
+# --- Misc local overrides ---
+*.local

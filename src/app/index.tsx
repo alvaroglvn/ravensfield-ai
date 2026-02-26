@@ -6,51 +6,28 @@ import { CompactCard } from "@/components/CompactCard";
 import { CategoryCarousel } from "@/components/CategoryCarousel";
 import { useBreakpoints } from "@/hooks/useBreakpoints";
 import { PADDING_MOBILE, PADDING_TABLET, PADDING_DESKTOP } from "@/styles/layout";
-
-// --- Fetch data from feed API ---
-async function fetchFeedData() {
-  const response = await fetch("/api/feed");
-
-  if (!response.ok) {
-    throw new Error("Network response was not ok");
-  }
-  return response.json();
-}
+import { apiFetch } from "@/lib/fetch";
 
 export default function Home() {
-  const { data, error, isLoading } = useQuery({
+  const { data, isPending } = useQuery({
     queryKey: ["feedData"],
-    queryFn: fetchFeedData,
+    queryFn: () => apiFetch<any[]>("/api/feed"),
   });
 
   const { isMobile, isTablet } = useBreakpoints();
   const hPadding = isMobile ? PADDING_MOBILE : isTablet ? PADDING_TABLET : PADDING_DESKTOP;
 
-  if (isLoading) {
+  if (isPending || !data) {
     return (
-      <YStack
-        flex={1}
-        style={{ alignItems: "center", justifyContent: "center" }}
-      >
+      <YStack flex={1} style={{ alignItems: "center", justifyContent: "center" }}>
         <Text>Loading...</Text>
       </YStack>
     );
   }
 
-  if (error) {
+  if (data.length === 0) {
     return (
-      <YStack flex={1}>
-        <Text>Error loading data: {(error as Error).message}</Text>
-      </YStack>
-    );
-  }
-
-  if (!data || data.length === 0) {
-    return (
-      <YStack
-        flex={1}
-        style={{ alignItems: "center", justifyContent: "center" }}
-      >
+      <YStack flex={1} style={{ alignItems: "center", justifyContent: "center" }}>
         <Text>No articles found</Text>
       </YStack>
     );

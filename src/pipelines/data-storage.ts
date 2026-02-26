@@ -64,3 +64,35 @@ export async function storeQuote(
     author: quoteData.author,
   });
 }
+
+export async function storeAll(
+  article: ArticleData,
+  artwork: Omit<ArtworkData, "articleId">,
+  quotes: QuoteData[],
+): Promise<number> {
+  return db.transaction(async (tx) => {
+    const slug = createSlugFromTitle(article.title);
+
+    const [newArticle] = await tx
+      .insert(schema.articles)
+      .values({
+        slug,
+        title: article.title,
+        seoDescription: article.seoDescription,
+        content: article.content,
+      })
+      .returning({ id: schema.articles.id });
+
+    const articleId = newArticle.id;
+
+    await tx.insert(schema.artworks).values({ ...artwork, articleId });
+
+    for (const quote of quotes) {
+      await tx
+        .insert(schema.quotes)
+        .values({ articleId, content: quote.content, author: quote.author });
+    }
+
+    return articleId;
+  });
+}

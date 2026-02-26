@@ -6,7 +6,11 @@ import HamburguerMenu from "@/components/HamburguerMenu";
 import { Image } from "@/components/ExpoImage";
 import { useTheme } from "@/context/ThemeContext";
 import { useBreakpoints } from "@/hooks/useBreakpoints";
-import { PADDING_MOBILE, PADDING_TABLET, PADDING_DESKTOP } from "@/styles/layout";
+import {
+  PADDING_MOBILE,
+  PADDING_TABLET,
+  PADDING_DESKTOP,
+} from "@/styles/layout";
 import logo from "assets/icon.svg";
 
 const HeaderBar = styled(XStack, {
@@ -28,14 +32,24 @@ export default function Header({ title, subtitle }: HeaderProps) {
   const shouldInvert = resolvedTheme === "light";
 
   const { isMobile, isTablet } = useBreakpoints();
-  const hPadding = isMobile ? PADDING_MOBILE : isTablet ? PADDING_TABLET : PADDING_DESKTOP;
+  const hPadding = isMobile
+    ? PADDING_MOBILE
+    : isTablet
+      ? PADDING_TABLET
+      : PADDING_DESKTOP;
   const vPadding = isMobile ? 16 : 30;
   const logoSize = isMobile ? 48 : 80;
 
   const logoEl = (
     <Link href="/">
       <YStack style={shouldInvert ? { filter: "invert(1)" } : undefined}>
-        <Image src={logo} width={logoSize} height={logoSize} alt="Ravensfield logo" contentFit="contain" />
+        <Image
+          src={logo}
+          width={logoSize}
+          height={logoSize}
+          alt="Ravensfield logo"
+          contentFit="contain"
+        />
       </YStack>
     </Link>
   );
@@ -67,7 +81,12 @@ export default function Header({ title, subtitle }: HeaderProps) {
               <Text
                 fontFamily="$heading"
                 numberOfLines={1}
-                style={{ whiteSpace: "nowrap", fontSize: "clamp(14px, 3.8vw, 42px)" } as any}
+                style={
+                  {
+                    whiteSpace: "nowrap",
+                    fontSize: "clamp(14px, 3.8vw, 42px)",
+                  } as any
+                }
               >
                 {title}
               </Text>

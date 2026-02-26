@@ -1,6 +1,7 @@
 export {
   requestArtworkDescription,
   requestNewStory,
+  visionRequest,
 } from "@/services/AIGen/anthropic/generate-with-claude";
 
 export {

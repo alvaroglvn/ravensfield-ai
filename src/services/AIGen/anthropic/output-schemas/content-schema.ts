@@ -20,12 +20,12 @@ const ArtworkSchema = v.strictObject({
   type: v.pipe(
     v.string(),
     v.picklist([
-      "Painting",
-      "Sculpture",
-      "Drawing",
-      "Photograph",
-      "Object d'art",
-      "Archeological Find",
+      "painting",
+      "sculpture",
+      "drawing",
+      "photography",
+      "object d'art",
+      "archaeological finding",
     ]),
   ),
   medium: v.pipe(v.string(), v.maxLength(120)),

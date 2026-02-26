@@ -1,16 +1,25 @@
 const { getDefaultConfig } = require("expo/metro-config");
 const { withTamagui } = require("@tamagui/metro-plugin");
+const path = require("path"); // 1. Import path
 
 const config = getDefaultConfig(__dirname);
 
+config.resolver.unstable_enableSymlinks = true;
+config.resolver.unstable_enablePackageExports = true;
+
+// 2. Add this block to force singletons
+config.resolver.extraNodeModules = {
+  ...config.resolver.extraNodeModules,
+  react: path.resolve(__dirname, "node_modules/react"),
+  "react-dom": path.resolve(__dirname, "node_modules/react-dom"),
+  "@tamagui/core": path.resolve(__dirname, "node_modules/@tamagui/core"),
+  tamagui: path.resolve(__dirname, "node_modules/tamagui"),
+};
+
 config.resolver.resolveRequest = (context, moduleName, platform) => {
-  // If anything tries to import the heavy native client...
   if (moduleName === "@libsql/client") {
-    // ...redirect it to the lightweight web client!
     return context.resolveRequest(context, "@libsql/client/web", platform);
   }
-
-  // Perform normal resolution for everything else
   return context.resolveRequest(context, moduleName, platform);
 };
 

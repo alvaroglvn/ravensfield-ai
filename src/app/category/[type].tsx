@@ -10,12 +10,7 @@ import {
   PADDING_TABLET,
   PADDING_DESKTOP,
 } from "@/styles/layout";
-
-async function fetchCategoryData(type: string) {
-  const response = await fetch(`/api/category/${encodeURIComponent(type)}`);
-  if (!response.ok) throw new Error("Network response was not ok");
-  return response.json();
-}
+import { apiFetch } from "@/lib/fetch";
 
 export default function CategoryPage() {
   const { type } = useLocalSearchParams<{ type: string }>();
@@ -23,24 +18,15 @@ export default function CategoryPage() {
   const hPadding = isMobile ? PADDING_MOBILE : isDesktop ? PADDING_DESKTOP : PADDING_TABLET;
   const cardBasis = isMobile ? "100%" : isDesktop ? "31%" : "48%";
 
-  const { data, isLoading, error } = useQuery({
+  const { data, isPending } = useQuery({
     queryKey: ["categoryData", type],
-    queryFn: () => fetchCategoryData(type),
-    enabled: !!type,
+    queryFn: () => apiFetch<any[]>(`/api/category/${encodeURIComponent(type)}`),
   });
 
-  if (isLoading) {
+  if (isPending) {
     return (
       <YStack flex={1} content="center" items="center">
         <Spinner size="large" />
-      </YStack>
-    );
-  }
-
-  if (error) {
-    return (
-      <YStack flex={1} content="center" items="center">
-        <Text>Error loading category: {(error as Error).message}</Text>
       </YStack>
     );
   }

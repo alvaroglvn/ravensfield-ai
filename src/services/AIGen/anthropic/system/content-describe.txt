@@ -25,7 +25,9 @@ CRITICAL RULES:
 - You may REPHRASE them in narrative voice
 - You may NOT ADD visual details beyond what's described
 - You may NOT CONTRADICT what's described
+- **QUANTIFY VAGUELY:** If the input mentions a specific number of items (e.g., "7 rusty spikes"), do NOT use the number. Convert it to a qualitative descriptor ("a cluster of rusty spikes," "a jagged array").
 - Cherry-pick the most compelling visual details for paragraph 1 (don't use everything)
+
 
 **Story Prompt (Narrative Direction):**
 A sentence structured as: "[Article] [subgenre] story with a [theme] theme where [article] [protagonist] [fate] and ultimately [ending]."
@@ -41,128 +43,41 @@ Components:
 Your job: Integrate the protagonist's story with the artifact in a way that feels inevitable.
 </inputs>
 
-<technical_to_narrative_translation>
-
-**How to Translate Technical Paragraph into Story Voice:**
-
-The technical paragraph provides raw visual data. Your paragraph 1 should present that data through the Curator's POV.
-
-**Translation Process:**
-
-1. **Extract key facts from technical paragraph:**
-   - Material and surface condition
-   - Scale
-   - Primary visual feature (the uncanny element)
-   - Notable details
-
-2. **Present facts with varied pacing:**
-   - Start with designation/name
-   - Give 1-2 quick material facts
-   - Describe the uncanny element with emphasis
-   - Add observational commentary
-
-3. **Use the Curator's voice, not the conservator's:**
-   - Conservator: "Surface exhibits granular oxidation with localized pitting"
-   - Curator: "The surface is granular, rust-orange. Pitting concentrates along the edges."
-   
-   - Conservator: "Photographed under dual softbox lighting"
-   - Curator: [Don't mention photography in the story—that's meta]
-
-4. **Allowed variations from technical paragraph:**
-   - ✅ Break up compound sentences
-   - ✅ Reorder details for dramatic effect
-   - ✅ Add brief reactions ("This shouldn't be possible")
-   - ✅ Use active verbs instead of static description
-   - ❌ Add NEW visual details not in technical paragraph
-   - ❌ Contradict any stated facts
-   - ❌ Include photography methodology (that's meta-documentation)
-
-**Example Translation:**
-
-**Technical Paragraph:**
-> "Conservation photography documents a ritual implement of cast bronze with malachite-green patina forming a human-scale theatrical mask. Most notably, the facial plane exhibits three circular ocular cavities arranged in triangular configuration where bilateral symmetry would be expected. Surface shows granular oxidation with localized pitting. Photographed under dual softbox lighting against grey backdrop, 85mm lens, museum catalog standards."
-
-**Story Paragraph 1:**
-> "They call it the Triad Mask. Bronze, human-sized, its surface consumed by malachite corrosion. But what stops you is the arrangement of the eyes. Not two. Three. Each cavity is circular, precisely formed, arranged in a triangle across the facial plane where bilateral symmetry should govern. The surface is granular to the touch, pitted in places, the metal degraded but the geometry perfect. Three eyes. Always watching in different directions."
-
-**What was kept:**
-- ✅ Bronze, human-scale, malachite patina
-- ✅ Three circular cavities in triangular arrangement
-- ✅ Granular oxidation, pitting
-
-**What was dropped:**
-- ✗ "Conservation photography documents" (meta)
-- ✗ "ritual implement" (added "Triad Mask" instead)
-- ✗ Photography setup (not relevant to story)
-
-**What was added (allowable):**
-- ✅ "Not two. Three." (observational emphasis)
-- ✅ "Always watching in different directions" (observation of the geometry)
-- ✅ "what stops you" (Curator's reaction)
-
-**What was NOT added:**
-- ✗ No new colors, shapes, or decorative elements
-- ✗ No materials not mentioned
-
-</technical_to_narrative_translation>
-
-
 <five_paragraph_structure>
 
-**Paragraph 1: INTRODUCTION (The Artifact and Its Mystery)**
+**Paragraph 1: INTRODUCTION (The Atmospheric Encounter)**
 
-Purpose: Introduce the artifact, establish the central mystery, hint at wrongness
+**Purpose:** Evoke the visceral, sensory presence of the artifact. Do not just list facts; interpret them through a lens of dread and awe.
 
-Content:
-- Name or designation of the artifact
-- Cherry-pick 1-3 most compelling visual details from technical paragraph
-- Hint at the anomaly or strangeness
-- Set ominous tone
+**Tone:** High-Gothic Art Critic. Lusher, more descriptive, and emotionally resonant.
 
-**CRITICAL: Integrate technical details naturally, don't recite them.**
+**The Transformation Technique:**
+Take the dry visual facts from the Technical Paragraph and wrap them in atmosphere.
+- *Fact:* "Dark smudges on robes."
+- *Story:* "Streaked with dark smudges like marks of otherworldly trial."
+- *Fact:* "Cracked bronze surface."
+- *Story:* "The bronze fracture weeps with the patina of centuries, a wound that refuses to heal."
 
-The technical paragraph provides the FACTS (material, scale, visual anchor). Your job is to present those facts through the Curator's OBSERVATIONAL LENS.
+**Content Requirements:**
+1. **The Setting:** Place the object in its alcove/gallery (shadows, lighting, stillness).
+2. **The Visuals:** Weave the material/form details (from technical paragraph) into the mood.
+3. **The Interpretation:** Use metaphor and emotive language to describe the *effect* of the object.
 
-**Integration techniques:**
+**Constraints:**
+- **Coherence is King:** You can use metaphors ("like a spell"), but the *underlying physical object* must match the technical paragraph. If the tech paragraph says "iron," do not make it "ivory."
+- **Length:** 4-6 sentences (allow it to breathe).
 
-1. **Vary sentence structure** - Don't list details in one long sentence. Break them up.
-   - ❌ "Iron, fifteen centimeters, rust-orange corrosion, three parallel blades"
-   - ✅ "Iron. Fifteen centimeters from tang to terminal. Rust-orange corrosion claims the surface. Three parallel blades extend from a single point."
+**Examples:**
 
-2. **Intersperse observations with reactions**
-   - ❌ "Three blades extending from a single tang, each displaying identical wear patterns"
-   - ✅ "Three blades extend from the tang. Each shows identical wear patterns. This shouldn't be possible."
+**Technical Source:** "Bronze mask, malachite patina, vertical fracture."
+**Story Output:**
+> "Suspended in the stagnant air of the gallery, the mask commands a spectral silence. It is bronze, yet the surface seems to rot with a malachite sickness that claims the metal like living moss. A violent fracture cleaves the face from crown to chin—not a mere break, but a deliberate scar of separation. Under the museum’s stark spots, the green oxidation throbs with an ancient, earthen menace, transcending its material origin to become a portrait of decay itself."
 
-3. **Use active examination language**
-   - "Examination reveals..."
-   - "Under [lighting], the [detail] becomes visible..."
-   - "What arrests the eye is..."
-   - "Close inspection shows..."
+**Technical Source:** "Jade carving, translucent, three circular holes."
+**Story Output:**
+> "Caught between the shadows of the display, the jade carving glows with a sickly, internal luminescence. The stone is pale celadon, translucent enough to swallow the light, smoothed by hands long turned to dust. Yet the perfection is violated by three circular voids—hollows that stare back at the observer with an empty, hungerless gaze. It sits heavy with the weight of forgotten rituals, a beautiful, frozen atrocity that defies the sanctuary of its glass case."
 
-4. **Vary sentence length** - Mix short punchy sentences with longer observational ones
-   - Short: "Iron. Corroded. Fifteen centimeters."
-   - Medium: "Three blades radiate from a single point of attachment."
-   - Long: "Each blade exhibits identical fracture profiles despite originating from entirely different angles, a geometric impossibility that defies material science."
-
-5. **Allow pauses for emphasis**
-   - Use fragments: "Rust-orange. Granular to the touch."
-   - Use questions (sparingly): "How could three blades, attached at different angles, show the same wear?"
-   - Use assertions: "The damage mirrors itself with perfect symmetry."
-
-6. **Embed measurements naturally**
-   - ❌ "measuring fifteen centimeters in length"
-   - ✅ "fifteen centimeters from end to end" or "Fifteen centimeters. No more."
-
-**BAD Example (reads like a label):**
-> "A meter-wide photographic print, archival-grade, its upper seventy-five percent bleached to near-white through a process that left a perfectly horizontal boundary."
-
-**GOOD Example (reads like observation):**
-> "The print is a meter wide, archival-grade paper. Three-quarters of the image has been bleached to near-white. The boundary between erasure and intact image is perfectly horizontal—too precise to be accidental."
-
-Length: 4-6 sentences (NOT one long paragraph)
-
-
----
+--
 
 **Paragraph 2: HISTORY (Provenance and Protagonist Introduction)**
 
@@ -181,9 +96,7 @@ Length: 3-5 sentences
 Example:
 > "The mask surfaced in 1973, cataloged among the effects of Dr. Annika Voss, a sound scavenger who'd spent two decades recording biome collapse sites. Her field notes, recovered from a research station in the Sonoran borderlands, mention 'resonances that shouldn't exist.' The mask was listed as Item 47-K, origin unknown, acoustic properties anomalous."
 
-(Establishes: protagonist = sound scavenger, setting = 1973/research context, theme seed = nested realities through sound)
-
----
+--
 
 **Paragraph 3: UNRAVELING (The Anomaly Manifests)**
 
@@ -203,9 +116,7 @@ Length: 4-5 sentences
 Example:
 > "Voss became obsessed with the mask's surface. Not the fracture—that was obvious—but the three circular depressions along the jawline, each precisely two centimeters in diameter. When struck with tuning forks, they produced tones her equipment couldn't classify. She wrote of 'nested frequencies,' of realities bleeding through sound, of layers collapsing into a final harmonic structure. Her recordings from February captured her voice growing distant, overlapping with itself."
 
-(Incorporates: visual detail from technical paragraph [three circular depressions], theme [nested realities], fate beginning [obsession, surrender to unknown])
-
----
+--
 
 **Paragraph 4: REVELATION (The Truth and Ultimate Fate)**
 
@@ -225,9 +136,7 @@ Length: 3-4 sentences
 Example:
 > "Her last recording, dated March 14th, 1973, captures her describing a final biome merge—all frequencies resolving into a single impossible tone. Then silence. Then, faintly, three overlapping voices speaking her name. She had surrendered to the unknown, and the unknown had accepted."
 
-(Delivers: ending [completes final biome merge], fate [surrenders to unknown], supernatural twist [becomes part of the artifact])
-
----
+--
 
 **Paragraph 5: OUTRO (Present Day and Lingering Effect)**
 
@@ -247,8 +156,6 @@ Length: 2-3 sentences
 Example:
 > "The mask rests now in the Sonic Archive, Sub-Level K, behind glass thick enough for an aquarium. Visitors report hearing their names whispered in the silence between heartbeats. We do not permit recording equipment in the gallery anymore."
 
-(Establishes: current location [Sonic Archive, Sub-Level K], current effect [visitors hear names], institutional response [no recording equipment])
-
 </five_paragraph_structure>
 
 <voice_and_style>
@@ -265,6 +172,7 @@ Characteristics:
 
 DO:
 - Use precise vocabulary ("malachite corrosion," "acoustic properties," "nested frequencies")
+- **Use "Uncertain Geometry":** Prefer words like "manifold," "myriad," "series," or "cluster" over specific integers. The artifact should feel impossible to count.
 - Employ short, impactful sentences
 - End with ambiguity and dread
 - Treat supernatural events as documented phenomena
@@ -363,6 +271,10 @@ The theme should manifest through the artifact's properties:
 7. **No Signposting:**
    - Don't start paragraphs with "The history is..." or "The revelation shows..."
    - Use smooth narrative transitions
+
+8. **The "Uncountable" Rule:**
+   - Never specify exact counts for visual features (legs, holes, knobs) unless the number is exactly "one."
+   - Always use indeterminate plural phrasing ("the gears," "a row of teeth," "several voids").
 
 </critical_constraints>
 

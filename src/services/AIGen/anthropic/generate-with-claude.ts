@@ -80,11 +80,21 @@ export async function requestNewStory(
   return response;
 }
 
-async function visualConsistencyCheck(imageUrl: string, story: string) {
+export async function visionRequest(
+  imageUrl: string,
+  story: string,
+): Promise<string> {
   const response = await anthropic.messages.create({
-    model: "claude-opus-4-6",
-    max_tokens: 1000,
-    temperature: 0.7,
+    model: "claude-sonnet-4-5",
+    max_tokens: 4000,
+    temperature: 1,
+    thinking: {
+      type: "enabled",
+      budget_tokens: 2000, // Gives space for image analysis
+    },
+    system: loadSystemPrompt(
+      "src/services/AIGen/anthropic/system/visual-consistency.txt",
+    ),
     messages: [
       {
         role: "user",
@@ -104,4 +114,11 @@ async function visualConsistencyCheck(imageUrl: string, story: string) {
       },
     ],
   });
+
+  const responseString = response.content
+    .filter((block) => block.type === "text")
+    .map((block) => block.text)
+    .join("");
+
+  return responseString;
 }

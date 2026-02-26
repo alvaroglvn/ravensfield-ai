@@ -4,11 +4,8 @@ import {
   newStoryPipeline,
 } from "@/pipelines/content-generation";
 import { leonardoGeneration } from "@/pipelines/image-generation";
-import {
-  storeArticle,
-  storeArtwork,
-  storeQuote,
-} from "@/pipelines/data-storage";
+import { visionConsistencyCheck } from "@/pipelines/vision-checker";
+import { storeAll } from "@/pipelines/data-storage";
 import type {
   ArticleData,
   ArtworkData,
@@ -52,36 +49,34 @@ export async function fullPipeline() {
       leonardoGeneration(artworkDescription),
     ]);
 
-    // --- STEP 4: Store results in database ---
-    const newArticle: ArticleData = {
-      title: story ? story.items[0].title : "Untitled Story",
-      seoDescription: story ? story.items[0].seoDescription : "",
-      content: story ? story.items[0].content : "",
-    };
-    const articleId = await storeArticle(newArticle);
-    if (!articleId) {
-      throw new Error("Failed to store article in database");
+    if (!story) {
+      throw new Error("Story generation failed — aborting before any DB write");
     }
-    console.log("Stored article in database with ID:", articleId);
 
-    const newArtwork: ArtworkData = {
-      articleId: articleId,
-      title: story ? story.items[0].artwork.title : "Untitled Artwork",
-      year: story ? story.items[0].artwork.year : "Unknown Year",
-      type: story ? story.items[0].artwork.type : "Unknown Type",
-      medium: story ? story.items[0].artwork.medium : "Unknown Medium",
-      artist: story ? story.items[0].artwork.artist : "Unknown Artist",
+    // --- STEP 4: Store all results atomically ---
+    const item = story.items[0];
+    const newArticle: ArticleData = {
+      title: item.title,
+      seoDescription: item.seoDescription,
+      content: item.content,
+    };
+    const newArtwork: Omit<ArtworkData, "articleId"> = {
+      title: item.artwork.title,
+      year: item.artwork.year,
+      type: item.artwork.type,
+      medium: item.artwork.medium,
+      artist: item.artwork.artist,
       imagePrompt: artworkDescription,
       imageUrl: imageUrl || "",
     };
-    await storeArtwork(newArtwork);
-    console.log("Stored artwork in database linked to article ID:", articleId);
+    const newQuotes: QuoteData[] = item.quotes;
 
-    const newQuotes: QuoteData[] = story ? story.items[0].quotes : [];
-    for (const quote of newQuotes) {
-      await storeQuote(articleId, quote);
-      console.log("Stored quote in database linked to article ID:", articleId);
-    }
+    const articleId = await storeAll(newArticle, newArtwork, newQuotes);
+    console.log("Stored article, artwork, and quotes with article ID:", articleId);
+
+    // --- STEP 5: Vision consistency check ---
+    console.log("Starting vision consistency check...");
+    await visionConsistencyCheck(articleId);
 
     console.log("Pipeline completed successfully!");
   } catch (error) {
