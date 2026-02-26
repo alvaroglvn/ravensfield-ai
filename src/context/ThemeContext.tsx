@@ -43,6 +43,15 @@ function updateRootThemeClass(theme: ResolvedTheme) {
     const root = document.documentElement;
     root.classList.remove("t_light", "t_dark");
     root.classList.add(`t_${theme}`);
+    // Tamagui's internal ThemeProvider permanently adds `t_light` to document.body
+    // (because TamaguiProvider has a static defaultTheme="light"). This causes the CSS
+    // selector `:root.t_dark .t_light` to match body when dark mode is active, which
+    // overrides all dark CSS variables with light ones for every descendant element.
+    // Syncing the body class here ensures the correct theme cascade.
+    if (document.body) {
+      document.body.classList.remove("t_light", "t_dark");
+      document.body.classList.add(`t_${theme}`);
+    }
   }
 }
 

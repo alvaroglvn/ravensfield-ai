@@ -5,7 +5,7 @@ import type { PropsWithChildren } from "react";
 const themeScript = `
 (function() {
   var stored = localStorage.getItem('ravensfield-theme-preference');
-  var theme = stored || 'dark';
+  var theme = stored || 'system';
   if (theme === 'system') {
     theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   }

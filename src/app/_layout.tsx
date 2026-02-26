@@ -28,7 +28,7 @@ if (Platform.OS === "web") {
 }
 
 function AppContent() {
-  // const { resolvedTheme, isLoaded: themeLoaded } = useTheme();
+  const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   const [fontsLoaded] = useFonts({
@@ -60,19 +60,11 @@ function AppContent() {
 
   // Before mount: "light" matches the SSR render and the +html.tsx default,
   // preventing a Tamagui hydration mismatch. After mount, switch to the real theme.
-  // const activeTheme: "light" | "dark" = mounted ? resolvedTheme : "light";
-
-  console.log("TAMAGUI PROD DEBUG:", {
-    availableThemes: Object.keys(tamaguiConfig.themes || {}),
-    lightThemeSize: tamaguiConfig.themes?.light
-      ? Object.keys(tamaguiConfig.themes.light).length
-      : "MISSING",
-    sampleToken: tamaguiConfig.themes?.light?.gray8 || "MISSING",
-  });
+  const activeTheme: "light" | "dark" = mounted ? resolvedTheme : "light";
 
   return (
     <TamaguiProvider config={tamaguiConfig} defaultTheme="light">
-      <Theme name={"light"}>
+      <Theme name={activeTheme}>
         <YStack background="$color3" style={{ minHeight: "100dvh" }}>
           <YStack
             width="100%"
@@ -102,7 +94,7 @@ export default function RootLayout() {
   return (
     <QueryClientProvider client={queryClient}>
       <SafeAreaProvider initialMetrics={initialWindowMetrics}>
-        <ThemeProvider defaultTheme="light">
+        <ThemeProvider defaultTheme="system">
           <AppContent />
         </ThemeProvider>
       </SafeAreaProvider>
