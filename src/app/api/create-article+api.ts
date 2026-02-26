@@ -2,7 +2,7 @@ import { fullPipeline } from "@/pipelines/full-pipeline";
 
 export async function POST(request: Request): Promise<Response> {
   const secret = request.headers.get("x-admin-secret");
-  if (secret !== process.env.ADMIN_SECRET) {
+  if (secret !== process.env.ADMIN_PASSWORD) {
     return Response.json({ error: "Unauthorized" }, { status: 401 });
   }
   try {

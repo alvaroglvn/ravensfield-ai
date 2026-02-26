@@ -1,6 +1,5 @@
-import { Suspense } from "react";
 import { ScrollView, XStack, YStack, Text } from "tamagui";
-import { useSuspenseQuery } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 
 import { ContentCard } from "@/components/ContentCard";
 import { CompactCard } from "@/components/CompactCard";
@@ -9,8 +8,8 @@ import { useBreakpoints } from "@/hooks/useBreakpoints";
 import { PADDING_MOBILE, PADDING_TABLET, PADDING_DESKTOP } from "@/styles/layout";
 import { apiFetch } from "@/lib/fetch";
 
-function HomeContent() {
-  const { data } = useSuspenseQuery({
+export default function Home() {
+  const { data, isPending } = useQuery({
     queryKey: ["feedData"],
     queryFn: () => apiFetch<any[]>("/api/feed"),
   });
@@ -18,12 +17,17 @@ function HomeContent() {
   const { isMobile, isTablet } = useBreakpoints();
   const hPadding = isMobile ? PADDING_MOBILE : isTablet ? PADDING_TABLET : PADDING_DESKTOP;
 
+  if (isPending || !data) {
+    return (
+      <YStack flex={1} style={{ alignItems: "center", justifyContent: "center" }}>
+        <Text>Loading...</Text>
+      </YStack>
+    );
+  }
+
   if (data.length === 0) {
     return (
-      <YStack
-        flex={1}
-        style={{ alignItems: "center", justifyContent: "center" }}
-      >
+      <YStack flex={1} style={{ alignItems: "center", justifyContent: "center" }}>
         <Text>No articles found</Text>
       </YStack>
     );
@@ -92,17 +96,5 @@ function HomeContent() {
         <CategoryCarousel category="archaeological-finding" label="Archaeological Findings" />
       </YStack>
     </ScrollView>
-  );
-}
-
-export default function Home() {
-  return (
-    <Suspense fallback={
-      <YStack flex={1} style={{ alignItems: "center", justifyContent: "center" }}>
-        <Text>Loading...</Text>
-      </YStack>
-    }>
-      <HomeContent />
-    </Suspense>
   );
 }

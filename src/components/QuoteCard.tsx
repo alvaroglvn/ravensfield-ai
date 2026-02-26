@@ -1,4 +1,4 @@
-import { Separator, styled, YStack, SizableText } from "tamagui";
+import { styled, YStack, SizableText } from "tamagui";
 
 const QuoteContainer = styled(YStack, {
   borderWidth: 2,
@@ -16,7 +16,7 @@ const QuoteText = styled(SizableText, {
   size: "$4",
   fontFamily: "$heading",
   fontStyle: "italic",
-  color: "$gray11",
+  color: "$gray10",
   lineHeight: "$5",
 });
 
@@ -36,7 +36,6 @@ export function QuoteCard({ content, author }: QuoteCardProps) {
   return (
     <QuoteContainer>
       <QuoteText>"{content}"</QuoteText>
-      <Separator borderColor="$gray7" />
       <QuoteAuthor>{author}</QuoteAuthor>
     </QuoteContainer>
   );

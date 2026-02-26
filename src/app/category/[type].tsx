@@ -1,6 +1,5 @@
-import { Suspense } from "react";
 import { useLocalSearchParams } from "expo-router";
-import { useSuspenseQuery } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { ScrollView, Spinner, Text, XStack, YStack } from "tamagui";
 
 import { ContentCard } from "@/components/ContentCard";
@@ -13,18 +12,26 @@ import {
 } from "@/styles/layout";
 import { apiFetch } from "@/lib/fetch";
 
-function CategoryContent() {
+export default function CategoryPage() {
   const { type } = useLocalSearchParams<{ type: string }>();
   const { isMobile, isDesktop } = useBreakpoints();
   const hPadding = isMobile ? PADDING_MOBILE : isDesktop ? PADDING_DESKTOP : PADDING_TABLET;
   const cardBasis = isMobile ? "100%" : isDesktop ? "31%" : "48%";
 
-  const { data } = useSuspenseQuery({
+  const { data, isPending } = useQuery({
     queryKey: ["categoryData", type],
     queryFn: () => apiFetch<any[]>(`/api/category/${encodeURIComponent(type)}`),
   });
 
-  if (data.length === 0) {
+  if (isPending) {
+    return (
+      <YStack flex={1} content="center" items="center">
+        <Spinner size="large" />
+      </YStack>
+    );
+  }
+
+  if (!data || data.length === 0) {
     return (
       <YStack flex={1} content="center" items="center">
         <Text>No artworks found in this category.</Text>
@@ -50,17 +57,5 @@ function CategoryContent() {
         </XStack>
       </YStack>
     </ScrollView>
-  );
-}
-
-export default function CategoryPage() {
-  return (
-    <Suspense fallback={
-      <YStack flex={1} content="center" items="center">
-        <Spinner size="large" />
-      </YStack>
-    }>
-      <CategoryContent />
-    </Suspense>
   );
 }

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useSuspenseQuery } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { useRouter } from "expo-router";
 import { styled, ScrollView, XStack, YStack, Text } from "tamagui";
 
@@ -125,12 +125,12 @@ export function CategoryCarousel({ category, label }: CategoryCarouselProps) {
   const visibleCount = isDesktop ? 4 : 3;
   const pagePadding = isMobile ? PADDING_MOBILE * 2 : PADDING_TABLET * 2;
 
-  const { data } = useSuspenseQuery({
+  const { data } = useQuery({
     queryKey: ["category", category],
     queryFn: () => apiFetch<CarouselItem[]>(`/api/category/${category}`),
   });
 
-  if (data.length === 0) return null;
+  if (!data || data.length === 0) return null;
 
   const canGoBack = startIndex > 0;
   const canGoForward = startIndex + visibleCount < data.length;

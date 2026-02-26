@@ -2,7 +2,11 @@ import { H3, Theme, XStack, YStack, YStackProps } from "tamagui";
 import { useRouter } from "expo-router";
 
 import { Image } from "@/components/ExpoImage";
-import { CardWrapper, StyledCard, CardTypeLabel } from "@/styles/StyledContentCard";
+import {
+  CardWrapper,
+  StyledCard,
+  CardTypeLabel,
+} from "@/styles/StyledContentCard";
 
 interface CompactCardProps extends YStackProps {
   slug: string;
