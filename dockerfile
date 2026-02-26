@@ -30,6 +30,7 @@ COPY --from=build /app/dist /app/dist
 
 # Copy your specific backend files (preserving your previous logic)
 COPY --from=build /app/src/services/AIGen/anthropic/system /app/src/services/AIGen/anthropic/system
+COPY --from=build /app/src/utils/madlibs/generation/dictionaries /app/src/utils/madlibs/generation/dictionaries
 COPY server.js /app/server.js
 
 ENV PORT=8080
