@@ -1,115 +1,90 @@
-# Ravensfield AI
+# 🦉 The Ravensfield Collection
 
-A cross-platform content-generation app that produces fictional museum articles and images using AI, stores them in an edge SQLite database, and serves a Tamagui-powered frontend (web + mobile via Expo).
+The Ravensfield Collection is a weird, wonderful, and fully AI-generated museum 🔮
+Every object and every story in this collection is the result of machine imagination.
 
-## What the project is
+---
 
-- **Type:** Cross-platform Expo + Tamagui application with serverless API routes.
-- **DB:** Edge SQLite (Turso) accessed via HTTP and Drizzle schema definitions.
-- **AI:** Anthropic Claude for structured text generation; Leonardo for image generation parameters.
+## 💡 Why I Built This Project
 
-## What it does
+- 🤖 I'm fascinated by the boundaries between AI and creativity.
+- 👻 Frankly, I love making fun, weird stuff.
 
-- **Generates** fictional museum articles (structured text) using AI prompts and validation schemas.
-- **Validates** AI outputs against JSON schemas before persisting.
-- **Requests** images via a Leonardo image pipeline (parameter preparation included).
-- **Persists** generated content in an edge DB and exposes API routes for feed and single-article retrieval.
-- **Renders** feed and article pages with Tamagui components for web and mobile.
+---
 
-## Architecture (concise)
+## ⚙️ Tech Stack
 
-- **Input:** Madlibs / randomized prompt generator produces prompts.
-- **Text generation:** Anthropic Claude produces structured content controlled by a system prompt and an output schema.
-- **Validation:** Output is parsed and validated; only valid items continue.
-- **Storage:** Validated items are persisted to Turso via Drizzle/HTTP helper methods.
-- **Image generation:** Image parameter generation pipeline prepares requests for Leonardo (Flux) model.
-- **Frontend:** Tamagui + Expo UI consumes API routes to show feeds and article pages.
+**Frontend:** Expo Router v6 with React Native for Web and server-side rendering. I wanted a universal app that renders fast, works on any screen size, and doesn't feel like a blog template. Tamagui handles the UI with full SSR support and a light/dark theme toggle that respects your system preference.
 
-High-level flow: prompt → Claude (structured output) → validate → store → (optional) image-gen → serve via API → UI.
+**Backend:** Express.js serving the SSR output and API routes. The Expo Router API routes live right alongside the UI code, which keeps everything tidy.
 
-## Key files
+**AI:**
 
-- **Configuration:** [app.config.ts](app.config.ts), [tamagui.config.ts](tamagui.config.ts), [drizzle.config.ts](drizzle.config.ts)
-- **DB:** [src/db/schema.ts](src/db/schema.ts), [src/db/index.ts](src/db/index.ts)
-- **AI services:** [src/services/AIGen/anthropic/generate-with-claude.ts](src/services/AIGen/anthropic/generate-with-claude.ts), [src/services/AIGen/leonardo/set-parameters.ts](src/services/AIGen/leonardo/set-parameters.ts)
-- **Pipelines / Orchestration:** [src/pipelines/full-pipeline.ts](src/pipelines/full-pipeline.ts), [src/pipelines/content-generation.ts](src/pipelines/content-generation.ts), [src/pipelines/image-generation.ts](src/pipelines/image-generation.ts)
-- **API routes:** [src/app/api/feed+api.ts](src/app/api/feed+api.ts), [src/app/api/article/\[slug\]+api.ts](src/app/api/article/[slug]+api.ts)
-- **Frontend entry & pages:** [src/app/index.tsx](src/app/index.tsx), [src/app/articles/\[slug\].tsx](src/app/articles/[slug].tsx)
-- **UI components:** [src/components/ContentCard.tsx](src/components/ContentCard.tsx), [src/components/Article.tsx](src/components/Article.tsx)
+- Claude API for all things text — artwork descriptions, stories, fake expert quotes, and a vision-based consistency pass after the image is generated.
+- Leonardo.AI API for image generation from Claude's own prompts.
 
-> Note: If a listed file path doesn't exist exactly, check nearby pipeline filenames under `src/pipelines` and `src/services/AIGen` (this README lists the conceptual locations).
+**AI Responses Validation** Valibot with custom schemas.
 
-### Architecture Diagram
+**Database:** Turso with Drizzle ORM. Atomic transactions make sure no half-baked article ever makes it into the collection.
 
-```mermaid
-flowchart LR
-  A[Madlibs / Prompt Generator] --> B[Anthropic Claude\n(structured output)]
-  B --> C[Validator (JSON Schema)]
-  C -->|valid| D[Store (Turso via Drizzle/HTTP)]
-  C -->|invalid| E[Discard / Log]
-  D --> F[Image Pipeline\n(Leonardo parameterizer)]
-  F --> G[Leonardo Image Service]
-  D --> H[API Routes\n/src/app/api/*]
-  H --> I[Frontend (Tamagui + Expo)\n/src/app/* & components]
-  G --> I
-  subgraph Services
-    B
-    F
-    G
-  end
-  subgraph DB
-    D
-  end
-  subgraph Frontend
-    H
-    I
-  end
-```
+**Deployment:** Fly.io with a bluegreen deployment strategy for zero-downtime updates.
 
-## Tech stack
+---
 
-- Expo + React Native + Tamagui (UI)
-- TypeScript
-- Anthropic Claude (text generation)
-- Leonardo (image generation parameters)
-- Turso (edge SQLite) + Drizzle for schema
-- PNPM for package management
+## 🧪 How It Works
 
-## Quick start (developer)
+**1. Madlibs prompt generation**
+A `MadlibsGenerator` picks from curated word lists and fills in a template to produce a randomized artwork concept and story prompt. This produces a "controlled chaos" starting point.
 
-1. Install dependencies:
+**2. Artwork description**
+The artwork prompt goes to Claude, which returns a structured JSON response: a description of the object and an image generation prompt. I validate the response against a schema — LLMs can be lazy and skip fields sometimes.
 
-```bash
-pnpm install
-```
+**3. Parallel generation**
+Two things happen at the same time:
 
-1. Build Tamagui CSS (project uses a CSS build step):
+- Claude takes the artwork description and generates its backstory, including title, SEO description, artwork metadata (type, year, medium, artist), and fake quotes from imaginary experts.
+- Leonardo.AI receives Claude's image prompt and generates the artwork image.
 
-```bash
-pnpm css
-```
+**4. Atomic storage**
+Once everything is ready, a single database transaction inserts the article, the artwork, and all the quotes together. If anything is missing or malformed, the whole transaction rolls back. No partial data ever hits the collection.
 
-1. Start local development (Expo / web):
+**5. Vision consistency check**
+Claude looks at the generated image and the story side by side, and refines the text so the two actually agree with each other. It's a small touch that makes the whole thing feel more intentional.
 
-```bash
-pnpm dev
-# or: expo start
-```
+**6. Rendering the collection**
+Once content is in the database, the Expo Router frontend takes over. React Query fetches articles and artwork from the API routes and feeds them into Tamagui components. Everything is server-side rendered on first load for fast delivery, then hydrated on the client for smooth navigation. The result is a real museum experience, not just a list of posts.
 
-Adjust commands to your local scripts if different.
+---
 
-## Contributing
+## 🚀 Deployment
 
-- Open issues or PRs for bugs and feature work.
-- Keep AI prompts, schemas, and pipelines separated — validation-first approach helps avoid bad content.
+The app is deployed to Fly.io as a single container running the Express server. Bluegreen deployments mean updates go live without downtime. The server exposes a `/healthz` endpoint for health checks and scales down when idle, keeping costs low.
 
-If you want, I can also add a small architecture diagram, expand the run instructions, or create a CONTRIBUTING.md.
+A GitHub Actions cron job fires every day at midnight UTC and triggers the content pipeline automatically — **so the collection grows on its own 🤖 🎨.**
 
-## Complexity & Novel solutions
+---
 
-- **AI output validation (schema-first):** Uses structured system prompts + JSON Schema validation to enforce safe, consistent AI outputs before persisting or downstream use — reduces hallucination and makes outputs machine-consumable.
-- **Edge DB via HTTP / Drizzle adapter:** Persists to Turso using HTTP helpers and Drizzle schemas rather than a native client, enabling safe use from Expo serverless routes and edge runtimes.
-- **Modular pipeline orchestration:** Pipelines under `src/pipelines` compose generation, validation, storage and image-parameterization steps as discrete, testable units for retries and observability.
-- **Image parameterizer for generative models:** Encodes deterministic parameter strategies for Leonardo/Flux so image requests are reproducible and tuned to article metadata.
-- **Frontend + backend in one monorepo:** Uses Expo Router server routes and Tamagui UI to serve both mobile/web while keeping backend logic lightweight and edge-friendly.
-- **Bundling-aware architecture:** Metro and build configs avoid native-only DB libs and favor HTTP integrations so the app bundles cleanly for Expo environments.
+## 🔮 What's Next?
+
+A few directions I'd like to take this:
+
+- **Native mobile app** — the codebase already targets React Native, so publishing to iOS and Android is a natural next step
+- **Search and filtering** — let visitors dig through the collection by medium, era, or keyword
+- **Audio narration** — have an AI voice read each story aloud, proper museum audio guide style
+- **Visitor interactions** — leave a note in the guestbook, flag a piece as a favourite, share to social
+- **Expanded categories** — the madlibs dictionaries could grow to cover more obscure and strange corners of the art world
+
+---
+
+## 🙏 Acknowledgements
+
+This project is built on the shoulders of some incredible open source work:
+
+- [Expo](https://expo.dev)
+- [React Native](https://reactnative.dev)
+- [Tamagui](https://tamagui.dev)
+- [TanStack Query](https://tanstack.com/query)
+- [Drizzle ORM](https://orm.drizzle.team)
+- [Express](https://expressjs.com)
+- [Valibot](https://valibot.dev)
+- [Zeego](https://zeego.dev)
