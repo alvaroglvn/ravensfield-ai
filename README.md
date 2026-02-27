@@ -1,33 +1,39 @@
 # 🦉 The Ravensfield Collection
 
-The Ravensfield Collection is a weird, wonderful, and fully AI-generated museum 🔮
-Every object and every story in this collection is the result of machine imagination.
+The Ravensfield Collection is a **fully AI-generated museum** of the weird and wonderful 🔮.
+
+The collection is powered by an AI storytelling engine that produces unique narratives and artifacts.
+
+The result is presented as a real digital museum with its own internal logic and narrative universe.
 
 🌐 **[Check it live →](https://ravensfieldcollection.com)**
 
 ---
 
-## 💡 Why I Built This Project
+## 💡 Why I Built This
 
-- 🤖 I'm fascinated by the boundaries between AI and creativity.
-- 👻 Frankly, I love making fun, weird stuff.
+- 🤖 I'm fascinated by the boundaries between **AI and creativity**.
+- 🧪 I wanted to see how far I could push generative models in a cohesive, intentional project.
+- 👻 Frankly, I never just get tired of weird, surreal stories.
+
+The goal was never just to generate content, but to orchestrate an AI generated narrative universe. That meant more complex prompting and validation strategies to focus the output, making it original, coherent, and consistent.
 
 ---
 
 ## ⚙️ Tech Stack
 
-**Frontend:** Expo Router v6 with React Native for Web and server-side rendering. I wanted a universal app that renders fast, works on any screen size, and doesn't feel like a blog template. Tamagui handles the UI with full SSR support and a light/dark theme toggle that respects your system preference.
+**Backend:** TypeScript and Expo Router. API routes, server-side logic, and SSR all live in the same codebase. Express.js runs underneath as the server adapter, keeping the setup lean.
 
-**Backend:** Express.js serving the SSR output and API routes. The Expo Router API routes live right alongside the UI code, which keeps everything tidy.
+**Frontend:** Tamagui for all UI and styling, with full SSR support and a light/dark theme toggle that respects your system preference.
 
 **AI:**
 
-- Claude API for all things text — artwork descriptions, stories, fake expert quotes, and a vision-based consistency pass after the image is generated.
-- Leonardo.AI API for image generation from Claude's own prompts.
+- **Claude API** for artwork descriptions, stories, fake expert quotes, and a vision-based consistency pass after the image is generated.
+- **Leonardo.AI** for image generation from Claude's own prompts.
 
-**AI Responses Validation** Valibot with custom schemas.
+**AI Response Validation:** Valibot with custom schemas.
 
-**Database:** Turso with Drizzle ORM. Atomic transactions make sure no half-baked article ever makes it into the collection.
+**Database:** Turso with Drizzle ORM.
 
 **Deployment:** Fly.io with a bluegreen deployment strategy for zero-downtime updates.
 
@@ -36,33 +42,67 @@ Every object and every story in this collection is the result of machine imagina
 ## 🧪 How It Works
 
 **1. Madlibs prompt generation**
-A `MadlibsGenerator` picks from curated word lists and fills in a template to produce a randomized artwork concept and story prompt. This produces a "controlled chaos" starting point.
+A `MadlibsGenerator` picks from curated word lists and produces a randomized artwork concept and story prompt.
 
 **2. Artwork description**
-The artwork prompt goes to Claude, which returns a structured JSON response: a description of the object and an image generation prompt. I validate the response against a schema — LLMs can be lazy and skip fields sometimes.
+The artwork prompt goes to Claude, which returns a single validated string: a technical description of the object that will also serve as the image generation prompt for Leonardo. Valibot checks the response before anything moves forward.
 
 **3. Parallel generation**
 Two things happen at the same time:
 
-- Claude takes the artwork description and generates its backstory, including title, SEO description, artwork metadata (type, year, medium, artist), and fake quotes from imaginary experts.
-- Leonardo.AI receives Claude's image prompt and generates the artwork image.
+- Claude receives the artwork description alongside the second Madlibs prompt (the story prompt) and generates the full article: title, SEO description, artwork metadata (type, year, medium, artist), and fake quotes from imaginary experts. Valibot checks the response.
 
-**4. Atomic storage**
+- Leonardo.AI receives the artwork description as its image prompt and generates the artwork image.
+
+**4. Database storage**
 Once everything is ready, a single database transaction inserts the article, the artwork, and all the quotes together. If anything is missing or malformed, the whole transaction rolls back. No partial data ever hits the collection.
 
 **5. Vision consistency check**
 Claude looks at the generated image and the story side by side, and refines the text so the two actually agree with each other. It's a small touch that makes the whole thing feel more intentional.
 
 **6. Rendering the collection**
-Once content is in the database, the Expo Router frontend takes over. React Query fetches articles and artwork from the API routes and feeds them into Tamagui components. Everything is server-side rendered on first load for fast delivery, then hydrated on the client for smooth navigation. The result is a real museum experience, not just a list of posts.
+React Query fetches from the API routes and feeds the content into Tamagui components. They are server-side rendered on first load, then hydrated on the client for smooth navigation.
+
+### Pipeline Overview
+
+```text
+       MadlibsGenerator
+      (artwork + story prompts)
+              │
+              ▼
+        Claude API [1]
+   artwork description + image prompt
+       │ Valibot validation
+       │
+       ├───────────────────────────────┐
+       ▼                               ▼
+  Claude API [2]                  Leonardo.AI
+  story, metadata, quotes         image generation
+  │ Valibot validation            │ (returns image URL directly)
+       │                               │
+       └──────────────┬────────────────┘
+                      ▼
+           Atomic DB transaction
+           (article + artwork + quotes)
+                      │
+                      ▼
+             Claude API [3]
+             Vision consistency check
+             (reads image + story from DB,
+              returns refined text → updates DB)
+                      │
+                      ▼
+             Frontend rendering
+             (SSR → React Query → Tamagui)
+```
 
 ---
 
 ## 🚀 Deployment
 
-The app is deployed to Fly.io as a single container running the Express server. Bluegreen deployments mean updates go live without downtime. The server exposes a `/healthz` endpoint for health checks and scales down when idle, keeping costs low.
+The app is deployed to Fly.io as a single container. Bluegreen deployments mean updates go live without downtime. The server exposes a `/healthz` endpoint for health checks and scales down when idle, keeping costs low.
 
-A GitHub Actions cron job fires every day at midnight UTC and triggers the content pipeline automatically — **so the collection grows on its own 🤖 🎨.**
+A GitHub Actions cron job fires every day at midnight UTC and triggers the content pipeline automatically, so the collection grows on its own 🤖 🎨.
 
 ---
 
